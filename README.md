@@ -1,2 +1,4 @@
 # AssoProJava
-Eseo java project S7
+ESEO java project S7
+
+TODO MVC
