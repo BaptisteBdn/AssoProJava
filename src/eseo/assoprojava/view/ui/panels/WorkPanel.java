@@ -1,5 +1,7 @@
 package eseo.assoprojava.view.ui.panels;
 
-public class WorkPanel {
+import javax.swing.JPanel;
+
+public class WorkPanel extends JPanel{
 
 }

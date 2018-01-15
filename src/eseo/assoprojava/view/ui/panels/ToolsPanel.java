@@ -1,5 +1,7 @@
 package eseo.assoprojava.view.ui.panels;
 
-public class ToolsPanel {
+import javax.swing.JPanel;
+
+public class ToolsPanel extends JPanel {
 
 }

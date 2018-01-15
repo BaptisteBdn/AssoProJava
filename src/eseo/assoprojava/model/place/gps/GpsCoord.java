@@ -7,15 +7,15 @@ package eseo.assoprojava.model.place.gps;
  *
  */
 public class GpsCoord {
-	private double latitude, longitude;
+	double latitude, longitude;
 	
-	private int latitudeDegree, latitudeMinute;
-	private double latitudeSecond;
+	int latitudeDegree, latitudeMinute;
+	double latitudeSecond;
 	
 	private int longitudeDegree, longitudeMinute;
-	private double longitudeSecond;
+	double longitudeSecond;
 	
-	private boolean north, east;
+	boolean north, east;
 	
 	/**
 	 * Create a basic object
@@ -70,13 +70,14 @@ public class GpsCoord {
 		DMStoDD();
 	}
 	
+	@Override
 	/**
 	 * Returns a string representation of the GPS coordinate
 	 * @return String str
 	 */
 	public String toString() {
 		
-		String str = "DD : [" + String.format("%.2f", latitude) + ", " + String.format("%.2f", longitude) + "] / DMS : [" + latitudeDegree + "°" + latitudeMinute + "'" + String.format("%.2f", latitudeSecond) + "\"";
+		String str = "[" + String.format("%.2f", latitude) + ", " + String.format("%.2f", longitude) + "] / [" + latitudeDegree + "°" + latitudeMinute + "'" + String.format("%.2f", latitudeSecond) + "\"";
 		
 		if(isNorth()){
 			str = str + "N";
