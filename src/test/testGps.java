@@ -1,5 +1,5 @@
 package test;
-import eseo.assoprojava.model.place.gps.GpsCoord;;
+import eseo.assoprojava.model.place.gps.GpsCoord;
 
 public class testGps {
 
