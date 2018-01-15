@@ -1,5 +1,7 @@
 package eseo.assoprojava.view.ui;
 
-public class FormWindow {
+import javax.swing.JFrame;
+
+public class FormWindow extends JFrame{
 
 }

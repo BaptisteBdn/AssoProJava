@@ -1,5 +1,7 @@
 package eseo.assoprojava.view.ui.panels;
 
-public class FormPanel {
+import javax.swing.JPanel;
+
+public class FormPanel extends JPanel {
 
 }

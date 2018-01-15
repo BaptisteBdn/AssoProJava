@@ -1,5 +1,7 @@
 package eseo.assoprojava.view.ui.panels;
 
-public class ValidationPanel {
+import javax.swing.JPanel;
+
+public class ValidationPanel extends JPanel {
 
 }
