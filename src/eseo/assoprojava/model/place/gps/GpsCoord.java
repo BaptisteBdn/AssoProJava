@@ -1,4 +1,4 @@
-package eseo.assoprojava.modele.place.gps;
+package eseo.assoprojava.model.place.gps;
 
 /**
  * 

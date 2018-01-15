@@ -1,6 +1,7 @@
-import eseo.assoprojava.modele.place.gps.GpsCoord;;
+package test;
+import eseo.assoprojava.model.place.gps.GpsCoord;;
 
-public class main {
+public class testGps {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
