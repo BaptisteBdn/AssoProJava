@@ -1,4 +1,4 @@
-import eseo.assoprojava.modele.place.gps.GpsCoord;;
+import eseo.assoprojava.model.place.gps.GpsCoord;;
 
 public class main {
 
