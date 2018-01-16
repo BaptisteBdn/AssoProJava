@@ -2,7 +2,7 @@ package test;
 import eseo.assoprojava.model.place.Place;
 import eseo.assoprojava.model.place.gps.GpsCoord;
 
-public class testPlace {
+public class TestPlace {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

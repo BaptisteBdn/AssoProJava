@@ -5,7 +5,7 @@ import java.util.Date;
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.organiser.Organiser;
 
-public class testActivity {
+public class TestActivity {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
