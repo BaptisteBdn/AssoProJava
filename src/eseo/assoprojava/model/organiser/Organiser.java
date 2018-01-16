@@ -6,10 +6,10 @@ package eseo.assoprojava.model.organiser;
  *
  */
 public class Organiser {
-	public String firstName;
-	public String lastName;
-	public String club;
-	public String role;
+	private String firstName;
+	private String lastName;
+	private String club;
+	private String role;
 	
 	/**
 	 * Create a default organiser
