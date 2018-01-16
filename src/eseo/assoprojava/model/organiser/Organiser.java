@@ -15,10 +15,10 @@ public class Organiser {
 	 * Create a default organiser
 	 */
 	public Organiser() {
-		this.firstName="Unknow";
-		this.lastName="Unknow";
-		this.club="Unknow";
-		this.role="Unknow";
+		this.firstName="Unknown";
+		this.lastName="Unknown";
+		this.club="Unknown";
+		this.role="Unknown";
 	}
 	
 	/**
