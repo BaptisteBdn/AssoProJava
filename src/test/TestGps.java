@@ -1,7 +1,7 @@
 package test;
 import eseo.assoprojava.model.place.gps.GpsCoord;
 
-public class testGps {
+public class TestGps {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
