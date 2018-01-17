@@ -32,9 +32,9 @@ public void show(JPanel panel) {
         gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
         
-	    panel.add(createPane("Name",createLabel(place.getName() + "")),gbc);
+	    panel.add(createPane("Nom",createLabel(place.getName() + "")),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("At",createLabel(place.getNumber() + " " + place.getStreet() + ", " + place.getCity() + ", " + place.getState() + ", " + place.getCountry() + ", " + place.getPostalCode())),gbc);
+	    panel.add(createPane("A",createLabel(place.getNumber() + " " + place.getStreet() + ", " + place.getCity() + ", " + place.getState() + ", " + place.getCountry() + ", " + place.getPostalCode())),gbc);
 	    gbc.gridy++;
 	    
 	}

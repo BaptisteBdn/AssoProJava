@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -29,12 +30,17 @@ private final Event event;
 		JPanel eventPanel = new JPanel(new GridBagLayout());
 		JPanel placePanel = new JPanel(new GridBagLayout());
 		JPanel coordPanel = new JPanel(new GridBagLayout());
-
+		
+		mainEventPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
+		eventPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
+		placePanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		coordPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		
 		mainEventPanel.add(eventPanel,BorderLayout.WEST);
 		mainEventPanel.add(placePanel,BorderLayout.CENTER);
 		mainEventPanel.add(coordPanel,BorderLayout.EAST);
+		
+		mainEventPanel.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1, true));
 		
 		MainWindow.getInstance().getWorkPanel().add(mainEventPanel,BorderLayout.NORTH);
 		
@@ -61,15 +67,16 @@ private final Event event;
         gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
         
-	    panel.add(createPane("Name",createLabel(event.getName() + "")),gbc);
+        
+	    panel.add(createPane("Nom",createLabel(event.getName() + "")),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("Date",createLabel(event.getDateBegin() + " until " + event.getDateEnd())),gbc);
+	    panel.add(createPane("Date",createLabel(event.getDateBegin() + " jusqu'a " + event.getDateEnd())),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("Number of participants",createLabel(event.getNumberMinimum() + " to " + event.getNumberMaximum())),gbc);
+	    panel.add(createPane("Nombre de participants",createLabel(event.getNumberMinimum() + " à " + event.getNumberMaximum())),gbc);
 	    gbc.gridy++;
 	    panel.add(createPane("Club",createLabel(event.getClubOrganiser() + "")),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("Price",createLabel(event.getPrice() + "")),gbc);
+	    panel.add(createPane("Prix",createLabel(event.getPrice() + "")),gbc);
 	    gbc.gridy++;
 	    
 	}
