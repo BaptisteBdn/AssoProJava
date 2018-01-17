@@ -4,7 +4,7 @@ import eseo.assoprojava.model.place.gps.GpsCoord;
 import eseo.assoprojava.view.occasion.ViewGpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
 
-public class TestGpsCoord {
+public class TestViewGpsCoord {
 	
 	public static void main(String[] args) {
 		MainWindow mainWindow = new MainWindow();
