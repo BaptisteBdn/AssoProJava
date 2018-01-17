@@ -2,6 +2,7 @@ package eseo.assoprojava.view.ui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -17,6 +18,7 @@ import eseo.assoprojava.view.ui.panels.WorkPanel;
 
 public class MainWindow extends JFrame {
 	public static final String DEFAUT_TITLE = "AssoPro";
+	public static final Font DEFAUT_FONT = new Font("Arial", Font.PLAIN, 14);
 	private static MainWindow mainWindow;
 	private WorkPanel workPanel;
 	private ToolsPanel toolsPanel;
