@@ -1,4 +1,4 @@
-package test;
+package test.model;
 import eseo.assoprojava.model.place.gps.GpsCoord;
 
 public class TestGps {

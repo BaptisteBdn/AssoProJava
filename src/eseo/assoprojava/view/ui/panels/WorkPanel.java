@@ -32,7 +32,7 @@ public class WorkPanel extends JPanel{
 	
 	public WorkPanel(int width, int height, Color color){
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_WIDTH));
+		this.setPreferredSize(new Dimension(height, width));
 		this.setBackground(color);
 		this.setViewEvent(null);
 	}

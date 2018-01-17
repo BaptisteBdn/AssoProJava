@@ -1,4 +1,4 @@
-package eseo.assoprojava.view.ui.panels;
+ package eseo.assoprojava.view.ui.panels;
 
 import java.awt.Color;
 import java.awt.Dimension;

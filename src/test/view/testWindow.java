@@ -1,12 +1,12 @@
-package test;
+package test.view;
 
 import eseo.assoprojava.view.ui.FormWindow;
 import eseo.assoprojava.view.ui.MainWindow;
 
-public class testWindow {
+public class TestWindow {
 	
 	public static void main(String[] args) {
-		FormWindow mainWindow = new FormWindow();
+		MainWindow mainWindow = new MainWindow();
 		mainWindow.setVisible(true);
 	}
 	
