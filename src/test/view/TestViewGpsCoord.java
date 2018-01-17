@@ -13,8 +13,8 @@ public class TestViewGpsCoord {
 		
 		GpsCoord coord = new GpsCoord(65.21,-56.23);
 		
-		ViewGpsCoord viewCoord = new ViewGpsCoord(coord);
-		viewCoord.show();
+		ViewGpsCoord viewGpsCoord = new ViewGpsCoord(coord);
+		viewGpsCoord.show();
 		
 		mainWindow.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		mainWindow.setLocationRelativeTo(null);
