@@ -9,6 +9,7 @@ private final Event event;
 	public ViewEvent(Event event) {
 		this.event = event;
 		MainWindow.getInstance().getWorkPanel().setViewEvent(this);
+		
 	}
 	
 	public Event getEvent() {
