@@ -2,6 +2,7 @@ package eseo.assoprojava.view.occasion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -9,12 +10,13 @@ import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.view.ui.MainWindow;
 
 public class ViewEvent {
-private final Event event;
+private Event event;
 	
 	public ViewEvent(Event event) {
 		this.event = event;
@@ -26,26 +28,38 @@ private final Event event;
 	}
 	
 	public void show() {
-		JPanel mainEventPanel = new JPanel();
+		JPanel mainEventPanel = new JPanel(new BorderLayout());
+		JPanel mainPlacePanel = new JPanel(new BorderLayout());
+		JPanel tabulationPanel = new JPanel(new BorderLayout());
+		
 		JPanel eventPanel = new JPanel(new GridBagLayout());
 		JPanel placePanel = new JPanel(new GridBagLayout());
 		JPanel coordPanel = new JPanel(new GridBagLayout());
 		
 		mainEventPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
+		mainPlacePanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
+		tabulationPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		eventPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		placePanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		coordPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		
-		mainEventPanel.add(eventPanel,BorderLayout.WEST);
-		mainEventPanel.add(placePanel,BorderLayout.CENTER);
-		mainEventPanel.add(coordPanel,BorderLayout.EAST);
+
+		mainPlacePanel.add(placePanel,BorderLayout.WEST);
+		mainPlacePanel.add(tabulationPanel,BorderLayout.CENTER);
+		mainPlacePanel.add(coordPanel,BorderLayout.EAST);
+		
+		mainEventPanel.add(eventPanel,BorderLayout.WEST);		
+		mainEventPanel.add(mainPlacePanel,BorderLayout.EAST);
 		
 		mainEventPanel.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1, true));
 		
 		MainWindow.getInstance().getWorkPanel().add(mainEventPanel,BorderLayout.NORTH);
 		
-		JPanel activitiesPanel = new JPanel();
-		MainWindow.getInstance().getWorkPanel().add(activitiesPanel,BorderLayout.CENTER);
+		JPanel activitiesPanel = new JPanel(new BorderLayout());
+		JPanel activitiesScrollPanel = new JPanel(new GridBagLayout());
+		
+		
+		tabulationPanel.add(new JLabel("                            "));
 		
 		showEvent(eventPanel);
 		
@@ -54,6 +68,16 @@ private final Event event;
 		
 		ViewGpsCoord viewGpsCoord = new ViewGpsCoord(event.getPlace().getGpsCoord());
 		viewGpsCoord.show(coordPanel);
+		
+		ViewActivity viewActivities = new ViewActivity(event.getActivities());
+		viewActivities.show(activitiesScrollPanel);
+		
+		JScrollPane activitiesScrollPane = new JScrollPane(activitiesScrollPanel);
+		activitiesPanel.setPreferredSize(new Dimension(450,200));
+		activitiesPanel.add(activitiesScrollPane);
+		
+		MainWindow.getInstance().getWorkPanel().add(activitiesPanel,BorderLayout.CENTER);
+		
 		
 		
 	}
