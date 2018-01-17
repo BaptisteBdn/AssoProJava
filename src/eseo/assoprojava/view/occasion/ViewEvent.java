@@ -1,8 +1,13 @@
 package eseo.assoprojava.view.occasion;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import eseo.assoprojava.model.event.Event;
@@ -25,17 +30,24 @@ private final Event event;
 		JPanel eventPanel = new JPanel(new GridBagLayout());
 		JPanel placePanel = new JPanel(new GridBagLayout());
 		JPanel coordPanel = new JPanel(new GridBagLayout());
-
+		
+		mainEventPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
+		eventPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
+		placePanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		coordPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		
 		mainEventPanel.add(eventPanel,BorderLayout.WEST);
 		mainEventPanel.add(placePanel,BorderLayout.CENTER);
 		mainEventPanel.add(coordPanel,BorderLayout.EAST);
 		
+		mainEventPanel.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1, true));
+		
 		MainWindow.getInstance().getWorkPanel().add(mainEventPanel,BorderLayout.NORTH);
 		
 		JPanel activitiesPanel = new JPanel();
 		MainWindow.getInstance().getWorkPanel().add(activitiesPanel,BorderLayout.CENTER);
+		
+		showEvent(eventPanel);
 		
 		ViewPlace viewPlace = new ViewPlace(event.getPlace());
 		viewPlace.show(placePanel);
@@ -43,6 +55,59 @@ private final Event event;
 		ViewGpsCoord viewGpsCoord = new ViewGpsCoord(event.getPlace().getGpsCoord());
 		viewGpsCoord.show(coordPanel);
 		
+		
+	}
+	
+	private void showEvent(JPanel panel) {
+		GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(4, 4, 4, 4);
+        gbc.anchor = GridBagConstraints.WEST;
+        
+        
+	    panel.add(createPane("Nom",createLabel(event.getName() + "")),gbc);
+	    gbc.gridy++;
+	    panel.add(createPane("Date",createLabel(event.getDateBegin() + " jusqu'a " + event.getDateEnd())),gbc);
+	    gbc.gridy++;
+	    panel.add(createPane("Nombre de participants",createLabel(event.getNumberMinimum() + " à " + event.getNumberMaximum())),gbc);
+	    gbc.gridy++;
+	    panel.add(createPane("Club",createLabel(event.getClubOrganiser() + "")),gbc);
+	    gbc.gridy++;
+	    panel.add(createPane("Prix",createLabel(event.getPrice() + "")),gbc);
+	    gbc.gridy++;
+	    
+	}
+	
+	private JPanel createPane(String text, JLabel jLabel){
+		JPanel jPanel = new JPanel();
+		jPanel.setBackground(Color.white);
+		jPanel.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+//        gbc.weightx = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        JLabel tmpLabel = new JLabel(text + " : ");
+        tmpLabel.setFont(MainWindow.DEFAUT_FONT);
+        jPanel.add(tmpLabel, gbc);
+
+
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.fill = GridBagConstraints.BOTH;
+        jPanel.add(jLabel, gbc);
+        return jPanel;
+	}
+	
+	public JLabel createLabel(String text) {
+		JLabel label = new JLabel(text);
+		label.setFont(MainWindow.DEFAUT_FONT);
+		return label;
 		
 	}
 	

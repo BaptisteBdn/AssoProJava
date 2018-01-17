@@ -41,8 +41,8 @@ public class Event extends Occasion {
 	 * @param price
 	 * @param activities
 	 */
-	public Event(Place place, Date dateBegin, Date dateEnd, String name, int numberMinimum, int numberMaximum, String clubOrganiser, int price, List<Activity> activities) {
-		super();
+	public Event(Place place, Date dateBegin, Date dateEnd, String name, int numberMinimum, int numberMaximum, String clubOrganiser, double price, List<Activity> activities) {
+		super(dateBegin, dateEnd, name, numberMinimum, numberMaximum, price);
 		this.place = place;
 		this.clubOrganiser = clubOrganiser;
 		this.activities = activities;
