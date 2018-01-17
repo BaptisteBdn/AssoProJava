@@ -37,7 +37,7 @@ public class WorkPanel extends JPanel{
 	}
 	
 	public WorkPanel(int width, int height, Color color){
-		this.setLayout(new GridBagLayout());
+		this.setLayout(new BorderLayout());
 		this.setPreferredSize(new Dimension(height, width));
 		this.setBackground(color);
 		this.setViewEvent(null);

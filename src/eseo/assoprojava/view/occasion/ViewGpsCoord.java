@@ -1,6 +1,7 @@
 package eseo.assoprojava.view.occasion;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -12,6 +13,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 
 import eseo.assoprojava.model.place.gps.GpsCoord;
+import eseo.assoprojava.view.ui.MainWindow;
 
 public class ViewGpsCoord {
 	private final GpsCoord gpsCoord;
@@ -62,7 +64,9 @@ public class ViewGpsCoord {
         gbc.gridy = 0;
 //        gbc.weightx = 1;
         gbc.anchor = GridBagConstraints.WEST;
-        jPanel.add(new JLabel(text + " : "), gbc);
+        JLabel tmpLabel = new JLabel(text + " : ");
+        tmpLabel.setFont(MainWindow.DEFAUT_FONT);
+        jPanel.add(tmpLabel, gbc);
 
 
         gbc.gridx = 1;
@@ -77,6 +81,9 @@ public class ViewGpsCoord {
 	public JLabel createLabel(String text) {
 		JLabel label = new JLabel(text);
 		label.getPreferredSize();
+
+		label.setFont(MainWindow.DEFAUT_FONT);
+		
 		label.setForeground(Color.BLACK);
 		label.setBackground(Color.LIGHT_GRAY);
 		Border line = label.getBorder();
@@ -84,7 +91,7 @@ public class ViewGpsCoord {
 		Border compound = new CompoundBorder(line, margin);
 		label.setBorder(compound);
 		
-		return new JLabel(text);
+		return label;
 		
 	}
 
