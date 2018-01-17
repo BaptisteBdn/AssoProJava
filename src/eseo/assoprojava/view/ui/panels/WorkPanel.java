@@ -1,10 +1,18 @@
 package eseo.assoprojava.view.ui.panels;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 import eseo.assoprojava.view.occasion.ViewEvent;
 import eseo.assoprojava.view.occasion.ViewGpsCoord;
@@ -31,7 +39,7 @@ public class WorkPanel extends JPanel{
 	}
 	
 	public WorkPanel(int width, int height, Color color){
-		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		this.setLayout(new BorderLayout());
 		this.setPreferredSize(new Dimension(height, width));
 		this.setBackground(color);
 		this.setViewEvent(null);

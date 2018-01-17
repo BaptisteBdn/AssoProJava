@@ -23,14 +23,12 @@ public class MainWindow extends JFrame {
 
 	public MainWindow()
 	{
+		MainWindow.mainWindow = this;
 		this.workPanel = new WorkPanel();
-		this.add(this.workPanel);
+		this.add(this.workPanel,BorderLayout.CENTER);
 		this.toolsPanel = new ToolsPanel();
 		this.add(this.toolsPanel,BorderLayout.NORTH);
 		this.setTitle(DEFAUT_TITLE);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //TODO Get confirm ?
 	}
 
 	public static MainWindow getInstance()
