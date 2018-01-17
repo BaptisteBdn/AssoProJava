@@ -27,7 +27,6 @@ public class ViewGpsCoord {
 	
 	public void show() {
 	    WorkPanel panel = MainWindow.getInstance().getWorkPanel();
-	    System.out.println(panel);
 	    panel.setViewGpsCoord(this);
 	    
 	    JButton button = new JButton("Test");
@@ -41,6 +40,9 @@ public class ViewGpsCoord {
 		button.setBorder(compound);
 		button.addActionListener(null);
 		panel.add(button);
+		button.setLocation(500, 500);
+		
+		System.out.println(button);
 	   
 	    
 	}
