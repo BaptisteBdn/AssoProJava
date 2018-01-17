@@ -27,10 +27,14 @@ public class MainWindow extends JFrame {
 	{
 		MainWindow.mainWindow = this;
 		this.workPanel = new WorkPanel();
-		this.add(this.workPanel,BorderLayout.CENTER);
+		this.add(this.workPanel, BorderLayout.CENTER);
 		this.toolsPanel = new ToolsPanel();
-		this.add(this.toolsPanel,BorderLayout.NORTH);
+		this.add(this.toolsPanel, BorderLayout.NORTH);
 		this.setTitle(DEFAUT_TITLE);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // TODO Get confirm ?
+		this.pack();
 	}
 
 	public static MainWindow getInstance()
