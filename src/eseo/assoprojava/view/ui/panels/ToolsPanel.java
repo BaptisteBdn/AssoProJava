@@ -14,6 +14,10 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import eseo.assoprojava.controller.ActionCreateActivity;
+import eseo.assoprojava.controller.ActionCreateEvent;
+import eseo.assoprojava.controller.ActionLoadEvent;
+import eseo.assoprojava.controller.ActionModifiyActivity;
+import eseo.assoprojava.controller.ActionSaveEvent;
 
 /**
  * 
@@ -30,11 +34,11 @@ public class ToolsPanel extends JPanel {
 	}
 	
 	private void initComponents(){
-		createButton("Nouveau", new ActionCreateActivity());
-		createButton("Ouvrir", null );
-		createButton("Sauvegarder", null );
-		createButton("Modifier", null );
-		createButton("Créer une activité", null );
+		createButton("Nouveau", new ActionCreateEvent());
+		createButton("Ouvrir", new ActionLoadEvent() );
+		createButton("Sauvegarder", new ActionSaveEvent() );
+		createButton("Modifier", new ActionModifiyActivity() );
+		createButton("Créer une activité", new ActionCreateActivity() );
 	}
 	
 	private void createButton(String text, ActionListener action){

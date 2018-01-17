@@ -1,5 +1,18 @@
 package eseo.assoprojava.controller;
 
-public class ActionLoadEvent {
+import java.awt.event.ActionEvent;
+
+public class ActionLoadEvent extends javax.swing.AbstractAction {
+
+	public ActionLoadEvent()
+	{
+		super();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		// TODO Auto-generated method stub
+		
+	}
 
 }

@@ -2,9 +2,10 @@ package eseo.assoprojava.controller;
 
 import java.awt.event.ActionEvent;
 
-public class ActionCreateEvent extends javax.swing.AbstractAction {
+import eseo.assoprojava.view.ui.FormWindow;
+import eseo.assoprojava.view.ui.MainWindow;
 
-	public static final String NOM_ACTION = "Nouveau";
+public class ActionCreateEvent extends javax.swing.AbstractAction {
 	
 	public ActionCreateEvent(){
 		super();
@@ -13,7 +14,10 @@ public class ActionCreateEvent extends javax.swing.AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		System.out.println("Yes");		
+		FormWindow formWindow = new FormWindow(true,"Événement");
+		MainWindow.setCurrentFormWindow(formWindow);
+		formWindow.pack();
+		formWindow.setVisible(true);
 	}
 
 }

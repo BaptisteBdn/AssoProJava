@@ -18,7 +18,7 @@ public class TestViewEvent {
 		GpsCoord coord = new GpsCoord(65.21,-56.23);
 		Place place = new Place(12, "rue crépon", "Angers", "Maine et Loire", "France", 49100, coord, "Bar du samedi");
 		Event event = new Event(place, new Date(), new Date(), "Grosse chouille", 0, 100, "Alchoolo Eseo", 30.5, null);
-		
+		System.out.println(event);
 		ViewEvent viewEvent = new ViewEvent(event);
 		viewEvent.show();
 

@@ -14,7 +14,9 @@ import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.view.ui.MainWindow;
 
 public class ViewEvent {
-private final Event event;
+	
+	private Event event;
+	private JPanel mainEventPanel;
 	
 	public ViewEvent(Event event) {
 		this.event = event;
@@ -26,7 +28,7 @@ private final Event event;
 	}
 	
 	public void show() {
-		JPanel mainEventPanel = new JPanel();
+		mainEventPanel = new JPanel();
 		JPanel eventPanel = new JPanel(new GridBagLayout());
 		JPanel placePanel = new JPanel(new GridBagLayout());
 		JPanel coordPanel = new JPanel(new GridBagLayout());
@@ -109,6 +111,21 @@ private final Event event;
 		label.setFont(MainWindow.DEFAUT_FONT);
 		return label;
 		
+	}
+
+	public JPanel getMainEventPanel()
+	{
+		return mainEventPanel;
+	}
+
+	public void setMainEventPanel(JPanel mainEventPanel)
+	{
+		this.mainEventPanel = mainEventPanel;
+	}
+
+	public void setEvent(Event event)
+	{
+		this.event = event;
 	}
 	
 }

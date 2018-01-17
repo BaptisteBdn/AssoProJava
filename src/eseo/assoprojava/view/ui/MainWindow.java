@@ -20,6 +20,7 @@ public class MainWindow extends JFrame {
 	public static final String DEFAUT_TITLE = "AssoPro";
 	public static final Font DEFAUT_FONT = new Font("Arial", Font.PLAIN, 14);
 	private static MainWindow mainWindow;
+	private static FormWindow currentFormWindow;
 	private WorkPanel workPanel;
 	private ToolsPanel toolsPanel;
 
@@ -54,6 +55,21 @@ public class MainWindow extends JFrame {
 	public ToolsPanel getToolsPanel()
 	{
 		return toolsPanel;
+	}
+
+	public static FormWindow getCurrentFormWindow()
+	{
+		return currentFormWindow;
+	}
+
+	public static void setCurrentFormWindow(FormWindow currentFormWindow)
+	{
+		MainWindow.currentFormWindow = currentFormWindow;
+	}
+
+	public void setWorkPanel(WorkPanel workPanel)
+	{
+		this.workPanel = workPanel;
 	}
 
 }

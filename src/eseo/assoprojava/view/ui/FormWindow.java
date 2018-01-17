@@ -13,14 +13,17 @@ import eseo.assoprojava.view.ui.panels.FormPanel;
 import eseo.assoprojava.view.ui.panels.ValidationPanel;
 
 public class FormWindow extends JFrame{
-	public static final String DEFAUT_TITLE = "Événement";
+	public String title = "Événement";
 	private JPanel container;
 	private FormWindow formWindow;
+	private boolean isEvent;
 	private ValidationPanel validationPanel;
 	private FormPanel formPanel;
 	private FormActivityPanel formActivityPanel;
 	
-	public FormWindow(boolean isEvent){
+	public FormWindow(boolean isEvent, String title){
+		this.isEvent = isEvent;
+		this.title = title;
 		container = new JPanel();
 	    container.setBackground(Color.white);
 	    container.setLayout(new BorderLayout());
@@ -34,7 +37,7 @@ public class FormWindow extends JFrame{
 	    this.validationPanel = new ValidationPanel();
 	    container.add(this.validationPanel, BorderLayout.SOUTH);
 		this.setContentPane(container);
-		this.setTitle(DEFAUT_TITLE);
+		this.setTitle(title);
 		this.pack();
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
@@ -48,6 +51,11 @@ public class FormWindow extends JFrame{
 	public FormPanel getFormPanel()
 	{
 		return formPanel;
+	}
+
+	public boolean isEvent()
+	{
+		return isEvent;
 	}
 	
 	

@@ -12,6 +12,9 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import eseo.assoprojava.controller.ActionCancel;
+import eseo.assoprojava.controller.ActionValidate;
+
 public class ValidationPanel extends JPanel {
 	
 	private JButton buttonValidate = new JButton("Valider");
@@ -19,8 +22,8 @@ public class ValidationPanel extends JPanel {
 	
 	public ValidationPanel(){
 		this.setBackground(Color.WHITE);
-		createButton(buttonValidate, null);
-		createButton(buttonCancel, null);
+		createButton(buttonValidate, new ActionValidate());
+		createButton(buttonCancel, new ActionCancel());
 	    JPanel south = new JPanel();
 	    south.setBackground(Color.WHITE);
 	    south.add(buttonValidate);

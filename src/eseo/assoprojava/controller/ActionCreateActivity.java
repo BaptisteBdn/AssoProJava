@@ -2,10 +2,9 @@ package eseo.assoprojava.controller;
 
 import java.awt.event.ActionEvent;
 
-public class ActionCreateActivity extends javax.swing.AbstractAction  {
+import eseo.assoprojava.view.ui.FormWindow;
 
-	private static final long serialVersionUID = 1L;
-	public static final String NOM_ACTION = "Créer une activité";
+public class ActionCreateActivity extends javax.swing.AbstractAction  {
 	
 	public ActionCreateActivity(){
 		super();
@@ -13,8 +12,9 @@ public class ActionCreateActivity extends javax.swing.AbstractAction  {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		FormWindow formWindow = new FormWindow(false,"Activité");
+		formWindow.pack();
+		formWindow.setVisible(true);
 	}
 	
 	

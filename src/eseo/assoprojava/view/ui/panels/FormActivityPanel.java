@@ -6,12 +6,24 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Properties;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JFormattedTextField.AbstractFormatter;
+
+import org.jdatepicker.JDatePicker;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
+import eseo.assoprojava.view.ui.panels.FormPanel.DateLabelFormatter;
 
 public class FormActivityPanel extends JPanel {
 	public static final int DEFAULT_WIDTH = 400;
@@ -22,8 +34,8 @@ public class FormActivityPanel extends JPanel {
 
 	private JTextField nameField;
 	private JTextField priceField;
-	private JTextField dateBeginField;
-	private JTextField dateEndField;
+	private JDatePickerImpl dateBeginField;
+	private JDatePickerImpl dateEndField;
 	private JTextField numberMinField;
 	private JTextField numberMaxField;
 	private JTextArea descriptionField;
@@ -60,12 +72,20 @@ public class FormActivityPanel extends JPanel {
 		add(createPane("Prix", priceField), gbc);
 		gbc.gridy++;
 
-		dateBeginField = new JTextField("dd//MM//YY HH:mm");
+		UtilDateModel model = new UtilDateModel();
+		Properties p = new Properties();
+		p.put("text.today", "Aujourd'hui");
+		p.put("text.month", "Mois");
+		p.put("text.year", "Année");
+		JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+		dateBeginField = new JDatePickerImpl(datePanel, new DateLabelFormatter());
 		add(createPane("Date de début", dateBeginField), gbc);
 		gbc.gridy++;
 
-		dateEndField = new JTextField("dd//MM//YY HH:mm");
-		add(createPane("Date de fin", dateEndField), gbc);
+		UtilDateModel model1 = new UtilDateModel();
+		JDatePanelImpl datePanel1 = new JDatePanelImpl(model1, p);
+		dateEndField = new JDatePickerImpl(datePanel1, new DateLabelFormatter());
+		add(createPane("Date de fin", dateBeginField), gbc);
 		gbc.gridy++;
 
 		numberMinField = new JTextField("-");
@@ -89,6 +109,49 @@ public class FormActivityPanel extends JPanel {
 		gbc.gridy++;
 
 		centerTextFields();
+	}
+	
+	public class DateLabelFormatter extends AbstractFormatter {
+
+	    private String datePattern = "dd-MM-yyyy";
+	    private SimpleDateFormat dateFormatter = new SimpleDateFormat(datePattern);
+
+	    @Override
+	    public Object stringToValue(String text) throws ParseException {
+	        return dateFormatter.parseObject(text);
+	    }
+
+	    @Override
+	    public String valueToString(Object value) throws ParseException {
+	        if (value != null) {
+	            Calendar cal = (Calendar) value;
+	            return dateFormatter.format(cal.getTime());
+	        }
+
+	        return "";
+	    }
+
+	}
+	
+	private Component createPane(String text, JDatePicker dateBeginField2)
+	{
+		JPanel jPanel = new JPanel();
+		jPanel.setBackground(DEFAULT_COLOR);
+		jPanel.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		// gbc.weightx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		jPanel.add(new JLabel(text + " : "), gbc);
+
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		gbc.weightx = 1;
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.fill = GridBagConstraints.BOTH;
+		jPanel.add((Component) dateBeginField2, gbc);
+		return jPanel;
 	}
 
 	private Component createPane(String text, JTextArea descriptionField2)
@@ -125,8 +188,6 @@ public class FormActivityPanel extends JPanel {
 		organiserClubField.setHorizontalAlignment(JTextField.CENTER);
 		organiserRoleField.setHorizontalAlignment(JTextField.CENTER);
 		priceField.setHorizontalAlignment(JTextField.CENTER);
-		dateBeginField.setHorizontalAlignment(JTextField.CENTER);
-		dateEndField.setHorizontalAlignment(JTextField.CENTER);
 		numberMaxField.setHorizontalAlignment(JTextField.CENTER);
 		numberMinField.setHorizontalAlignment(JTextField.CENTER);
 	}
