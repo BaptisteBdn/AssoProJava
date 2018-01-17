@@ -19,11 +19,7 @@ public class TestViewEvent {
 		
 		ViewEvent viewEvent = new ViewEvent(event);
 		viewEvent.show();
-		
-		mainWindow.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-		mainWindow.setLocationRelativeTo(null);
-		mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //TODO Get confirm ?
-		mainWindow.pack();
+
 		mainWindow.setVisible(true);
 	}
 	
