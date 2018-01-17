@@ -3,6 +3,7 @@ package eseo.assoprojava.view.ui.panels;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -19,15 +20,25 @@ import java.awt.image.ImageObserver;
 import java.text.AttributedCharacterIterator;
 
 import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class FormPanel extends JPanel {
 	public static final int DEFAULT_WIDTH = 400;
-	public static final int DEFAULT_HEIGHT = 190;
+	public static final int DEFAULT_HEIGHT = 280;
 	public static final Color DEFAULT_COLOR = Color.WHITE;
-
-	private JPanel controls = new JPanel(new GridBagLayout());
+	
+	private JTextField nameField;
+	private JTextField placeNumberField;
+	private JTextField placeStreetField;
+	private JTextField priceField;
+	private JTextField clubField;
+	private JTextField dateBeginField;
+	private JTextField dateEndField;
+	private JTextField numberMinField;
+	private JTextField numberMaxField;
 
 	public FormPanel()
 	{
@@ -36,61 +47,93 @@ public class FormPanel extends JPanel {
 
 	public FormPanel(int width, int height, Color color)
 	{
-		this.setLayout(new BorderLayout());
-		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_WIDTH));
+		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		this.setBackground(color);
-		init();
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(4, 4, 4, 4);
+        gbc.anchor = GridBagConstraints.WEST;
+        nameField = new JTextField("");
+        add(createPane("Name",nameField),gbc);
+        gbc.gridy++;
+        placeNumberField = new JTextField("0");
+        placeNumberField.setHorizontalAlignment(JTextField.CENTER);
 
-		// JLabel nameLabel = new JLabel("Name"+" : ");
-		// TextField nameField = new TextField("Name");
-		// controls.setBackground(DEFAULT_COLOR);
-		// GridBagConstraints c = new GridBagConstraints();
-		// c.weightx = 1.0;
-		// c.fill = GridBagConstraints.BOTH;
-		// c.insets = new Insets(2, 2, 2, 2);
-		// controls.add(nameLabel,c);
-		// controls.add(nameField, c);
-		// c.gridwidth = GridBagConstraints.REMAINDER; //end row
-		//
-		//// controls.add(new JLabel("Name"+" : "),c);
-		//// c.weightx = 0;
-		//
-		// controls.add(new JLabel("Name"+" : "),c);
-		//
-		//
-		// this.add(controls, BorderLayout.NORTH);
+        placeStreetField = new JTextField("Rue");
+        placeStreetField.setHorizontalAlignment(JTextField.CENTER);
+
+        add(createPlacePane("Lieu",placeNumberField,placeStreetField),gbc);
+        gbc.gridy++;
+        priceField = new JTextField("");
+        add(createPane("Prix",priceField),gbc);
+        gbc.gridy++;
+        clubField = new JTextField("");
+        add(createPane("Club",clubField),gbc);
+        gbc.gridy++;
+        dateBeginField = new JTextField("");
+        add(createPane("Date de début",dateBeginField),gbc);
+        gbc.gridy++;
+        dateEndField = new JTextField("");
+        add(createPane("Date de fin",dateEndField),gbc);
+        gbc.gridy++;
+        numberMinField = new JTextField("");
+        add(createPane("Nombre minimum de personnes",numberMinField),gbc);
+        gbc.gridy++;
+        numberMaxField = new JTextField("");
+        add(createPane("Nombre maximum de personnes",numberMaxField),gbc);
+        gbc.gridy++;
+
 	}
-
-	private void createLineForm(String text)
-	{
-
-	}
-
-	protected void makebutton(String name, GridBagLayout gridbag, GridBagConstraints c)
-	{
-		Button button = new Button(name);
-		gridbag.setConstraints(button, c);
-		add(button);
-	}
-
-	public void init()
-	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		setFont(new Font("SansSerif", Font.PLAIN, 14));
-		setLayout(gridbag);
-		c.fill = GridBagConstraints.BOTH;
-		c.weightx = 1.0;
-		makebutton("Button1", gridbag, c);
-		makebutton("Button2", gridbag, c);
-		makebutton("Button3", gridbag, c);
-//		c.gridwidth = GridBagConstraints.REMAINDER; // end row
+	
 		
-		makebutton("Button4", gridbag, c);
+	private Component createPlacePane(String text, JTextField jTextField, JTextField placeStreetField)
+	{
+		JPanel jPanel = new JPanel();
+		jPanel.setBackground(DEFAULT_COLOR);
+		jPanel.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+//        gbc.weightx = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        jPanel.add(new JLabel(text + " : "), gbc);
 
-		c.weightx = 0.0; // reset to the default
-		makebutton("Button5", gridbag, c); // another row
 
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        jPanel.add(jTextField, gbc);
+        gbc.gridy++;
+        jPanel.add(placeStreetField, gbc);
+        return jPanel;	
+   }
+
+	private JPanel createPane(String text, JTextField jTextField){
+		JPanel jPanel = new JPanel();
+		jPanel.setBackground(DEFAULT_COLOR);
+		jPanel.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+//        gbc.weightx = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        jPanel.add(new JLabel(text + " : "), gbc);
+
+
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.fill = GridBagConstraints.BOTH;
+        jPanel.add(jTextField, gbc);
+        return jPanel;
 	}
-
 }
+
+
