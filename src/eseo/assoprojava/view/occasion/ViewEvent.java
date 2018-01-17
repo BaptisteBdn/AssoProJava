@@ -1,6 +1,7 @@
 package eseo.assoprojava.view.occasion;
 
 import java.awt.BorderLayout;
+import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
 
@@ -21,14 +22,14 @@ private final Event event;
 	
 	public void show() {
 		JPanel mainEventPanel = new JPanel();
-		JPanel eventPanel = new JPanel();
-		JPanel planPanel = new JPanel();
-		JPanel coordPanel = new JPanel();
+		JPanel eventPanel = new JPanel(new GridBagLayout());
+		JPanel placePanel = new JPanel(new GridBagLayout());
+		JPanel coordPanel = new JPanel(new GridBagLayout());
 
 		coordPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		
 		mainEventPanel.add(eventPanel,BorderLayout.WEST);
-		mainEventPanel.add(planPanel,BorderLayout.CENTER);
+		mainEventPanel.add(placePanel,BorderLayout.CENTER);
 		mainEventPanel.add(coordPanel,BorderLayout.EAST);
 		
 		MainWindow.getInstance().getWorkPanel().add(mainEventPanel,BorderLayout.NORTH);
@@ -36,8 +37,13 @@ private final Event event;
 		JPanel activitiesPanel = new JPanel();
 		MainWindow.getInstance().getWorkPanel().add(activitiesPanel,BorderLayout.CENTER);
 		
+		ViewPlace viewPlace = new ViewPlace(event.getPlace());
+		viewPlace.show(placePanel);
+		
 		ViewGpsCoord viewGpsCoord = new ViewGpsCoord(event.getPlace().getGpsCoord());
 		viewGpsCoord.show(coordPanel);
+		
+		
 	}
 	
 }

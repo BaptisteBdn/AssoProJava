@@ -14,7 +14,7 @@ public class TestViewEvent {
 		MainWindow mainWindow = new MainWindow();
 		
 		GpsCoord coord = new GpsCoord(65.21,-56.23);
-		Place place = new Place(0, null, null, null, null, 0, coord, null);
+		Place place = new Place(12, "rue crépon", "Angers", "Maine et Loire", "France", 49100, coord, "Bar du samedi");
 		Event event = new Event(place, null, null, null, 0, 0, null, 0, null);
 		
 		ViewEvent viewEvent = new ViewEvent(event);
