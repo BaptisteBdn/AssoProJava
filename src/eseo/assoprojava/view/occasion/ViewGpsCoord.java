@@ -1,10 +1,9 @@
 package eseo.assoprojava.view.occasion;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Insets;
 
-import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
@@ -29,22 +28,30 @@ public class ViewGpsCoord {
 	    WorkPanel panel = MainWindow.getInstance().getWorkPanel();
 	    panel.setViewGpsCoord(this);
 	    
-	    JButton button = new JButton("Test");
-		button.setMargin(new Insets(2, 2, 2, 2));
-		button.getPreferredSize();
-		button.setForeground(Color.BLACK);
-		button.setBackground(Color.LIGHT_GRAY);
-		Border line = new LineBorder(Color.BLACK);
+	    panel.add(createLabel(gpsCoord.getLatitude() + ""));
+	    panel.add(createLabel(gpsCoord.getLongitude() + ""));
+	    panel.add(createLabel(gpsCoord.getLatitudeDegree() + ""));
+	    panel.add(createLabel(gpsCoord.getLatitudeMinute() + ""));
+	    panel.add(createLabel(gpsCoord.getLatitudeSecond() + ""));
+	    panel.add(createLabel(gpsCoord.getLongitudeDegree() + ""));
+	    panel.add(createLabel(gpsCoord.getLongitudeMinute() + ""));
+	    panel.add(createLabel(gpsCoord.getLongitudeSecond() + ""));
+	    
+	}
+	
+	public JLabel createLabel(String text) {
+		JLabel label = new JLabel(text);
+		label.getPreferredSize();
+		label.setForeground(Color.BLACK);
+		label.setBackground(Color.LIGHT_GRAY);
+		Border line = label.getBorder();
 		Border margin = new EmptyBorder(5, 15, 5, 15);
 		Border compound = new CompoundBorder(line, margin);
-		button.setBorder(compound);
-		button.addActionListener(null);
-		panel.add(button);
-		button.setLocation(500, 500);
+		label.setBorder(compound);
 		
-		System.out.println(button);
-	   
-	    
+		System.out.println(label);
+		return new JLabel(text);
+		
 	}
 
 }
