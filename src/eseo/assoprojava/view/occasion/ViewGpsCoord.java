@@ -32,21 +32,11 @@ public class ViewGpsCoord {
         gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
 	    
-	    panel.add(createPane("Latitude",createLabel(gpsCoord.getLatitude() + "")),gbc);
+	    panel.add(createPane("Coordonnées en Degré Décimal",createLabel("(" +  gpsCoord.getLatitude() + "," + gpsCoord.getLongitude() + ")")),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("Longitude",createLabel(gpsCoord.getLongitude() + "")),gbc);
+	    panel.add(createPane("Coordonnées en DMS, Latitude",createLabel("(" + gpsCoord.getLatitudeDegree() + "°" + gpsCoord.getLatitudeMinute() + "'" + String.format("%.2f", gpsCoord.getLatitudeSecond()) + "\")")),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("LatitudeDegree",createLabel(gpsCoord.getLatitudeDegree() + "")),gbc);
-	    gbc.gridy++;
-	    panel.add(createPane("LatitudeMinute",createLabel(gpsCoord.getLatitudeMinute() + "")),gbc);
-	    gbc.gridy++;
-	    panel.add(createPane("LatitudeSecond",createLabel(gpsCoord.getLatitudeSecond() + "")),gbc);
-	    gbc.gridy++;
-	    panel.add(createPane("LongitudeDegree",createLabel(gpsCoord.getLongitudeDegree() + "")),gbc);
-	    gbc.gridy++;
-	    panel.add(createPane("LongitudeMinute",createLabel(gpsCoord.getLongitudeMinute() + "")),gbc);
-	    gbc.gridy++;
-	    panel.add(createPane("LongitudeSecond",createLabel(gpsCoord.getLongitudeSecond() + "")),gbc);
+	    panel.add(createPane("Longitude",createLabel("(" + gpsCoord.getLongitudeDegree() + "°" + gpsCoord.getLongitudeMinute() + "'" + String.format("%.2f", gpsCoord.getLongitudeSecond()) + "\")")),gbc);
 	    gbc.gridy++;
 	    
 	}
@@ -77,7 +67,6 @@ public class ViewGpsCoord {
 	public JLabel createLabel(String text) {
 		JLabel label = new JLabel(text);
 		label.setFont(MainWindow.DEFAUT_FONT);
-		
 		return label;
 		
 	}

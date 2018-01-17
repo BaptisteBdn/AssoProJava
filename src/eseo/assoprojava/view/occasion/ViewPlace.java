@@ -7,9 +7,6 @@ import java.awt.Insets;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
 
 import eseo.assoprojava.model.place.Place;
 import eseo.assoprojava.view.ui.MainWindow;
@@ -37,7 +34,7 @@ public void show(JPanel panel) {
         
 	    panel.add(createPane("Name",createLabel(place.getName() + "")),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("at ",createLabel(place.getNumber() + " " + place.getStreet() + ", " + place.getCity() + ", " + place.getState() + ", " + place.getCountry() + ", " + place.getPostalCode())),gbc);
+	    panel.add(createPane("At",createLabel(place.getNumber() + " " + place.getStreet() + ", " + place.getCity() + ", " + place.getState() + ", " + place.getCountry() + ", " + place.getPostalCode())),gbc);
 	    gbc.gridy++;
 	    
 	}
@@ -67,17 +64,7 @@ public void show(JPanel panel) {
 	
 	public JLabel createLabel(String text) {
 		JLabel label = new JLabel(text);
-		label.getPreferredSize();
-
 		label.setFont(MainWindow.DEFAUT_FONT);
-		
-		label.setForeground(Color.BLACK);
-		label.setBackground(Color.LIGHT_GRAY);
-		Border line = label.getBorder();
-		Border margin = new EmptyBorder(5, 15, 5, 15);
-		Border compound = new CompoundBorder(line, margin);
-		label.setBorder(compound);
-		
 		return label;
 		
 	}
