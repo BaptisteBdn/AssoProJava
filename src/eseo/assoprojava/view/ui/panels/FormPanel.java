@@ -17,6 +17,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -76,7 +77,6 @@ public class FormPanel extends JPanel {
 		{
 			event = (Event) occasion;
 		}
-
 		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		this.setBackground(color);
 		initComponents();

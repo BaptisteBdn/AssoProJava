@@ -40,8 +40,9 @@ public class FormWindow extends JFrame{
 	    container.add(this.validationPanel, BorderLayout.SOUTH);
 		this.setContentPane(container);
 		this.setTitle(title);
-		this.pack();
 		this.setResizable(false);
+		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		this.pack();
 		this.setLocationRelativeTo(null);
 	}
 	

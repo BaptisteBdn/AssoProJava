@@ -165,7 +165,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 		MainWindow.getInstance().getWorkPanel().getViewEvent().show();
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);
-
+		MainWindow.getInstance().getToolsPanel().enableButtons();
 	}
 
 }

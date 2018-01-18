@@ -1,4 +1,4 @@
- package eseo.assoprojava.view.ui.panels;
+package eseo.assoprojava.view.ui.panels;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,6 +18,7 @@ import eseo.assoprojava.controller.ActionCreateEvent;
 import eseo.assoprojava.controller.ActionLoadEvent;
 import eseo.assoprojava.controller.ActionModifyEvent;
 import eseo.assoprojava.controller.ActionSaveEvent;
+import eseo.assoprojava.view.ui.MainWindow;
 
 /**
  * 
@@ -32,21 +33,53 @@ public class ToolsPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public ToolsPanel(){
+	JButton buttonNew;
+	JButton buttonLoad;
+	JButton buttonSave;
+	JButton buttonModify;
+	JButton buttonCreateActivity;
+
+	public ToolsPanel()
+	{
 		this.setLayout(new GridLayout(1, 4));
 		this.setPreferredSize(new Dimension(100, 30));
 		initComponents();
 	}
-	
-	private void initComponents(){
-		createButton("Nouveau", new ActionCreateEvent());
-		createButton("Ouvrir", new ActionLoadEvent() );
-		createButton("Sauvegarder", new ActionSaveEvent() );
-		createButton("Modifier l'Événement", new ActionModifyEvent() );
-		createButton("Créer une activité", new ActionCreateActivity() );
+
+	private void initComponents()
+	{
+		buttonNew = createButton("Nouveau", new ActionCreateEvent());
+		buttonLoad = createButton("Ouvrir", new ActionLoadEvent());
+		buttonSave = createButton("Sauvegarder", new ActionSaveEvent());
+		buttonSave.setEnabled(false);
+		buttonModify = createButton("Modifier l'Événement", new ActionModifyEvent());
+		buttonModify.setEnabled(false);
+		buttonCreateActivity = createButton("Créer une activité", new ActionCreateActivity());
+		buttonCreateActivity.setEnabled(false);
+	}
+
+	public void disableButtons()
+	{
+		this.buttonNew.setEnabled(false);
+		this.buttonLoad.setEnabled(false);
+		this.buttonSave.setEnabled(false);
+		this.buttonModify.setEnabled(false);
+		this.buttonCreateActivity.setEnabled(false);
 	}
 	
-	private void createButton(String text, ActionListener action){
+	public void enableButtons()
+	{
+		this.buttonNew.setEnabled(true);
+		this.buttonLoad.setEnabled(true);
+		if(MainWindow.getInstance().getWorkPanel().getViewEvent() != null){
+			this.buttonSave.setEnabled(true);
+			this.buttonModify.setEnabled(true);
+			this.buttonCreateActivity.setEnabled(true);
+		}
+	}
+
+	private JButton createButton(String text, ActionListener action)
+	{
 		JButton button = new JButton(text);
 		button.setMargin(new Insets(2, 2, 2, 2));
 		button.getPreferredSize();
@@ -58,6 +91,7 @@ public class ToolsPanel extends JPanel {
 		button.setBorder(compound);
 		button.addActionListener(action);
 		this.add(button);
+		return button;
 	}
 
 }

@@ -20,6 +20,7 @@ public class ActionCancel extends javax.swing.AbstractAction {
 	public void actionPerformed(ActionEvent e)
 	{
 		MainWindow.getCurrentFormWindow().setVisible(false);
+		MainWindow.getInstance().getToolsPanel().enableButtons();
 	}
 
 }

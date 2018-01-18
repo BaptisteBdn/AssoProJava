@@ -19,6 +19,7 @@ public class ActionCreateEvent extends javax.swing.AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		MainWindow.getInstance().getToolsPanel().disableButtons();
 		FormWindow formWindow = new FormWindow(true,"Événement",null);
 		formWindow.getFormPanel().setCreating(true);
 		MainWindow.setCurrentFormWindow(formWindow);

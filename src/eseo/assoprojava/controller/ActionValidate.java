@@ -218,6 +218,7 @@ public class ActionValidate extends javax.swing.AbstractAction {
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);
 		}
+		MainWindow.getInstance().getToolsPanel().enableButtons();
 	}
 
 	final String Digits = "(\\p{Digit}+)";
