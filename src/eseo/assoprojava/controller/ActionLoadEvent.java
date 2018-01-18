@@ -31,10 +31,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
-=======
 
->>>>>>> 5c32d102be54f74a9d0f37641671133074c83a71
 	public ActionLoadEvent()
 	{
 		super();
