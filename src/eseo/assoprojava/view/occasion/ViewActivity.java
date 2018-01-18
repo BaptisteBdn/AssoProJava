@@ -1,5 +1,6 @@
 package eseo.assoprojava.view.occasion;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -7,11 +8,10 @@ import java.awt.Insets;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import eseo.assoprojava.model.activity.Activity;
-import eseo.assoprojava.model.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
 
 public class ViewActivity {
@@ -48,10 +48,15 @@ public class ViewActivity {
             gbc.fill = GridBagConstraints.HORIZONTAL;
             gbc.insets = new Insets(4, 4, 4, 4);
             gbc.anchor = GridBagConstraints.WEST;
+            JPanel activityPanel = new JPanel(new BorderLayout());
+            
         	JPanel panel = new JPanel(new GridBagLayout());
+        	JPanel buttonPanel = new JPanel(new BorderLayout());
         	
+        	activityPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
         	panel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
-        	panel.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1, true));
+        	buttonPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
+        	activityPanel.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1, true));
         	
         	Activity activity = activities.get(i);
         	panel.add(createPane("Nom",createLabel(activity.getName() + "")),gbc);
@@ -65,7 +70,24 @@ public class ViewActivity {
     	    panel.add(createPane("Prix",createLabel(activity.getPrice() + " €")),gbc);
     	    gbc.gridy++;
     	    
-    	    mainPanel.add(panel,mgbc);
+    	    
+    	    JButton modifyButton = new JButton("Modifier");
+    	    JButton deleteButton = new JButton("Supprimer");
+    	    
+    	    modifyButton.setForeground(Color.BLACK);
+    	    modifyButton.setBackground(Color.LIGHT_GRAY);
+    		
+    		deleteButton.setForeground(Color.BLACK);
+    		deleteButton.setBackground(Color.LIGHT_GRAY);
+    	    
+    	    buttonPanel.add(modifyButton,BorderLayout.NORTH);
+    	    buttonPanel.add(deleteButton,BorderLayout.SOUTH);
+    	    
+    	    activityPanel.add(panel,BorderLayout.WEST);
+    	    activityPanel.add(buttonPanel,BorderLayout.EAST);
+    	    
+    	    
+    	    mainPanel.add(activityPanel,mgbc);
     	    mgbc.gridy++;
     	    
         }
