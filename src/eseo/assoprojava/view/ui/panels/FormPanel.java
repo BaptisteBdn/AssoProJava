@@ -1,34 +1,24 @@
 package eseo.assoprojava.view.ui.panels;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Insets;
-import java.awt.Rectangle;
-import java.awt.Shape;
-import java.awt.TextField;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 
-import javax.swing.JButton;
-import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField.AbstractFormatter;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.JSpinner.DateEditor;
 import javax.swing.JTextField;
+import javax.swing.SpinnerDateModel;
 
 import org.jdatepicker.JDatePicker;
 import org.jdatepicker.impl.JDatePanelImpl;
@@ -37,7 +27,7 @@ import org.jdatepicker.impl.UtilDateModel;
 
 public class FormPanel extends JPanel {
 	public static final int DEFAULT_WIDTH = 400;
-	public static final int DEFAULT_HEIGHT = 400;
+	public static final int DEFAULT_HEIGHT = 500;
 	public static final Color DEFAULT_COLOR = Color.WHITE;
 
 	private JTextField nameField;
@@ -53,8 +43,10 @@ public class FormPanel extends JPanel {
 
 	private JTextField priceField;
 	private JTextField clubField;
-	private JDatePickerImpl dateBeginField;
-	private JDatePickerImpl dateEndField;
+	
+	private DateEditor dateBeginField;
+	private DateEditor dateEndField;
+
 	private JTextField numberMinField;
 	private JTextField numberMaxField;
 
@@ -101,21 +93,19 @@ public class FormPanel extends JPanel {
 		clubField = new JTextField("Club");
 		add(createPane("Club", clubField), gbc);
 		gbc.gridy++;
-		
-		UtilDateModel model = new UtilDateModel();
-		Properties p = new Properties();
-		p.put("text.today", "Aujourd'hui");
-		p.put("text.month", "Mois");
-		p.put("text.year", "Année");
-		JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-		dateBeginField = new JDatePickerImpl(datePanel, new DateLabelFormatter());
-		add(createPane("Date de début", dateBeginField), gbc);
+
+		JSpinner spinnerBegin = new JSpinner( new SpinnerDateModel() );
+		dateBeginField = new JSpinner.DateEditor(spinnerBegin, "dd-MM-yyyy HH:mm:ss");
+		spinnerBegin.setValue(new Date());
+		spinnerBegin.setEditor(dateBeginField);
+		add(createPane("Date de début", spinnerBegin), gbc);
 		gbc.gridy++;
 
-		UtilDateModel model1 = new UtilDateModel();
-		JDatePanelImpl datePanel1 = new JDatePanelImpl(model1, p);
-		dateEndField = new JDatePickerImpl(datePanel1, new DateLabelFormatter());
-		add(createPane("Date de fin", dateEndField), gbc);
+		JSpinner spinnerEnd = new JSpinner( new SpinnerDateModel() );
+		dateEndField = new JSpinner.DateEditor(spinnerEnd, "dd-MM-yyyy HH:mm:ss");
+		spinnerEnd.setValue(new Date());
+		spinnerEnd.setEditor(dateEndField);
+		add(createPane("Date de fin", spinnerEnd), gbc);
 		gbc.gridy++;
 		
 		numberMinField = new JTextField("-");
@@ -127,49 +117,6 @@ public class FormPanel extends JPanel {
 		
 		
 		centerTextFields();
-	}
-	
-	public class DateLabelFormatter extends AbstractFormatter {
-
-	    private String datePattern = "dd-MM-yyyy";
-	    private SimpleDateFormat dateFormatter = new SimpleDateFormat(datePattern);
-
-	    @Override
-	    public Object stringToValue(String text) throws ParseException {
-	        return dateFormatter.parseObject(text);
-	    }
-
-	    @Override
-	    public String valueToString(Object value) throws ParseException {
-	        if (value != null) {
-	            Calendar cal = (Calendar) value;
-	            return dateFormatter.format(cal.getTime());
-	        }
-
-	        return "";
-	    }
-
-	}
-	
-	private Component createPane(String text, JDatePicker dateBeginField2)
-	{
-		JPanel jPanel = new JPanel();
-		jPanel.setBackground(DEFAULT_COLOR);
-		jPanel.setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		// gbc.weightx = 1;
-		gbc.anchor = GridBagConstraints.WEST;
-		jPanel.add(new JLabel(text + " : "), gbc);
-
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		gbc.weightx = 1;
-		gbc.anchor = GridBagConstraints.EAST;
-		gbc.fill = GridBagConstraints.BOTH;
-		jPanel.add((Component) dateBeginField2, gbc);
-		return jPanel;
 	}
 
 	private void centerTextFields(){
@@ -223,7 +170,7 @@ public class FormPanel extends JPanel {
 		return jPanel;
 	}
 
-	private JPanel createPane(String text, JTextField jTextField)
+	private JPanel createPane(String text, Component jTextField)
 	{
 		JPanel jPanel = new JPanel();
 		jPanel.setBackground(DEFAULT_COLOR);
@@ -299,16 +246,6 @@ public class FormPanel extends JPanel {
 		return clubField;
 	}
 
-	public JDatePicker getDateBeginField()
-	{
-		return dateBeginField;
-	}
-
-	public JDatePickerImpl getDateEndField()
-	{
-		return dateEndField;
-	}
-
 	public JTextField getNumberMinField()
 	{
 		return numberMinField;
@@ -317,5 +254,15 @@ public class FormPanel extends JPanel {
 	public JTextField getNumberMaxField()
 	{
 		return numberMaxField;
+	}
+
+	public DateEditor getDateBeginField()
+	{
+		return dateBeginField;
+	}
+
+	public DateEditor getDateEndField()
+	{
+		return dateEndField;
 	}
 }

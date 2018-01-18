@@ -23,7 +23,7 @@ public abstract class Occasion {
 	public Occasion() {
 		this.dateBegin = new Date();
 		this.dateEnd = new Date();
-		this.name = "unknown name";
+		this.name = "unknown";
 		this.numberMinimum = 0;
 		this.numberMaximum = 0;
 		this.price = 0;

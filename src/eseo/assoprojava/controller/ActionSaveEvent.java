@@ -1,21 +1,6 @@
 package eseo.assoprojava.controller;
 
-<<<<<<< HEAD
 import java.awt.event.ActionEvent;
-
-public class ActionSaveEvent extends javax.swing.AbstractAction {
-
-	public ActionSaveEvent()
-	{
-		super();
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e)
-	{
-		
-	}
-=======
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,15 +21,19 @@ import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.model.place.Place;
 import eseo.assoprojava.model.place.gps.GpsCoord;
-import eseo.assoprojava.view.ui.MainWindow;
-import eseo.assoprojava.view.ui.panels.WorkPanel;
->>>>>>> 986444fa7c7ef6af1c4563bb5b1a035a29851344
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class ActionSaveEvent {
-	public static void main(final String[] args) {
+public class ActionSaveEvent extends javax.swing.AbstractAction {
+	
+	public ActionSaveEvent()
+	{
+		super();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
 		Event event = new Event();///MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent();
 		Place place = new Place();///MainWindow.getInstance().getWorkPanel().getViewPlace().getPlace();
 		GpsCoord gpsCoord = new GpsCoord();///MainWindow.getInstance().getWorkPanel().getViewGpsCoord().getGpsCoord();
@@ -133,17 +122,16 @@ public class ActionSaveEvent {
 		    transformer.transform(source, sortie);	
 		}
 		
-		catch (final ParserConfigurationException e) {
-		    e.printStackTrace();
+		catch (final ParserConfigurationException e1) {
+		    e1.printStackTrace();
 		}
 		
-		catch (TransformerConfigurationException e) {
-		    e.printStackTrace();
+		catch (TransformerConfigurationException e1) {
+		    e1.printStackTrace();
 		}
 		
-		catch (TransformerException e) {
-		    e.printStackTrace();
-		}
-		
+		catch (TransformerException e1) {
+		    e1.printStackTrace();
+		}		
 	}
 }

@@ -16,13 +16,10 @@ import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.view.ui.MainWindow;
 
 public class ViewEvent {
-<<<<<<< HEAD
 	
 	private Event event;
 	private JPanel mainEventPanel;
-=======
-private Event event;
->>>>>>> 986444fa7c7ef6af1c4563bb5b1a035a29851344
+
 	
 	public ViewEvent(Event event) {
 		this.event = event;
@@ -34,14 +31,10 @@ private Event event;
 	}
 	
 	public void show() {
-<<<<<<< HEAD
-		mainEventPanel = new JPanel();
-=======
-		JPanel mainEventPanel = new JPanel(new BorderLayout());
+		mainEventPanel = new JPanel(new BorderLayout());
 		JPanel mainPlacePanel = new JPanel(new BorderLayout());
 		JPanel tabulationPanel = new JPanel(new BorderLayout());
 		
->>>>>>> 986444fa7c7ef6af1c4563bb5b1a035a29851344
 		JPanel eventPanel = new JPanel(new GridBagLayout());
 		JPanel placePanel = new JPanel(new GridBagLayout());
 		JPanel coordPanel = new JPanel(new GridBagLayout());

@@ -20,12 +20,7 @@ public class TestViewEvent {
 		MainWindow mainWindow = new MainWindow();
 		
 		GpsCoord coord = new GpsCoord(65.21,-56.23);
-		Place place = new Place(12, "rue crépon", "Angers", "Maine et Loire", "France", 49100, coord, "Bar du samedi");
-<<<<<<< HEAD
-		Event event = new Event(place, new Date(), new Date(), "Grosse chouille", 0, 100, "Alchoolo Eseo", 30.5, null);
-		System.out.println(event);
-=======
-		
+		Place place = new Place(12, "rue crépon", "Angers", "Maine et Loire", "France", 49100, coord, "Bar du samedi");		
 		Organiser organiser = new Organiser("Calvin", "Ageneau", "Alchoolo Eseo", "Chef");
 		
 		Activity activ1 = new Activity(new Date(), new Date(), "Boire", 0, 20, 2.5, "Le but est de boire", organiser);
@@ -52,9 +47,7 @@ public class TestViewEvent {
 		listActivs.add(activ10);
 		
 		Event event = new Event(place, new Date(), new Date(), "Grosse chouille", 0, 100, "Alchoolo Eseo", 30.5, listActivs);
-		
->>>>>>> 986444fa7c7ef6af1c4563bb5b1a035a29851344
-		ViewEvent viewEvent = new ViewEvent(event);
+				ViewEvent viewEvent = new ViewEvent(event);
 		viewEvent.show();
 
 		mainWindow.setVisible(true);
