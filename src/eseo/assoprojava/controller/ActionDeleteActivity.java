@@ -28,11 +28,7 @@ public class ActionDeleteActivity extends javax.swing.AbstractAction {
 		// TODO Auto-generated method stub
 		Event event = MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent();
 		
-		System.out.println(event.getActivities());
-		
 		event.getActivities().remove(activity);
-		
-		System.out.println(event.getActivities());
 
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
