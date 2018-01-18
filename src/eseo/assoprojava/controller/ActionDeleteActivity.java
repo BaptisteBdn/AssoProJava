@@ -35,11 +35,11 @@ public class ActionDeleteActivity extends javax.swing.AbstractAction {
 		System.out.println(event.getActivities());
 
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
-		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesScrollPane().setVisible(false);
+		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().setEvent(event);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().show();
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
-		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesScrollPane().setVisible(true);
+		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);
 	}
 
 }
