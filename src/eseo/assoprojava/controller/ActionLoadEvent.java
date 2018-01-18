@@ -158,6 +158,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 			e.printStackTrace();
 		}
 
+		MainWindow.getInstance().getWorkPanel().init();
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().setEvent(event);
