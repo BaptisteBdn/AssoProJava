@@ -6,16 +6,13 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Properties;
 
-import javax.swing.JFormattedTextField.AbstractFormatter;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 
@@ -25,6 +22,7 @@ public class FormPanel extends JPanel {
 	public static final Color DEFAULT_COLOR = Color.WHITE;
 
 	private JTextField nameField;
+	private JTextArea descriptionField;
 
 	private JTextField placeNumberField;
 	private JTextField placeStreetField;
@@ -33,7 +31,8 @@ public class FormPanel extends JPanel {
 	private JTextField placeCountryField;
 	private JTextField placeNameField;
 	private JTextField placeStateField;
-	private JTextField placeGPSField;
+	private JTextField placeGPSLatField;
+	private JTextField placeGPSLongField;
 
 	private JTextField priceField;
 	private JTextField clubField;
@@ -68,6 +67,10 @@ public class FormPanel extends JPanel {
 		add(createPane("Nom", nameField), gbc);
 		gbc.gridy++;
 		
+		descriptionField = new JTextArea();
+		add(createPane("Description", descriptionField), gbc);
+		gbc.gridy++;
+		
 		placeNumberField = new JTextField("0");
 		placeStreetField = new JTextField("Rue");
 		placeNameField = new JTextField("Nom");
@@ -75,9 +78,10 @@ public class FormPanel extends JPanel {
 		placeCityField = new JTextField("Ville");
 		placeCountryField = new JTextField("Pays");
 		placeStateField = new JTextField("Région");
-		placeGPSField = new JTextField("GPS (Degrées Décimals ou Degrées Minutes Secondes)");
+		placeGPSLatField = new JTextField("GPS (Latitue)");
+		placeGPSLongField = new JTextField("GPS (Longitude)");
 
-		add(createPlacePane("Lieu", placeNumberField, placeStreetField, placeNameField, placePostalCodeField, placeCityField, placeCountryField, placeStateField, placeGPSField), gbc);
+		add(createPlacePane("Lieu", placeNumberField, placeStreetField, placeNameField, placePostalCodeField, placeCityField, placeCountryField, placeStateField, placeGPSLatField,placeGPSLongField), gbc);
 		gbc.gridy++;
 		
 		priceField = new JTextField("Prix");
@@ -100,10 +104,10 @@ public class FormPanel extends JPanel {
 		add(createPane("Heure de fin", dateEndField), gbc);
 		gbc.gridy++;
 		
-		numberMinField = new JTextField("-");
+		numberMinField = new JTextField("");
 		add(createPane("Nombre minimum de personnes", numberMinField), gbc);
 		gbc.gridy++;
-		numberMaxField = new JTextField("-");
+		numberMaxField = new JTextField("");
 		add(createPane("Nombre maximum de personnes", numberMaxField), gbc);
 		gbc.gridy++;
 		
@@ -120,16 +124,22 @@ public class FormPanel extends JPanel {
 		placeCountryField.setHorizontalAlignment(JTextField.CENTER);
 		placeNameField.setHorizontalAlignment(JTextField.CENTER);
 		placeStateField.setHorizontalAlignment(JTextField.CENTER);
-		placeGPSField.setHorizontalAlignment(JTextField.CENTER);
+		placeGPSLatField.setHorizontalAlignment(JTextField.CENTER);
+		placeGPSLongField.setHorizontalAlignment(JTextField.CENTER);
 		priceField.setHorizontalAlignment(JTextField.CENTER);
 		clubField.setHorizontalAlignment(JTextField.CENTER);
 		numberMaxField.setHorizontalAlignment(JTextField.CENTER);
 		numberMinField.setHorizontalAlignment(JTextField.CENTER);
 		dateBeginField.setValue(new Date());
 		dateEndField.setValue(new Date());
+		descriptionField.setEditable(true);
+		descriptionField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		descriptionField.setWrapStyleWord(true);
+		descriptionField.setLineWrap(true);
+		descriptionField.setRows(4);
 	}
 
-	private Component createPlacePane(String text, JTextField jTextField, JTextField placeStreetField, JTextField placeNameField2, JTextField placePostalCodeField2, JTextField placeCityField2, JTextField placeCountryField2, JTextField placeStateField2, JTextField placeGPSField2)
+	private Component createPlacePane(String text, JTextField jTextField, JTextField placeStreetField, JTextField placeNameField2, JTextField placePostalCodeField2, JTextField placeCityField2, JTextField placeCountryField2, JTextField placeStateField2, JTextField placeGPSField2, JTextField placeGPSLongField2)
 	{
 		JPanel jPanel = new JPanel();
 		jPanel.setBackground(DEFAULT_COLOR);
@@ -146,21 +156,32 @@ public class FormPanel extends JPanel {
 		gbc.weightx = 1;
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
+		jPanel.add(new JLabel("[Numéro]"), gbc);
 		jPanel.add(jTextField, gbc);
 		gbc.gridy++;
+		jPanel.add(new JLabel("[Rue]"), gbc);
 		jPanel.add(placeStreetField, gbc);
 		gbc.gridy++;
+		jPanel.add(new JLabel("[Code postal]"), gbc);
 		jPanel.add(placePostalCodeField2, gbc);
 		gbc.gridy++;
+		jPanel.add(new JLabel("[Nom]"), gbc);
 		jPanel.add(placeNameField2, gbc);
 		gbc.gridy++;
+		jPanel.add(new JLabel("[Ville]"), gbc);
 		jPanel.add(placeCityField2, gbc);
 		gbc.gridy++;
+		jPanel.add(new JLabel("[France]"), gbc);
 		jPanel.add(placeCountryField2, gbc);
 		gbc.gridy++;
+		jPanel.add(new JLabel("[Région]"), gbc);
 		jPanel.add(placeStateField2, gbc);
 		gbc.gridy++;
+		jPanel.add(new JLabel("[Latitude]"), gbc);
 		jPanel.add(placeGPSField2, gbc);
+		gbc.gridy++;
+		jPanel.add(new JLabel("[Numéro]"), gbc);
+		jPanel.add(placeGPSLongField2, gbc);
 		return jPanel;
 	}
 
@@ -225,11 +246,6 @@ public class FormPanel extends JPanel {
 		return placeStateField;
 	}
 
-	public JTextField getPlaceGPSField()
-	{
-		return placeGPSField;
-	}
-
 	public JTextField getPriceField()
 	{
 		return priceField;
@@ -258,5 +274,20 @@ public class FormPanel extends JPanel {
 	public JSpinner getDateEndField()
 	{
 		return dateEndField;
+	}
+
+	public JTextField getPlaceGPSLatField()
+	{
+		return placeGPSLatField;
+	}
+
+	public JTextField getPlaceGPSLongField()
+	{
+		return placeGPSLongField;
+	}
+
+	public JTextArea getDescriptionField()
+	{
+		return descriptionField;
 	}
 }

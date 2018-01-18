@@ -46,7 +46,7 @@ public class TestViewEvent {
 		listActivs.add(activ9);
 		listActivs.add(activ10);
 		
-		Event event = new Event(place, new Date(), new Date(), "Grosse chouille", 0, 100, "Alchoolo Eseo", 30.5, listActivs);
+		Event event = new Event(place, new Date(), new Date(), "Grosse chouille", 0, 100, "Alchoolo Eseo", 30.5, listActivs,"test");
 				ViewEvent viewEvent = new ViewEvent(event);
 		viewEvent.show();
 

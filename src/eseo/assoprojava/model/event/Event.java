@@ -28,7 +28,7 @@ public class Event extends Occasion {
 		this.place = new Place();
 		this.clubOrganiser = "Unknown";
 		this.activities = new ArrayList<Activity> ();
-		this.description = "description";
+		this.description = "Unknown";
 	}
 	
 	/**
