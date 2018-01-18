@@ -36,12 +36,12 @@ public class ActionValidate extends javax.swing.AbstractAction {
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nom ne peut pas être vide !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			else if (!formPanel.getPlaceNumberField().getText().matches("[0-9]+") && formPanel.getPlaceNumberField().getText().length() > 0)
+			else if (!formPanel.getPlaceNumberField().getText().matches("[0-9]+") || !(formPanel.getPlaceNumberField().getText().length() > 0))
 			{
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le numéro de rue est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			else if (!formPanel.getPlacePostalCodeField().getText().matches("[0-9]+") && formPanel.getPlacePostalCodeField().getText().length() > 0)
+			else if (!formPanel.getPlacePostalCodeField().getText().matches("[0-9]+") || !(formPanel.getPlacePostalCodeField().getText().length() > 0))
 			{
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le code postal est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
@@ -61,9 +61,9 @@ public class ActionValidate extends javax.swing.AbstractAction {
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "La longitude n'est pas valide ! (Nombre ou vide)", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			else if (!formPanel.getPriceField().getText().matches("[0-9]+") && formPanel.getPriceField().getText().length() > 0)
+			else if (!Pattern.matches(fpRegex, formPanel.getPriceField().getText()) && !formPanel.getPriceField().getText().equals(""))
 			{
-				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le prix est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le prix n'est pas valide ! (Nombre ou vide)", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 			else if (formPanel.getClubField().getText().isEmpty())
@@ -81,24 +81,33 @@ public class ActionValidate extends javax.swing.AbstractAction {
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes minimum est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			else if (!formPanel.getNumberMaxField().getText().matches("[0-9]+") || !(formPanel.getNumberMaxField().getText().length() > 0) || formPanel.getNumberMaxField().getText().isEmpty())
+			else if (!formPanel.getNumberMaxField().getText().matches("[0-9]+") && !formPanel.getNumberMaxField().getText().isEmpty())
 			{
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes maximum est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			else if (Integer.parseInt(formPanel.getNumberMaxField().getText()) - Integer.parseInt(formPanel.getNumberMinField().getText()) < 0)
-			{
-				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes minimum ne peut pas être supérieur au nombre de personnes maximum !", "Error", JOptionPane.ERROR_MESSAGE);
-				return;
+
+			if(!formPanel.getNumberMaxField().getText().isEmpty()){
+				event.setNumberMaximum(Integer.parseInt(formPanel.getNumberMaxField().getText()));
+				if (Integer.parseInt(formPanel.getNumberMaxField().getText()) - Integer.parseInt(formPanel.getNumberMinField().getText()) < 0)
+				{
+					JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes minimum ne peut pas être supérieur au nombre de personnes maximum !", "Error", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+			} else {
+				event.setNumberMaximum(0);
 			}
 
 			event.setName(formPanel.getNameField().getText());
 			event.setClubOrganiser(formPanel.getClubField().getText());
 			event.setDateBegin((Date) formPanel.getDateBeginField().getValue());
 			event.setDateEnd((Date) formPanel.getDateEndField().getValue());
-			event.setNumberMaximum(Integer.parseInt(formPanel.getNumberMaxField().getText()));
 			event.setNumberMinimum(Integer.parseInt(formPanel.getNumberMinField().getText()));
-			event.setPrice(Integer.parseInt(formPanel.getPriceField().getText()));
+			
+			if(!formPanel.getPriceField().getText().equals("")){
+				event.setPrice(Double.parseDouble(formPanel.getPriceField().getText()));
+			}
+			
 			event.setPlace(new Place(Integer.parseInt(formPanel.getPlaceNumberField().getText()), 
 				formPanel.getPlaceStreetField().getText(), 
 				formPanel.getPlaceCityField().getText(), 

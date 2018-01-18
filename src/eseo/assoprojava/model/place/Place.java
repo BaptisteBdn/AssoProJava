@@ -13,18 +13,25 @@ public class Place {
 	int number, postalCode;
 	String street, city, country, name, state;
 	GpsCoord gpsCoord;
-	
+
 	/**
 	 * Create an empty object
 	 */
-	public Place(){
-		number = postalCode = 0;
-		street = city = country = name = state = "unknown";
+	public Place()
+	{
+		number = 0;
+		postalCode = 49000;
+		street = "Rue du chateau";
+		city = "Ville";
+		country = "Pays";
+		name = "Nom";
+		state = "Région";
 		gpsCoord = new GpsCoord();
 	}
-	
+
 	/**
 	 * Create an object with the passed variables
+	 * 
 	 * @param number
 	 * @param street
 	 * @param city
@@ -33,7 +40,8 @@ public class Place {
 	 * @param gpsCoord
 	 * @param name
 	 */
-	public Place(int number, String street, String city, String state, String country, int postalCode, GpsCoord gpsCoord, String name){
+	public Place(int number, String street, String city, String state, String country, int postalCode, GpsCoord gpsCoord, String name)
+	{
 		setNumber(number);
 		setStreet(street);
 		setCity(city);
@@ -43,78 +51,96 @@ public class Place {
 		setGpsCoord(gpsCoord);
 		setName(name);
 	}
-	
+
 	@Override
 	/**
 	 * Returns a string representation of the place
+	 * 
 	 * @return String str
 	 */
-	public String toString() {
-		return name + " at " + number + " " + street + ", " + city + ", " + state + ", " + country + ", " + postalCode + " (" + gpsCoord +")";
-		
+	public String toString()
+	{
+		return name + " at " + number + " " + street + ", " + city + ", " + state + ", " + country + ", " + postalCode + " (" + gpsCoord + ")";
+
 	}
-	
-	public int getNumber() {
+
+	public int getNumber()
+	{
 		return number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber(int number)
+	{
 		this.number = number;
 	}
 
-	public int getPostalCode() {
+	public int getPostalCode()
+	{
 		return postalCode;
 	}
 
-	public void setPostalCode(int postalCode) {
+	public void setPostalCode(int postalCode)
+	{
 		this.postalCode = postalCode;
 	}
 
-	public String getStreet() {
+	public String getStreet()
+	{
 		return street;
 	}
 
-	public void setStreet(String street) {
+	public void setStreet(String street)
+	{
 		this.street = street;
 	}
 
-	public String getCity() {
+	public String getCity()
+	{
 		return city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(String city)
+	{
 		this.city = city;
 	}
 
-	public String getCountry() {
+	public String getCountry()
+	{
 		return country;
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(String country)
+	{
 		this.country = country;
 	}
-	
-	public String getState() {
+
+	public String getState()
+	{
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(String state)
+	{
 		this.state = state;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public GpsCoord getGpsCoord() {
+	public GpsCoord getGpsCoord()
+	{
 		return gpsCoord;
 	}
 
-	public void setGpsCoord(GpsCoord gpsCoord) {
+	public void setGpsCoord(GpsCoord gpsCoord)
+	{
 		this.gpsCoord = gpsCoord;
 	}
 }

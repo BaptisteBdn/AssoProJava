@@ -61,6 +61,7 @@ public class FormPanel extends JPanel {
 		if(event == null){
 			event = new Event();
 		}
+		
 		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		this.setBackground(color);
 		
@@ -78,28 +79,28 @@ public class FormPanel extends JPanel {
 		add(createPane("Nom", nameField), gbc);
 		gbc.gridy++;
 		
-		descriptionField = new JTextArea();
+		descriptionField = new JTextArea(event.getDescription());
 		add(createPane("Description", descriptionField), gbc);
 		gbc.gridy++;
 		
-		placeNumberField = new JTextField();
-		placeStreetField = new JTextField();
-		placeNameField = new JTextField();
-		placePostalCodeField = new JTextField();
-		placeCityField = new JTextField();
-		placeCountryField = new JTextField();
-		placeStateField = new JTextField();
-		placeGPSLatField = new JTextField();
-		placeGPSLongField = new JTextField();
+		placeNumberField = new JTextField(String.valueOf(event.getPlace().getNumber()));
+		placeStreetField = new JTextField(event.getPlace().getStreet());
+		placeNameField = new JTextField(event.getPlace().getName());
+		placePostalCodeField = new JTextField(String.valueOf(event.getPlace().getPostalCode()));
+		placeCityField = new JTextField(event.getPlace().getCity());
+		placeCountryField = new JTextField(event.getPlace().getCountry());
+		placeStateField = new JTextField(event.getPlace().getState());
+		placeGPSLatField = new JTextField(String.valueOf(event.getPlace().getGpsCoord().getLatitudeDegree()));
+		placeGPSLongField = new JTextField(String.valueOf(event.getPlace().getGpsCoord().getLongitudeDegree()));
 
 		add(createPlacePane("Lieu", placeNumberField, placeStreetField, placeNameField, placePostalCodeField, placeCityField, placeCountryField, placeStateField, placeGPSLatField,placeGPSLongField), gbc);
 		gbc.gridy++;
 		
-		priceField = new JTextField();
+		priceField = new JTextField(String.valueOf(event.getPrice()));
 		add(createPane("Prix", priceField), gbc);
 		gbc.gridy++;
 		
-		clubField = new JTextField();
+		clubField = new JTextField(event.getClubOrganiser());
 		add(createPane("Club", clubField), gbc);
 		gbc.gridy++;
 

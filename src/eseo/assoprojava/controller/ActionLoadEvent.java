@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -45,6 +46,8 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 	private void loadEvent()
 	{
 		JFileChooser dialogue = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML File", "xml");
+		dialogue.setFileFilter(filter);
 		dialogue.showOpenDialog(null);
 
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -52,12 +55,11 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 		Place place = new Place();
 		Activity activity = new Activity();
 		Organiser organiser = new Organiser();
-		SimpleDateFormat dateFormat = new SimpleDateFormat();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
 		try
 		{
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			// File fileXML = new File(fileName+".xml");
 			File fileXML = dialogue.getSelectedFile();
 
 			Document xml = builder.parse(fileXML);
@@ -69,6 +71,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 			event.setPrice(Double.parseDouble(root.getAttribute("price")));
 			event.setDateBegin(dateFormat.parse(root.getAttribute("dateBegin")));
 			event.setDateEnd(dateFormat.parse(root.getAttribute("dateEnd")));
+			event.setDescription(root.getAttribute("description"));
 
 			NodeList rootNodes = root.getChildNodes();
 			int nbRootNode = rootNodes.getLength();
@@ -95,6 +98,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 								place.setGpsCoord(new GpsCoord(Double.parseDouble(gpsElement.getAttribute("latitude")), Double.parseDouble(gpsElement.getAttribute("longitude"))));
 							}
 						}
+						System.out.println(place);
 						event.setPlace(place);
 					}
 					if (childElement.getNodeName() == "Activities")

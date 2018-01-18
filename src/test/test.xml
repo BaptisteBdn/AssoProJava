@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding="UTF-8" ?>
+<Event name='Soiree BDE' clubOrganiser='BDE' numberMaximum='100' numberMinimum='0' price='2' dateBegin='07/10/1996 14:15' dateEnd='07/11/96 4:5 PM, PDT' description="divers">
+	<Place number='6' street='rue Bodinier' city='Angers' country='France' postalCode='49100' name='Chez Soso'>
+		<GpsCoord latitude='0.0' longitude='0.0'/>
+	</Place>
+	<Activities>
+		<Activity name='sudoku' numberMaximum='15' numberMinimum='1' price='0' dateBegin='07/10/1996 14:15' dateEnd='07/10/1996 15:15' description="Venez c'est genial">
+			<Organiser firstName='Sophie' lastName='Merceron' club='BDE' role='Presidente'/>
+		</Activity>
+		<Activity name='belote' numberMaximum='32' numberMinimum='4' price='5' dateBegin='07/11/1996 14:15' dateEnd='07/11/1996 15:15' description='Rebelote'>
+			<Organiser firstName='Lucien' lastName='Christian' club='BDE' role='Fou du roi'/>
+		</Activity>
+	</Activities>
+</Event>
