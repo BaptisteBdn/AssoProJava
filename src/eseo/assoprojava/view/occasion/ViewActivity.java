@@ -37,8 +37,9 @@ public class ViewActivity {
         
         JLabel title = new JLabel("Activitée(s)");
         title.setFont(MainWindow.TITLE_FONT);
+        
         mainPanel.add(title, mgbc);
-	    
+        mgbc.gridy++;
         for(int i = 0; i < activities.size(); i++) {
         	GridBagConstraints gbc = new GridBagConstraints();
         	gbc.gridx = 0;
@@ -61,7 +62,7 @@ public class ViewActivity {
     	    gbc.gridy++;
     	    panel.add(createPane("Par",createLabel(activity.getOrganiser().getFirstName() + " " + activity.getOrganiser().getLastName())),gbc);
     	    gbc.gridy++;
-    	    panel.add(createPane("Prix",createLabel(activity.getPrice() + "")),gbc);
+    	    panel.add(createPane("Prix",createLabel(activity.getPrice() + " €")),gbc);
     	    gbc.gridy++;
     	    
     	    mainPanel.add(panel,mgbc);

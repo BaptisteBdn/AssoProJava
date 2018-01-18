@@ -36,6 +36,7 @@ public class MainWindow extends JFrame {
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // TODO Get confirm ?
+		
 		this.pack();
 	}
 
