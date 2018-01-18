@@ -77,7 +77,7 @@ public class ViewActivity {
     	    JButton modifyButton = new JButton("Modifier");
     	    modifyButton.addActionListener(new ActionModifyActivity(activity));
     	    JButton deleteButton = new JButton("Supprimer");
-    	    modifyButton.addActionListener(new ActionDeleteActivity(activity));
+    	    deleteButton.addActionListener(new ActionDeleteActivity(activity));
     	    
     	    modifyButton.setForeground(Color.BLACK);
     	    modifyButton.setBackground(Color.LIGHT_GRAY);
