@@ -6,6 +6,11 @@ import eseo.assoprojava.view.ui.FormWindow;
 
 public class ActionCreateActivity extends javax.swing.AbstractAction  {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ActionCreateActivity(){
 		super();
 	}

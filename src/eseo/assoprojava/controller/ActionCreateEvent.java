@@ -7,6 +7,11 @@ import eseo.assoprojava.view.ui.MainWindow;
 
 public class ActionCreateEvent extends javax.swing.AbstractAction {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ActionCreateEvent(){
 		super();
 	}

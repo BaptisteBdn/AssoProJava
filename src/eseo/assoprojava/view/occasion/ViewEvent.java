@@ -48,9 +48,9 @@ public class ViewEvent {
 		coordPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		
 
-		mainPlacePanel.add(placePanel,BorderLayout.WEST);
+		mainPlacePanel.add(placePanel,BorderLayout.LINE_START);
 		mainPlacePanel.add(tabulationPanel,BorderLayout.CENTER);
-		mainPlacePanel.add(coordPanel,BorderLayout.EAST);
+		mainPlacePanel.add(coordPanel,BorderLayout.LINE_END);
 		
 		mainEventPanel.add(eventPanel,BorderLayout.WEST);		
 		mainEventPanel.add(mainPlacePanel,BorderLayout.EAST);
@@ -92,7 +92,11 @@ public class ViewEvent {
         gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
         
+        JLabel title = new JLabel("Evenement");
+        title.setFont(MainWindow.TITLE_FONT);
         
+        panel.add(title, gbc);
+        gbc.gridy++;
 	    panel.add(createPane("Nom",createLabel(event.getName() + "")),gbc);
 	    gbc.gridy++;
 	    panel.add(createPane("Date",createLabel(event.getDateBegin() + " jusqu'a " + event.getDateEnd())),gbc);
@@ -101,8 +105,18 @@ public class ViewEvent {
 	    gbc.gridy++;
 	    panel.add(createPane("Club",createLabel(event.getClubOrganiser() + "")),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("Prix",createLabel(event.getPrice() + "")),gbc);
-	    gbc.gridy++;
+	    panel.add(createPane("Prix",createLabel(event.getPrice() + " €")),gbc);
+	    
+	    gbc.gridy = 1;
+	    gbc.gridx++;
+	    
+	    JLabel titleDesc = new JLabel("Decription");
+	    titleDesc.setFont(MainWindow.TITLE_FONT);
+        
+        panel.add(titleDesc, gbc);
+        gbc.gridy++;
+        
+        panel.add(createLabel(event.getDescription() + ""),gbc);
 	    
 	}
 	

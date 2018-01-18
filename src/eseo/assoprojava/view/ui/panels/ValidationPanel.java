@@ -17,6 +17,10 @@ import eseo.assoprojava.controller.ActionValidate;
 
 public class ValidationPanel extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton buttonValidate = new JButton("Valider");
 	private JButton buttonCancel = new JButton("Annuler");
 	
