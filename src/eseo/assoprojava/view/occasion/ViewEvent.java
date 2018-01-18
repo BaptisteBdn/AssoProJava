@@ -94,6 +94,11 @@ public class ViewEvent {
         gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
         
+        JLabel title = new JLabel("Evenement");
+        title.setFont(MainWindow.TITLE_FONT);
+        panel.add(title, gbc);
+        gbc.gridy++;
+        gbc.gridy++;
         
 	    panel.add(createPane("Nom",createLabel(event.getName() + "")),gbc);
 	    gbc.gridy++;
@@ -104,7 +109,9 @@ public class ViewEvent {
 	    panel.add(createPane("Club",createLabel(event.getClubOrganiser() + "")),gbc);
 	    gbc.gridy++;
 	    panel.add(createPane("Prix",createLabel(event.getPrice() + "")),gbc);
-	    gbc.gridy++;
+	    gbc.gridy = 0;
+	    gbc.gridx++;
+	    panel.add(createPane("Description",createLabel(event.getDescription() + "")),gbc);
 	    
 	}
 	

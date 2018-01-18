@@ -32,6 +32,10 @@ public void show(JPanel panel) {
         gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
         
+        JLabel title = new JLabel("Lieu");
+        title.setFont(MainWindow.TITLE_FONT);
+        panel.add(title, gbc);
+        
 	    panel.add(createPane("Nom",createLabel(place.getName() + "")),gbc);
 	    gbc.gridy++;
 	    panel.add(createPane("A",createLabel(place.getNumber() + " " + place.getStreet() + ", " + place.getCity() + ", " + place.getState() + ", " + place.getCountry() + ", " + place.getPostalCode())),gbc);

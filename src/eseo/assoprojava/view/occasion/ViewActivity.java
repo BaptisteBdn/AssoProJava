@@ -34,6 +34,10 @@ public class ViewActivity {
         mgbc.fill = GridBagConstraints.HORIZONTAL;
         mgbc.insets = new Insets(4, 4, 4, 4);
         mgbc.anchor = GridBagConstraints.WEST;
+        
+        JLabel title = new JLabel("Activitée(s)");
+        title.setFont(MainWindow.TITLE_FONT);
+        mainPanel.add(title, mgbc);
 	    
         for(int i = 0; i < activities.size(); i++) {
         	GridBagConstraints gbc = new GridBagConstraints();

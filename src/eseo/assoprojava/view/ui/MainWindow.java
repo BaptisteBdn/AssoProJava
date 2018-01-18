@@ -19,6 +19,7 @@ import eseo.assoprojava.view.ui.panels.WorkPanel;
 public class MainWindow extends JFrame {
 	public static final String DEFAUT_TITLE = "AssoPro";
 	public static final Font DEFAUT_FONT = new Font("Arial", Font.PLAIN, 14);
+	public static final Font TITLE_FONT = new Font("Arial", Font.BOLD, 16);
 	private static MainWindow mainWindow;
 	private static FormWindow currentFormWindow;
 	private WorkPanel workPanel;
