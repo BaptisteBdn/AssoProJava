@@ -20,11 +20,6 @@ import javax.swing.JSpinner.DateEditor;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 
-import org.jdatepicker.JDatePicker;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
-
 public class FormPanel extends JPanel {
 	public static final int DEFAULT_WIDTH = 400;
 	public static final int DEFAULT_HEIGHT = 500;
