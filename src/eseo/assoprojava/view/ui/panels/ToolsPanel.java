@@ -16,7 +16,7 @@ import javax.swing.border.LineBorder;
 import eseo.assoprojava.controller.ActionCreateActivity;
 import eseo.assoprojava.controller.ActionCreateEvent;
 import eseo.assoprojava.controller.ActionLoadEvent;
-import eseo.assoprojava.controller.ActionModifiyActivity;
+import eseo.assoprojava.controller.ActionModifyEvent;
 import eseo.assoprojava.controller.ActionSaveEvent;
 
 /**
@@ -42,7 +42,7 @@ public class ToolsPanel extends JPanel {
 		createButton("Nouveau", new ActionCreateEvent());
 		createButton("Ouvrir", new ActionLoadEvent() );
 		createButton("Sauvegarder", new ActionSaveEvent() );
-		createButton("Modifier", new ActionModifiyActivity() );
+		createButton("Modifier l'Evenement", new ActionModifyEvent() );
 		createButton("Créer une activité", new ActionCreateActivity() );
 	}
 	

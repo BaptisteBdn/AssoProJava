@@ -11,6 +11,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import eseo.assoprojava.controller.ActionDeleteActivity;
+import eseo.assoprojava.controller.ActionModifyActivity;
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.view.ui.MainWindow;
 
@@ -72,7 +75,9 @@ public class ViewActivity {
     	    
     	    
     	    JButton modifyButton = new JButton("Modifier");
+    	    modifyButton.addActionListener(new ActionModifyActivity(activity));
     	    JButton deleteButton = new JButton("Supprimer");
+    	    modifyButton.addActionListener(new ActionDeleteActivity(activity));
     	    
     	    modifyButton.setForeground(Color.BLACK);
     	    modifyButton.setBackground(Color.LIGHT_GRAY);
