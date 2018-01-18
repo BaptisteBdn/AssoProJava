@@ -27,6 +27,11 @@ import eseo.assoprojava.controller.ActionSaveEvent;
 
 public class ToolsPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ToolsPanel(){
 		this.setLayout(new GridLayout(1, 4));
 		this.setPreferredSize(new Dimension(100, 30));

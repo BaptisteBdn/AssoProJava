@@ -1,6 +1,5 @@
 package test.view;
 
-import eseo.assoprojava.view.ui.FormWindow;
 import eseo.assoprojava.view.ui.MainWindow;
 
 public class TestWindow {

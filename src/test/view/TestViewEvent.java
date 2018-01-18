@@ -3,8 +3,6 @@ package test.view;
 import java.util.Date;
 import java.util.List;
 
-import javax.swing.JFrame;
-
 import java.util.ArrayList;
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;

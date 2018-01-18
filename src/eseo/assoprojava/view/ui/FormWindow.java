@@ -2,9 +2,6 @@ package eseo.assoprojava.view.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -13,9 +10,12 @@ import eseo.assoprojava.view.ui.panels.FormPanel;
 import eseo.assoprojava.view.ui.panels.ValidationPanel;
 
 public class FormWindow extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String title = "Événement";
 	private JPanel container;
-	private FormWindow formWindow;
 	private boolean isEvent;
 	private ValidationPanel validationPanel;
 	private FormPanel formPanel;

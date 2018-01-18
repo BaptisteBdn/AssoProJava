@@ -4,6 +4,11 @@ import java.awt.event.ActionEvent;
 
 public class ActionModifiyActivity extends javax.swing.AbstractAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ActionModifiyActivity()
 	{
 		super();

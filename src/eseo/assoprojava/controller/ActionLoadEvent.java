@@ -4,6 +4,10 @@ import java.awt.event.ActionEvent;
 
 public class ActionLoadEvent extends javax.swing.AbstractAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public ActionLoadEvent()
 	{
 		super();

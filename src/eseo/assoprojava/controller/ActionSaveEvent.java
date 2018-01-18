@@ -26,6 +26,11 @@ import org.w3c.dom.Element;
 
 public class ActionSaveEvent extends javax.swing.AbstractAction {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ActionSaveEvent()
 	{
 		super();
