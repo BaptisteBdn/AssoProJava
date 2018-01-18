@@ -18,6 +18,7 @@ public class Event extends Occasion {
 	private Place place;
 	private String clubOrganiser;
 	private List<Activity> activities;
+	private String description;
 	
 	/**
 	 * Create a basic object
@@ -27,6 +28,7 @@ public class Event extends Occasion {
 		this.place = new Place();
 		this.clubOrganiser = "Unknown";
 		this.activities = new ArrayList<Activity> ();
+		this.description = "description";
 	}
 	
 	/**
@@ -40,13 +42,14 @@ public class Event extends Occasion {
 	 * @param clubOrganiser
 	 * @param price
 	 * @param activities
+	 * @param description
 	 */
-	public Event(Place place, Date dateBegin, Date dateEnd, String name, int numberMinimum, int numberMaximum, String clubOrganiser, double price, List<Activity> activities) {
+	public Event(Place place, Date dateBegin, Date dateEnd, String name, int numberMinimum, int numberMaximum, String clubOrganiser, double price, List<Activity> activities, String description) {
 		super(dateBegin, dateEnd, name, numberMinimum, numberMaximum, price);
 		this.place = place;
 		this.clubOrganiser = clubOrganiser;
 		this.activities = activities;
-		
+		this.description = description;
 	}
 
 	/**
@@ -99,6 +102,14 @@ public class Event extends Occasion {
 
 	public void setActivities(List<Activity> activities) {
 		this.activities = activities;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }
