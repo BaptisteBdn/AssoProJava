@@ -9,6 +9,8 @@ import javax.swing.text.DateFormatter;
 
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
+import eseo.assoprojava.model.place.Place;
+import eseo.assoprojava.model.place.gps.GpsCoord;
 import eseo.assoprojava.view.occasion.ViewEvent;
 import eseo.assoprojava.view.ui.MainWindow;
 import eseo.assoprojava.view.ui.panels.FormPanel;
@@ -31,10 +33,18 @@ public class ActionValidate extends javax.swing.AbstractAction {
 			FormPanel formPanel = MainWindow.getCurrentFormWindow().getFormPanel();
 			event.setName(formPanel.getNameField().getText());
 			event.setClubOrganiser(formPanel.getClubField().getText());
-			DateFormatter formatter = (DateFormatter) formPanel.getDateBeginField().getTextField().getFormatter();
-			formatter.setAllowsInvalid(false); // this makes what you want
-			formatter.setOverwriteMode(true);
-			
+			event.setDateBegin((Date) formPanel.getDateBeginField().getValue());
+			event.setDateEnd((Date) formPanel.getDateEndField().getValue());
+			event.setNumberMaximum(Integer.parseInt(formPanel.getNumberMaxField().getText()));
+			event.setNumberMinimum(Integer.parseInt(formPanel.getNumberMinField().getText()));
+//			event.setPlace(new Place(Integer.parseInt(formPanel.getPlaceNumberField().getText()),
+//								 	formPanel.getPlaceStreetField().getText(),
+//								 	formPanel.getPlaceCityField().getText(), 
+//								 	formPanel.getPlaceStateField().getText(), 
+//								 	formPanel.getPlaceCountryField().getText(), 
+//								 	formPanel.getPlacePostalCodeField().getText(), 
+//								 	new GpsCoord(getPlaceGPSField().getText()), 
+//								 	formPanel.getPlaceNameField().getText()));
 			//			event.setDateBegin(formPanel.getDateBeginField().getText());
 //			event.setDateEnd(formPanel.getDateEndField().getText());
 			MainWindow.getCurrentFormWindow().setVisible(false);

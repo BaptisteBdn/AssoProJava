@@ -19,6 +19,7 @@ public class ViewEvent {
 	
 	private Event event;
 	private JPanel mainEventPanel;
+	private JScrollPane activitiesScrollPane;
 
 	
 	public ViewEvent(Event event) {
@@ -75,14 +76,11 @@ public class ViewEvent {
 		ViewActivity viewActivities = new ViewActivity(event.getActivities());
 		viewActivities.show(activitiesScrollPanel);
 		
-		JScrollPane activitiesScrollPane = new JScrollPane(activitiesScrollPanel);
+		activitiesScrollPane = new JScrollPane(activitiesScrollPanel);
 		activitiesPanel.setPreferredSize(new Dimension(450,200));
 		activitiesPanel.add(activitiesScrollPane);
 		
 		MainWindow.getInstance().getWorkPanel().add(activitiesPanel,BorderLayout.CENTER);
-		
-		
-		
 	}
 	
 	private void showEvent(JPanel panel) {
@@ -151,6 +149,11 @@ public class ViewEvent {
 	public void setEvent(Event event)
 	{
 		this.event = event;
+	}
+
+	public JScrollPane getActivitiesScrollPane()
+	{
+		return activitiesScrollPane;
 	}
 	
 }

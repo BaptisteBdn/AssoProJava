@@ -16,14 +16,8 @@ import javax.swing.JFormattedTextField.AbstractFormatter;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import javax.swing.JSpinner.DateEditor;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
-
-import org.jdatepicker.JDatePicker;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
 
 public class FormPanel extends JPanel {
 	public static final int DEFAULT_WIDTH = 400;
@@ -44,8 +38,8 @@ public class FormPanel extends JPanel {
 	private JTextField priceField;
 	private JTextField clubField;
 	
-	private DateEditor dateBeginField;
-	private DateEditor dateEndField;
+	private JSpinner dateBeginField;
+	private JSpinner dateEndField;
 
 	private JTextField numberMinField;
 	private JTextField numberMaxField;
@@ -94,18 +88,16 @@ public class FormPanel extends JPanel {
 		add(createPane("Club", clubField), gbc);
 		gbc.gridy++;
 
-		JSpinner spinnerBegin = new JSpinner( new SpinnerDateModel() );
-		dateBeginField = new JSpinner.DateEditor(spinnerBegin, "dd-MM-yyyy HH:mm:ss");
-		spinnerBegin.setValue(new Date());
-		spinnerBegin.setEditor(dateBeginField);
-		add(createPane("Date de début", spinnerBegin), gbc);
+		dateBeginField = new JSpinner( new SpinnerDateModel() );
+		JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(dateBeginField, "dd-MM-yyyy HH:mm:ss");
+		dateBeginField.setEditor(timeEditor);
+		add(createPane("Date de début", dateBeginField), gbc);
 		gbc.gridy++;
 
-		JSpinner spinnerEnd = new JSpinner( new SpinnerDateModel() );
-		dateEndField = new JSpinner.DateEditor(spinnerEnd, "dd-MM-yyyy HH:mm:ss");
-		spinnerEnd.setValue(new Date());
-		spinnerEnd.setEditor(dateEndField);
-		add(createPane("Date de fin", spinnerEnd), gbc);
+		dateEndField = new JSpinner( new SpinnerDateModel() );
+		JSpinner.DateEditor timeEditor1 = new JSpinner.DateEditor(dateEndField, "dd-MM-yyyy HH:mm:ss");
+		dateEndField.setEditor(timeEditor1);
+		add(createPane("Heure de fin", dateEndField), gbc);
 		gbc.gridy++;
 		
 		numberMinField = new JTextField("-");
@@ -133,6 +125,8 @@ public class FormPanel extends JPanel {
 		clubField.setHorizontalAlignment(JTextField.CENTER);
 		numberMaxField.setHorizontalAlignment(JTextField.CENTER);
 		numberMinField.setHorizontalAlignment(JTextField.CENTER);
+		dateBeginField.setValue(new Date());
+		dateEndField.setValue(new Date());
 	}
 
 	private Component createPlacePane(String text, JTextField jTextField, JTextField placeStreetField, JTextField placeNameField2, JTextField placePostalCodeField2, JTextField placeCityField2, JTextField placeCountryField2, JTextField placeStateField2, JTextField placeGPSField2)
@@ -256,12 +250,12 @@ public class FormPanel extends JPanel {
 		return numberMaxField;
 	}
 
-	public DateEditor getDateBeginField()
+	public JSpinner getDateBeginField()
 	{
 		return dateBeginField;
 	}
 
-	public DateEditor getDateEndField()
+	public JSpinner getDateEndField()
 	{
 		return dateEndField;
 	}
