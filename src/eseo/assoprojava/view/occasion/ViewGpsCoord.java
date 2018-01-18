@@ -35,7 +35,7 @@ public class ViewGpsCoord {
         JLabel title = new JLabel("Coordonnées GPS");
         title.setFont(MainWindow.TITLE_FONT);
         panel.add(title, gbc);
-        
+        gbc.gridy++;
 	    panel.add(createPane("Coordonnées en Degré Décimal",createLabel("(" +  gpsCoord.getLatitude() + "," + gpsCoord.getLongitude() + ")")),gbc);
 	    gbc.gridy++;
 	    panel.add(createPane("Coordonnées en DMS, Latitude",createLabel("(" + gpsCoord.getLatitudeDegree() + "°" + gpsCoord.getLatitudeMinute() + "'" + String.format("%.2f", gpsCoord.getLatitudeSecond()) + "\")")),gbc);
