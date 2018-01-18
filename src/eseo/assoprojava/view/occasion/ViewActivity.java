@@ -74,6 +74,17 @@ public class ViewActivity {
     	    panel.add(createPane("Prix",createLabel(activity.getPrice() + " €")),gbc);
     	    gbc.gridy++;
     	    
+    	    gbc.gridy = 1;
+    	    gbc.gridx++;
+    	    
+    	    JLabel titleDesc = new JLabel("Description");
+    	    titleDesc.setFont(MainWindow.TITLE_FONT);
+            
+            panel.add(titleDesc, gbc);
+            gbc.gridy++;
+            
+            panel.add(createLabel(activity.getDescription() + ""),gbc);
+    	    
     	    
     	    JButton modifyButton = new JButton("Modifier");
     	    modifyButton.addActionListener(new ActionModifyActivity(activity));
