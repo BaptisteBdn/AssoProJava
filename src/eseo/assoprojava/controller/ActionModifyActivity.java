@@ -23,7 +23,7 @@ public class ActionModifyActivity extends javax.swing.AbstractAction {
 	public void actionPerformed(ActionEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+		System.out.println("Modify");
 	}
 
 }

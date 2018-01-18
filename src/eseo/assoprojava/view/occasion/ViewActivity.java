@@ -76,6 +76,7 @@ public class ViewActivity {
     	    
     	    JButton modifyButton = new JButton("Modifier");
     	    modifyButton.addActionListener(new ActionModifyActivity(activity));
+    	    
     	    JButton deleteButton = new JButton("Supprimer");
     	    deleteButton.addActionListener(new ActionDeleteActivity(activity));
     	    

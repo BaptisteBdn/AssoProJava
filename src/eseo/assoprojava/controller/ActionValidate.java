@@ -5,22 +5,19 @@ import java.util.Date;
 import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.plaf.synth.SynthSeparatorUI;
-import javax.swing.text.DateFormatter;
 
-import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.model.place.Place;
 import eseo.assoprojava.model.place.gps.GpsCoord;
-import eseo.assoprojava.view.occasion.ViewEvent;
 import eseo.assoprojava.view.ui.MainWindow;
 import eseo.assoprojava.view.ui.panels.FormPanel;
-import eseo.assoprojava.view.ui.panels.WorkPanel;
 
 public class ActionValidate extends javax.swing.AbstractAction {
 
-	private Activity activity;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public ActionValidate()
 	{
