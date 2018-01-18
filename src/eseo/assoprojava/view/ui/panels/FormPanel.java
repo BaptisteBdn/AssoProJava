@@ -16,6 +16,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 
+import eseo.assoprojava.model.event.Event;
+
 public class FormPanel extends JPanel {
 	/**
 	 * 
@@ -24,6 +26,8 @@ public class FormPanel extends JPanel {
 	public static final int DEFAULT_WIDTH = 400;
 	public static final int DEFAULT_HEIGHT = 500;
 	public static final Color DEFAULT_COLOR = Color.WHITE;
+	
+	private Event event; 
 
 	private JTextField nameField;
 	private JTextArea descriptionField;
@@ -54,6 +58,9 @@ public class FormPanel extends JPanel {
 
 	public FormPanel(int width, int height, Color color)
 	{
+		if(event == null){
+			event = new Event();
+		}
 		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		this.setBackground(color);
 		
@@ -67,7 +74,7 @@ public class FormPanel extends JPanel {
 		gbc.anchor = GridBagConstraints.WEST;
 		
 		
-		nameField = new JTextField();
+		nameField = new JTextField(event.getName());
 		add(createPane("Nom", nameField), gbc);
 		gbc.gridy++;
 		
@@ -108,13 +115,12 @@ public class FormPanel extends JPanel {
 		add(createPane("Heure de fin", dateEndField), gbc);
 		gbc.gridy++;
 		
-		numberMinField = new JTextField();
+		numberMinField = new JTextField("");
 		add(createPane("Nombre minimum de personnes", numberMinField), gbc);
 		gbc.gridy++;
-		numberMaxField = new JTextField();
+		numberMaxField = new JTextField("");
 		add(createPane("Nombre maximum de personnes", numberMaxField), gbc);
 		gbc.gridy++;
-		
 		
 		centerTextFields();
 	}
@@ -160,31 +166,22 @@ public class FormPanel extends JPanel {
 		gbc.weightx = 1;
 		gbc.anchor = GridBagConstraints.EAST;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		jPanel.add(new JLabel("[Numéro]"), gbc);
 		jPanel.add(jTextField, gbc);
 		gbc.gridy++;
-		jPanel.add(new JLabel("[Rue]"), gbc);
 		jPanel.add(placeStreetField, gbc);
 		gbc.gridy++;
-		jPanel.add(new JLabel("[Code postal]"), gbc);
 		jPanel.add(placePostalCodeField2, gbc);
 		gbc.gridy++;
-		jPanel.add(new JLabel("[Nom]"), gbc);
 		jPanel.add(placeNameField2, gbc);
 		gbc.gridy++;
-		jPanel.add(new JLabel("[Ville]"), gbc);
 		jPanel.add(placeCityField2, gbc);
 		gbc.gridy++;
-		jPanel.add(new JLabel("[France]"), gbc);
 		jPanel.add(placeCountryField2, gbc);
 		gbc.gridy++;
-		jPanel.add(new JLabel("[Région]"), gbc);
 		jPanel.add(placeStateField2, gbc);
 		gbc.gridy++;
-		jPanel.add(new JLabel("[Latitude]"), gbc);
 		jPanel.add(placeGPSField2, gbc);
 		gbc.gridy++;
-		jPanel.add(new JLabel("[Numéro]"), gbc);
 		jPanel.add(placeGPSLongField2, gbc);
 		return jPanel;
 	}
@@ -293,5 +290,15 @@ public class FormPanel extends JPanel {
 	public JTextArea getDescriptionField()
 	{
 		return descriptionField;
+	}
+
+	public Event getEvent()
+	{
+		return event;
+	}
+
+	public void setEvent(Event event)
+	{
+		this.event = event;
 	}
 }
