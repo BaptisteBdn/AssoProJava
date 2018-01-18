@@ -2,7 +2,6 @@ package eseo.assoprojava.view.occasion;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -83,6 +82,7 @@ public class ViewEvent {
 		MainWindow.getInstance().getWorkPanel().add(activitiesPanel,BorderLayout.CENTER);
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void showEvent(JPanel panel) {
 		GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -92,14 +92,14 @@ public class ViewEvent {
         gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
         
-        JLabel title = new JLabel("Evenement");
+        JLabel title = new JLabel("Événement");
         title.setFont(MainWindow.TITLE_FONT);
         
         panel.add(title, gbc);
         gbc.gridy++;
 	    panel.add(createPane("Nom",createLabel(event.getName() + "")),gbc);
 	    gbc.gridy++;
-	    panel.add(createPane("Date",createLabel(event.getDateBegin() + " jusqu'a " + event.getDateEnd())),gbc);
+	    panel.add(createPane("Date",createLabel(event.getDateBegin().toLocaleString() + " jusqu'au " + event.getDateEnd().toLocaleString())),gbc);
 	    gbc.gridy++;
 	    panel.add(createPane("Nombre de participants",createLabel(event.getNumberMinimum() + " à " + event.getNumberMaximum())),gbc);
 	    gbc.gridy++;

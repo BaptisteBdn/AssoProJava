@@ -28,6 +28,7 @@ public class ViewActivity {
 		return activities;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void show(JPanel mainPanel) {
 	    
 	    GridBagConstraints mgbc = new GridBagConstraints();
@@ -64,7 +65,7 @@ public class ViewActivity {
         	Activity activity = activities.get(i);
         	panel.add(createPane("Nom",createLabel(activity.getName() + "")),gbc);
     	    gbc.gridy++;
-    	    panel.add(createPane("Date",createLabel(activity.getDateBegin() + " jusqu'a " + activity.getDateEnd())),gbc);
+    	    panel.add(createPane("Date",createLabel(activity.getDateBegin().toLocaleString() + " jusqu'au " + activity.getDateEnd().toLocaleString())),gbc);
     	    gbc.gridy++;
     	    panel.add(createPane("Nombre de participants",createLabel(activity.getNumberMinimum() + " à " + activity.getNumberMaximum())),gbc);
     	    gbc.gridy++;
