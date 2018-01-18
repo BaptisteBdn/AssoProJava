@@ -74,17 +74,17 @@ public class ActionValidate extends javax.swing.AbstractAction {
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nom du club ne peut pas être vide !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			else if (((Date) formPanel.getDateEndField().getValue()).after((Date) formPanel.getDateBeginField().getValue()))
+			else if (!((Date) formPanel.getDateEndField().getValue()).after((Date) formPanel.getDateBeginField().getValue()))
 			{
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "La date de fin ne doit pas être inférieur (ou égal) à la date de début !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			else if (!formPanel.getNumberMinField().getText().matches("[0-9]+") && formPanel.getNumberMinField().getText().length() > 0)
+			else if (!formPanel.getNumberMinField().getText().matches("[0-9]+") || !(formPanel.getNumberMinField().getText().length() > 0) || formPanel.getNumberMinField().getText().isEmpty())
 			{
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes minimum est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			else if (!formPanel.getNumberMaxField().getText().matches("[0-9]+") && formPanel.getNumberMaxField().getText().length() > 0)
+			else if (!formPanel.getNumberMaxField().getText().matches("[0-9]+") || !(formPanel.getNumberMaxField().getText().length() > 0) || formPanel.getNumberMaxField().getText().isEmpty())
 			{
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes maximum est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
@@ -122,8 +122,6 @@ public class ActionValidate extends javax.swing.AbstractAction {
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesScrollPane().setVisible(true);
 		}
-
-		// TODO POPUP INCORECCT VALUE : DATE END
 	}
 
 	final String Digits = "(\\p{Digit}+)";
