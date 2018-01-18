@@ -20,6 +20,7 @@ public class ActionCreateEvent extends javax.swing.AbstractAction {
 	public void actionPerformed(ActionEvent e)
 	{
 		FormWindow formWindow = new FormWindow(true,"Événement",null);
+		formWindow.getFormPanel().setCreating(true);
 		MainWindow.setCurrentFormWindow(formWindow);
 		formWindow.pack();
 		formWindow.setVisible(true);

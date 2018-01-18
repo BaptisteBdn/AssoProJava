@@ -23,6 +23,7 @@ public class ActionModifyEvent extends javax.swing.AbstractAction {
 	{
 		Event event = MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent();
 		FormWindow formWindow = new FormWindow(true,"Événement",event);
+		formWindow.getFormPanel().setCreating(false);
 		formWindow.getFormPanel().setEvent(event);
 		MainWindow.setCurrentFormWindow(formWindow);
 		formWindow.pack();

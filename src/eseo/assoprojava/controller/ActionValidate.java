@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
+import eseo.assoprojava.model.organiser.Organiser;
 import eseo.assoprojava.model.place.Place;
 import eseo.assoprojava.model.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
@@ -121,11 +122,16 @@ public class ActionValidate extends javax.swing.AbstractAction {
 				new GpsCoord(),
 				formPanel.getPlaceNameField().getText()));
 			event.setDescription(formPanel.getDescriptionField().getText());
+			
 			if(!formPanel.getPlaceGPSLatField().getText().equals("") && !formPanel.getPlaceGPSLongField().getText().equals("")){
 				event.getPlace().setGpsCoord(new GpsCoord(Double.parseDouble(formPanel.getPlaceGPSLatField().getText()),Double.parseDouble(formPanel.getPlaceGPSLongField().getText())));
 			}
 			
-			event.setActivities(MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent().getActivities());
+			if(!MainWindow.getCurrentFormWindow().getFormPanel().isCreating()){
+				event.setActivities(MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent().getActivities());
+			} else {
+				MainWindow.getInstance().getWorkPanel().init();
+			}
 			
 			MainWindow.getCurrentFormWindow().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
@@ -178,6 +184,7 @@ public class ActionValidate extends javax.swing.AbstractAction {
 			activity.setDateBegin((Date) f.getDateBeginField().getValue());
 			activity.setDateEnd((Date) f.getDateEndField().getValue());
 			activity.setDescription(f.getDescriptionField().getText());
+			activity.setOrganiser(new Organiser(f.getOrganiserFirstField().getText(), f.getOrganiserLastField().getText(), f.getOrganiserClubField().getText(), f.getOrganiserRoleField().getText()));
 			
 			if(!f.getPriceField().getText().equals("")){
 				activity.setPrice(Double.parseDouble(f.getPriceField().getText()));

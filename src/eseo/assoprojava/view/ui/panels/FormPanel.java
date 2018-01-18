@@ -37,6 +37,7 @@ public class FormPanel extends JPanel {
 	public static final Color DEFAULT_COLOR = Color.WHITE;
 
 	private Event event;
+	private boolean isCreating;
 
 	private JTextField nameField;
 	private JTextArea descriptionField;
@@ -342,5 +343,15 @@ public class FormPanel extends JPanel {
 	public void setEvent(Event event)
 	{
 		this.event = event;
+	}
+
+	public boolean isCreating()
+	{
+		return isCreating;
+	}
+
+	public void setCreating(boolean isCreating)
+	{
+		this.isCreating = isCreating;
 	}
 }

@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+
+import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.view.occasion.ViewEvent;
 
 /**
@@ -30,7 +32,11 @@ public class WorkPanel extends JPanel{
 		this.setLayout(new BorderLayout());
 		this.setPreferredSize(new Dimension(height, width));
 		this.setBackground(color);
-		this.setViewEvent(null);
+	}
+	
+	public void init(){
+		this.viewEvent = new ViewEvent(new Event());
+		this.viewEvent.show();
 	}
 
 	public ViewEvent getViewEvent()

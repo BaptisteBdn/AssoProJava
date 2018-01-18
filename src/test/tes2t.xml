@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Event clubOrganiser="Alchoolo Eseo" dateBegin="01/05/1997 21:30" dateEnd="18/01/2018 23:44" description="Une grossse soirée de folie2" name="Grosse chouille" numberMaximum="100" numberMinimum="0" price="30.5">
+  <Place city="Angers" country="France" name="Bar du samedi" number="12" postalCode="49100" state="France" street="rue crépon">
+    <GpsCoord east="false" latitude="65.21" latitudeDegree="65" latitudeMinute="12" latitudeSecond="35.99999999997745" longitude="-56.23" longitudeDegree="56" longitudeMinute="13" longitudeSecond="47.99999999998872" north="true"/>
+  </Place>
+  <Activities>
+    <Activity dateBegin="18/01/2018 23:44" dateEnd="19/01/2018 23:44" description="Le but est de boire" name="Boire" numberMaximum="20" numberMinimum="0" price="2.5">
+      <Organiser club="Alchoolo Eseo" firstName="Calvin2" lastName="Ageneau" role="Chef"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 23:44" dateEnd="18/01/2018 23:44" description="Le but est de jouer" name="Jouer" numberMaximum="60" numberMinimum="20" price="3.2">
+      <Organiser club="Alchoolo Eseo" firstName="Calvin" lastName="Ageneau" role="Chef"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 23:44" dateEnd="18/01/2018 23:44" description="Le but est de jouer" name="Jouer" numberMaximum="60" numberMinimum="20" price="3.2">
+      <Organiser club="Alchoolo Eseo" firstName="Calvin" lastName="Ageneau" role="Chef"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 23:44" dateEnd="18/01/2018 23:44" description="Le but est de jouer" name="Jouer" numberMaximum="60" numberMinimum="20" price="3.2">
+      <Organiser club="Alchoolo Eseo" firstName="Calvin" lastName="Ageneau" role="Chef"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 23:44" dateEnd="18/01/2018 23:44" description="Le but est de jouer" name="Jouer" numberMaximum="60" numberMinimum="20" price="3.2">
+      <Organiser club="Alchoolo Eseo" firstName="Calvin" lastName="Ageneau" role="Chef"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 23:44" dateEnd="18/01/2018 23:44" description="Le but est de jouer" name="Jouer" numberMaximum="60" numberMinimum="20" price="3.2">
+      <Organiser club="Alchoolo Eseo" firstName="Calvin" lastName="Ageneau" role="Chef"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 23:45" dateEnd="19/01/2018 23:45" description="Description" name="unknown" numberMaximum="0" numberMinimum="0" price="0.0">
+      <Organiser club="22Club" firstName="2222" lastName="N222" role="22"/>
+    </Activity>
+  </Activities>
+</Event>
