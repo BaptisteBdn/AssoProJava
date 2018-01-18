@@ -1,8 +1,10 @@
 package eseo.assoprojava.controller;
 
 import java.awt.event.ActionEvent;
+import java.util.List;
 
 import eseo.assoprojava.model.activity.Activity;
+import eseo.assoprojava.view.ui.MainWindow;
 
 public class ActionDeleteActivity extends javax.swing.AbstractAction {
 
@@ -22,8 +24,22 @@ public class ActionDeleteActivity extends javax.swing.AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		// TODO Auto-generated method stub
 		
+		// TODO Auto-generated method stub
+		List<Activity> listActivities = MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent().getActivities();
+		
+		System.out.println(listActivities);
+		
+		listActivities.remove(activity);
+		
+		System.out.println(listActivities);
+
+		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
+		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesScrollPane().setVisible(false);
+		MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent().setActivities(listActivities);
+		MainWindow.getInstance().getWorkPanel().getViewEvent().show();
+		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
+		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesScrollPane().setVisible(true);
 	}
 
 }
