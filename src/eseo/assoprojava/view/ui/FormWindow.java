@@ -5,6 +5,8 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import eseo.assoprojava.model.Occasion;
+import eseo.assoprojava.model.organiser.Organiser;
 import eseo.assoprojava.view.ui.panels.FormActivityPanel;
 import eseo.assoprojava.view.ui.panels.FormPanel;
 import eseo.assoprojava.view.ui.panels.ValidationPanel;
@@ -21,17 +23,17 @@ public class FormWindow extends JFrame{
 	private FormPanel formPanel;
 	private FormActivityPanel formActivityPanel;
 	
-	public FormWindow(boolean isEvent, String title){
+	public FormWindow(boolean isEvent, String title, Occasion occasion){
 		this.isEvent = isEvent;
 		this.title = title;
 		container = new JPanel();
 	    container.setBackground(Color.white);
 	    container.setLayout(new BorderLayout());
 	    if(isEvent){
-		    this.formPanel = new FormPanel();
+		    this.formPanel = new FormPanel(occasion);
 		    container.add(this.formPanel, BorderLayout.CENTER);
 	    } else {
-		    this.formActivityPanel = new FormActivityPanel();
+		    this.formActivityPanel = new FormActivityPanel(occasion);
 		    container.add(this.formActivityPanel, BorderLayout.CENTER);
 	    }
 	    this.validationPanel = new ValidationPanel();
@@ -56,6 +58,11 @@ public class FormWindow extends JFrame{
 	public boolean isEvent()
 	{
 		return isEvent;
+	}
+
+	public FormActivityPanel getFormActivityPanel()
+	{
+		return formActivityPanel;
 	}
 	
 	

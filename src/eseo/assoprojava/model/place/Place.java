@@ -20,8 +20,8 @@ public class Place {
 	public Place()
 	{
 		number = 0;
-		postalCode = 49000;
-		street = "Rue du chateau";
+		postalCode = 0;
+		street = "Rue";
 		city = "Ville";
 		country = "Pays";
 		name = "Nom";

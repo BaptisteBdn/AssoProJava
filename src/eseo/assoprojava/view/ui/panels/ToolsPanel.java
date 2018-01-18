@@ -42,7 +42,7 @@ public class ToolsPanel extends JPanel {
 		createButton("Nouveau", new ActionCreateEvent());
 		createButton("Ouvrir", new ActionLoadEvent() );
 		createButton("Sauvegarder", new ActionSaveEvent() );
-		createButton("Modifier l'Evenement", new ActionModifyEvent() );
+		createButton("Modifier l'Événement", new ActionModifyEvent() );
 		createButton("Créer une activité", new ActionCreateActivity() );
 	}
 	

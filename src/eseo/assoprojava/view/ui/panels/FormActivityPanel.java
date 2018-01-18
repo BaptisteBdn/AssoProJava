@@ -14,6 +14,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 
+import eseo.assoprojava.model.Occasion;
+import eseo.assoprojava.model.activity.Activity;
+import eseo.assoprojava.model.event.Event;
+
 public class FormActivityPanel extends JPanel {
 	/**
 	 * 
@@ -22,6 +26,10 @@ public class FormActivityPanel extends JPanel {
 	public static final int DEFAULT_WIDTH = 400;
 	public static final int DEFAULT_HEIGHT = 400;
 	public static final Color DEFAULT_COLOR = Color.WHITE;
+	
+	private Activity activity;
+	private boolean isCreating;
+	
 	private JTextField nameField;
 	private JTextField priceField;
 	private JSpinner dateBeginField;
@@ -35,13 +43,22 @@ public class FormActivityPanel extends JPanel {
 	private JTextField organiserClubField;
 	private JTextField organiserRoleField;
 
-	public FormActivityPanel()
+	public FormActivityPanel(Occasion occasion)
 	{
-		this(DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_COLOR);
+		this(DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_COLOR, occasion);
 	}
 
-	public FormActivityPanel(int width, int height, Color color)
+	public FormActivityPanel(int width, int height, Color color, Occasion occasion)
 	{
+		if (occasion == null)
+		{
+			activity = new Activity();
+		}
+		else
+		{
+			activity = (Activity) occasion;
+		}
+		
 		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		this.setBackground(color);
 
@@ -54,42 +71,44 @@ public class FormActivityPanel extends JPanel {
 		gbc.insets = new Insets(4, 4, 4, 4);
 		gbc.anchor = GridBagConstraints.WEST;
 
-		nameField = new JTextField("Nom");
+		nameField = new JTextField(activity.getName());
 		add(createPane("Nom", nameField), gbc);
 		gbc.gridy++;
 
-		priceField = new JTextField("Prix");
+		priceField = new JTextField(String.valueOf(activity.getPrice()));
 		add(createPane("Prix", priceField), gbc);
 		gbc.gridy++;
 
 		dateBeginField = new JSpinner( new SpinnerDateModel() );
 		JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(dateBeginField, "dd-MM-yyyy HH:mm:ss");
 		dateBeginField.setEditor(timeEditor);
+		dateBeginField.setValue(activity.getDateBegin());
 		add(createPane("Date de début", dateBeginField), gbc);
 		gbc.gridy++;
 
 		dateEndField = new JSpinner( new SpinnerDateModel() );
 		JSpinner.DateEditor timeEditor1 = new JSpinner.DateEditor(dateEndField, "dd-MM-yyyy HH:mm:ss");
 		dateEndField.setEditor(timeEditor1);
+		dateEndField.setValue(activity.getDateEnd());
 		add(createPane("Heure de fin", dateEndField), gbc);
 		gbc.gridy++;
 
-		numberMinField = new JTextField("-");
+		numberMinField = new JTextField(String.valueOf(activity.getNumberMinimum()));
 		add(createPane("Nombre minimum de personnes", numberMinField), gbc);
 		gbc.gridy++;
 
-		numberMaxField = new JTextField("-");
+		numberMaxField = new JTextField(String.valueOf(activity.getNumberMaximum()));
 		add(createPane("Nombre maximum de personnes", numberMaxField), gbc);
 		gbc.gridy++;
 
-		descriptionField = new JTextArea();
+		descriptionField = new JTextArea(activity.getDescription());
 		add(createPane("Description", descriptionField), gbc);
 		gbc.gridy++;
 
-		organiserFirstField = new JTextField("Prénom");
-		organiserLastField = new JTextField("Nom");
-		organiserClubField = new JTextField("Club");
-		organiserRoleField = new JTextField("Role");
+		organiserFirstField = new JTextField(activity.getOrganiser().getFirstName());
+		organiserLastField = new JTextField(activity.getOrganiser().getLastName());
+		organiserClubField = new JTextField(activity.getOrganiser().getClub());
+		organiserRoleField = new JTextField(activity.getOrganiser().getRole());
 
 		add(createOrganiserPane("Animateur", organiserFirstField, organiserLastField, organiserClubField, organiserRoleField), gbc);
 		gbc.gridy++;
@@ -161,5 +180,75 @@ public class FormActivityPanel extends JPanel {
 		jPanel.add(placeNameField2, gbc);
 		gbc.gridy++;
 		return jPanel;
+	}
+
+	public Activity getActivity()
+	{
+		return activity;
+	}
+
+	public JTextField getNameField()
+	{
+		return nameField;
+	}
+
+	public JTextField getPriceField()
+	{
+		return priceField;
+	}
+
+	public JSpinner getDateBeginField()
+	{
+		return dateBeginField;
+	}
+
+	public JSpinner getDateEndField()
+	{
+		return dateEndField;
+	}
+
+	public JTextField getNumberMinField()
+	{
+		return numberMinField;
+	}
+
+	public JTextField getNumberMaxField()
+	{
+		return numberMaxField;
+	}
+
+	public JTextArea getDescriptionField()
+	{
+		return descriptionField;
+	}
+
+	public JTextField getOrganiserFirstField()
+	{
+		return organiserFirstField;
+	}
+
+	public JTextField getOrganiserLastField()
+	{
+		return organiserLastField;
+	}
+
+	public JTextField getOrganiserClubField()
+	{
+		return organiserClubField;
+	}
+
+	public JTextField getOrganiserRoleField()
+	{
+		return organiserRoleField;
+	}
+
+	public boolean isCreating()
+	{
+		return isCreating;
+	}
+
+	public void setCreating(boolean isCreating)
+	{
+		this.isCreating = isCreating;
 	}
 }

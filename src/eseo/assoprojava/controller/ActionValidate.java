@@ -6,10 +6,12 @@ import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
+import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.model.place.Place;
 import eseo.assoprojava.model.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
+import eseo.assoprojava.view.ui.panels.FormActivityPanel;
 import eseo.assoprojava.view.ui.panels.FormPanel;
 
 public class ActionValidate extends javax.swing.AbstractAction {
@@ -106,6 +108,8 @@ public class ActionValidate extends javax.swing.AbstractAction {
 			
 			if(!formPanel.getPriceField().getText().equals("")){
 				event.setPrice(Double.parseDouble(formPanel.getPriceField().getText()));
+			} else {
+				event.setPrice(0);
 			}
 			
 			event.setPlace(new Place(Integer.parseInt(formPanel.getPlaceNumberField().getText()), 
@@ -120,10 +124,89 @@ public class ActionValidate extends javax.swing.AbstractAction {
 			if(!formPanel.getPlaceGPSLatField().getText().equals("") && !formPanel.getPlaceGPSLongField().getText().equals("")){
 				event.getPlace().setGpsCoord(new GpsCoord(Double.parseDouble(formPanel.getPlaceGPSLatField().getText()),Double.parseDouble(formPanel.getPlaceGPSLongField().getText())));
 			}
+			
+			event.setActivities(MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent().getActivities());
+			
 			MainWindow.getCurrentFormWindow().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().setEvent(event);
+			MainWindow.getInstance().getWorkPanel().getViewEvent().show();
+			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
+			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);
+			
+		} else {
+			Activity activity = MainWindow.getCurrentFormWindow().getFormActivityPanel().getActivity();
+			FormActivityPanel f = MainWindow.getCurrentFormWindow().getFormActivityPanel();
+			if (f.getNameField().getText().isEmpty())
+			{
+				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nom ne peut pas être vide !", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			else if (!Pattern.matches(fpRegex, f.getPriceField().getText()) && !f.getPriceField().getText().equals(""))
+			{
+				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le prix n'est pas valide ! (Nombre ou vide)", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			else if (f.getOrganiserFirstField().getText().isEmpty())
+			{
+				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le prénom de l'animateur ne peut pas être vide !", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			else if (f.getOrganiserLastField().getText().isEmpty())
+			{
+				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nom de l'animateur ne peut pas être vide !", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			else if (!((Date) f.getDateEndField().getValue()).after((Date) f.getDateBeginField().getValue()))
+			{
+				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "La date de fin ne doit pas être inférieur (ou égal) à la date de début !", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			else if (!f.getNumberMinField().getText().matches("[0-9]+") || !(f.getNumberMinField().getText().length() > 0) || f.getNumberMinField().getText().isEmpty())
+			{
+				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes minimum est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			else if (!f.getNumberMaxField().getText().matches("[0-9]+") && !f.getNumberMaxField().getText().isEmpty())
+			{
+				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes maximum est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			
+			activity.setName(f.getNameField().getText());
+			activity.setDateBegin((Date) f.getDateBeginField().getValue());
+			activity.setDateEnd((Date) f.getDateEndField().getValue());
+			activity.setDescription(f.getDescriptionField().getText());
+			
+			if(!f.getPriceField().getText().equals("")){
+				activity.setPrice(Double.parseDouble(f.getPriceField().getText()));
+			} else {
+				activity.setPrice(0);
+			}			
+			
+			activity.setNumberMinimum(Integer.parseInt(f.getNumberMinField().getText()));
+			
+			if(!f.getNumberMaxField().getText().isEmpty()){
+				activity.setNumberMaximum(Integer.parseInt(f.getNumberMaxField().getText()));
+				if (Integer.parseInt(f.getNumberMaxField().getText()) - Integer.parseInt(f.getNumberMinField().getText()) < 0)
+				{
+					JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes minimum ne peut pas être supérieur au nombre de personnes maximum !", "Error", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+			} else {
+				activity.setNumberMaximum(0);
+			}
+			
+			if( MainWindow.getCurrentFormWindow().getFormActivityPanel().isCreating()){
+				Event event = MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent();
+				event.addActivity(activity);
+				MainWindow.getInstance().getWorkPanel().getViewEvent().setEvent(event);
+			}
+			
+			MainWindow.getCurrentFormWindow().setVisible(false);
+			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
+			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().show();
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);

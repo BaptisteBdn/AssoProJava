@@ -19,7 +19,7 @@ public class ActionCreateEvent extends javax.swing.AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		FormWindow formWindow = new FormWindow(true,"Événement");
+		FormWindow formWindow = new FormWindow(true,"Événement",null);
 		MainWindow.setCurrentFormWindow(formWindow);
 		formWindow.pack();
 		formWindow.setVisible(true);

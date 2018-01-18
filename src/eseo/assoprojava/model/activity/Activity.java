@@ -21,7 +21,7 @@ public class Activity extends Occasion {
 	 */
 	public Activity() {
 		super();
-		this.description = "description";
+		this.description = "Description";
 		this.organiser = new Organiser();
 	}
 	

@@ -69,6 +69,25 @@ public class Event extends Occasion {
 	}
 	
 	/**
+	 * Get the index of the activity in the List<Activity>
+	 * @param activity
+	 * @return indexOfActivity
+	 * @author baptiste
+	 */
+	public int getIndexOfActivity(Activity activity){
+		return activities.indexOf(activity);
+	}
+	
+	/**
+	 * Replace an activity at an index
+	 * @param index
+	 * @param activity
+	 * @author baptiste
+	 */
+	public void setActivity(int index, Activity activity){
+		activities.set(index, activity);
+	}
+	/**
 	 * Returns the String representation of the event
 	 * @return String
 	 */

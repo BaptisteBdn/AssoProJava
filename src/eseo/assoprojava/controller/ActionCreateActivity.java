@@ -3,6 +3,7 @@ package eseo.assoprojava.controller;
 import java.awt.event.ActionEvent;
 
 import eseo.assoprojava.view.ui.FormWindow;
+import eseo.assoprojava.view.ui.MainWindow;
 
 public class ActionCreateActivity extends javax.swing.AbstractAction  {
 	
@@ -17,7 +18,9 @@ public class ActionCreateActivity extends javax.swing.AbstractAction  {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		FormWindow formWindow = new FormWindow(false,"Activité");
+		FormWindow formWindow = new FormWindow(false,"Activité",null);
+		formWindow.getFormActivityPanel().setCreating(true);
+		MainWindow.setCurrentFormWindow(formWindow);
 		formWindow.pack();
 		formWindow.setVisible(true);
 	}

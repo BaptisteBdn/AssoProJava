@@ -44,7 +44,7 @@ public class TestViewEvent {
 		listActivs.add(activ9);
 		listActivs.add(activ10);
 		
-		Event event = new Event(place, new Date(), new Date(), "Grosse chouille", 0, 100, "Alchoolo Eseo", 30.5, listActivs, "Une grossse soirée de folie");
+		Event event = new Event(place, new Date("17/01/1996 21:30"), new Date(), "Grosse chouille", 0, 100, "Alchoolo Eseo", 30.5, listActivs, "Une grossse soirée de folie");
 		ViewEvent viewEvent = new ViewEvent(event);
 		viewEvent.show();
 

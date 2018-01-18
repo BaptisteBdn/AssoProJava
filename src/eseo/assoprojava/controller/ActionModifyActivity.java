@@ -3,6 +3,8 @@ package eseo.assoprojava.controller;
 import java.awt.event.ActionEvent;
 
 import eseo.assoprojava.model.activity.Activity;
+import eseo.assoprojava.view.ui.FormWindow;
+import eseo.assoprojava.view.ui.MainWindow;
 
 public class ActionModifyActivity extends javax.swing.AbstractAction {
 
@@ -22,8 +24,11 @@ public class ActionModifyActivity extends javax.swing.AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		// TODO Auto-generated method stub
-		System.out.println("Modify");
+		FormWindow formWindow = new FormWindow(false,"Activité", activity);
+		formWindow.getFormActivityPanel().setCreating(false);
+		MainWindow.setCurrentFormWindow(formWindow);
+		formWindow.pack();
+		formWindow.setVisible(true);
 	}
 
 }

@@ -2,6 +2,8 @@ package eseo.assoprojava.controller;
 
 import java.awt.event.ActionEvent;
 
+import eseo.assoprojava.view.ui.MainWindow;
+
 public class ActionCancel extends javax.swing.AbstractAction {
 
 	/**
@@ -17,8 +19,7 @@ public class ActionCancel extends javax.swing.AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		// TODO Auto-generated method stub
-		
+		MainWindow.getCurrentFormWindow().setVisible(false);
 	}
 
 }

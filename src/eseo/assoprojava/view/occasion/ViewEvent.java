@@ -110,7 +110,7 @@ public class ViewEvent {
 	    gbc.gridy = 1;
 	    gbc.gridx++;
 	    
-	    JLabel titleDesc = new JLabel("Decription");
+	    JLabel titleDesc = new JLabel("Description");
 	    titleDesc.setFont(MainWindow.TITLE_FONT);
         
         panel.add(titleDesc, gbc);
