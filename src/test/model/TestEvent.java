@@ -17,7 +17,9 @@ public class TestEvent {
 		List<Activity> activities = new ArrayList<Activity> ();
 		Event test2 = new Event(new Place(), new Date(), new Date(), "Concours Photos", 0, 100, "STUDIO ESEO", 3, activities,"Desciption");
 	
+		
 		System.out.println(test1);
+		System.out.println(test2);
 
 	}
 }
