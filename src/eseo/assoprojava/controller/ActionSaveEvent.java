@@ -61,6 +61,7 @@ public class ActionSaveEvent extends javax.swing.AbstractAction {
 			eventElement.setAttribute("price", String.valueOf(event.getPrice()));
 			eventElement.setAttribute("dateBegin", dateFormat.format(event.getDateBegin()));
 			eventElement.setAttribute("dateEnd", dateFormat.format(event.getDateEnd()));
+			eventElement.setAttribute("description", event.getDescription());
 			document.appendChild(eventElement);
 			
 			final Element placeElement = document.createElement("place");
