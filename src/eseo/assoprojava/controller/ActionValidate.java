@@ -108,9 +108,12 @@ public class ActionValidate extends javax.swing.AbstractAction {
 				formPanel.getPlaceStateField().getText(), 
 				formPanel.getPlaceCountryField().getText(), 
 				Integer.parseInt(formPanel.getPlacePostalCodeField().getText()),
-				new GpsCoord(Double.parseDouble(formPanel.getPlaceGPSLatField().getText()),Double.parseDouble(formPanel.getPlaceGPSLongField().getText())),
+				new GpsCoord(),
 				formPanel.getPlaceNameField().getText()));
 			event.setDescription(formPanel.getDescriptionField().getText());
+			if(!formPanel.getPlaceGPSLatField().getText().equals("") && !formPanel.getPlaceGPSLongField().getText().equals("")){
+				event.getPlace().setGpsCoord(new GpsCoord(Double.parseDouble(formPanel.getPlaceGPSLatField().getText()),Double.parseDouble(formPanel.getPlaceGPSLongField().getText())));
+			}
 			MainWindow.getCurrentFormWindow().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesScrollPane().setVisible(false);

@@ -7,6 +7,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.Date;
+
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -65,7 +67,7 @@ public class FormPanel extends JPanel {
 		gbc.anchor = GridBagConstraints.WEST;
 		
 		
-		nameField = new JTextField("Nom");
+		nameField = new JTextField();
 		add(createPane("Nom", nameField), gbc);
 		gbc.gridy++;
 		
@@ -73,24 +75,24 @@ public class FormPanel extends JPanel {
 		add(createPane("Description", descriptionField), gbc);
 		gbc.gridy++;
 		
-		placeNumberField = new JTextField("0");
-		placeStreetField = new JTextField("Rue");
-		placeNameField = new JTextField("Nom");
-		placePostalCodeField = new JTextField("Code postal");
-		placeCityField = new JTextField("Ville");
-		placeCountryField = new JTextField("Pays");
-		placeStateField = new JTextField("Région");
-		placeGPSLatField = new JTextField("GPS (Latitue)");
-		placeGPSLongField = new JTextField("GPS (Longitude)");
+		placeNumberField = new JTextField();
+		placeStreetField = new JTextField();
+		placeNameField = new JTextField();
+		placePostalCodeField = new JTextField();
+		placeCityField = new JTextField();
+		placeCountryField = new JTextField();
+		placeStateField = new JTextField();
+		placeGPSLatField = new JTextField();
+		placeGPSLongField = new JTextField();
 
 		add(createPlacePane("Lieu", placeNumberField, placeStreetField, placeNameField, placePostalCodeField, placeCityField, placeCountryField, placeStateField, placeGPSLatField,placeGPSLongField), gbc);
 		gbc.gridy++;
 		
-		priceField = new JTextField("Prix");
+		priceField = new JTextField();
 		add(createPane("Prix", priceField), gbc);
 		gbc.gridy++;
 		
-		clubField = new JTextField("Club");
+		clubField = new JTextField();
 		add(createPane("Club", clubField), gbc);
 		gbc.gridy++;
 
@@ -106,10 +108,10 @@ public class FormPanel extends JPanel {
 		add(createPane("Heure de fin", dateEndField), gbc);
 		gbc.gridy++;
 		
-		numberMinField = new JTextField("");
+		numberMinField = new JTextField();
 		add(createPane("Nombre minimum de personnes", numberMinField), gbc);
 		gbc.gridy++;
-		numberMaxField = new JTextField("");
+		numberMaxField = new JTextField();
 		add(createPane("Nombre maximum de personnes", numberMaxField), gbc);
 		gbc.gridy++;
 		
