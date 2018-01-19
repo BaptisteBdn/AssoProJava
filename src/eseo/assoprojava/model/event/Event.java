@@ -33,16 +33,16 @@ public class Event extends Occasion {
 	
 	/**
 	 * Create an object based on the parameters
-	 * @param place
-	 * @param dateBegin
-	 * @param dateEnd
-	 * @param name
-	 * @param numberMinimum
-	 * @param numberMaximum
-	 * @param clubOrganiser
-	 * @param price
-	 * @param activities
-	 * @param description
+	 * @param place place of the event
+	 * @param dateBegin beginning date of the event
+	 * @param dateEnd ending date of the event
+	 * @param name name of the event
+	 * @param numberMinimum minimum number of participants of the event
+	 * @param numberMaximum maximum number of participants of the event
+	 * @param clubOrganiser organiser club of the event
+	 * @param price price of the event
+	 * @param activities activities include in the event
+	 * @param description description of the event
 	 */
 	public Event(Place place, Date dateBegin, Date dateEnd, String name, int numberMinimum, int numberMaximum, String clubOrganiser, double price, List<Activity> activities, String description) {
 		super(dateBegin, dateEnd, name, numberMinimum, numberMaximum, price);
@@ -54,7 +54,7 @@ public class Event extends Occasion {
 
 	/**
 	 * Add an activity in the list of activities
-	 * @param activity
+	 * @param activity activity to add
 	 */
 	public void addActivity(Activity activity) {
 		activities.add(activity);
@@ -62,15 +62,15 @@ public class Event extends Occasion {
 	
 	/**
 	 * Remove an activity in the list of activities
-	 * @param activity
+	 * @param activity activity to remove
 	 */
 	public void removeActivity(Activity activity) {
 		activities.remove(activity);
 	}
 	
 	/**
-	 * Get the index of the activity in the List
-	 * @param activity
+	 * Get the index of the activity in the List<Activity>
+	 * @param activity activity
 	 * @return indexOfActivity
 	 * @author baptiste
 	 */
@@ -80,8 +80,8 @@ public class Event extends Occasion {
 	
 	/**
 	 * Replace an activity at an index
-	 * @param index
-	 * @param activity
+	 * @param index new index of an activity
+	 * @param activity to replace
 	 * @author baptiste
 	 */
 	public void setActivity(int index, Activity activity){
@@ -89,7 +89,7 @@ public class Event extends Occasion {
 	}
 	/**
 	 * Returns the String representation of the event
-	 * @return String
+	 * @return String the representation of the event
 	 */
 	@Override
 	public String toString() {
