@@ -69,7 +69,7 @@ public class Event extends Occasion {
 	}
 	
 	/**
-	 * Get the index of the activity in the List<Activity>
+	 * Get the index of the activity in the List
 	 * @param activity
 	 * @return indexOfActivity
 	 * @author baptiste

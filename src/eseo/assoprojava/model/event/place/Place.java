@@ -39,6 +39,7 @@ public class Place {
 	 * @param postalCode
 	 * @param gpsCoord
 	 * @param name
+	 * @param state
 	 */
 	public Place(int number, String street, String city, String state, String country, int postalCode, GpsCoord gpsCoord, String name)
 	{

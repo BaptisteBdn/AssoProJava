@@ -34,7 +34,7 @@ public class Activity extends Occasion {
 	 * @param numberMaximum
 	 * @param price
 	 * @param description
-	 * @param organiser
+	 * @param organiser 
 	 */
 	public Activity(Date dateBegin, Date dateEnd, String name, int numberMinimum, int numberMaximum, double price, String description, Organiser organiser) {
 		super(dateBegin, dateEnd, name, numberMinimum, numberMaximum, price);

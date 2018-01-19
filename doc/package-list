@@ -1,0 +1,13 @@
+eseo.assoprojava.controller
+eseo.assoprojava.model
+eseo.assoprojava.model.activity
+eseo.assoprojava.model.activity.organiser
+eseo.assoprojava.model.event
+eseo.assoprojava.model.event.place
+eseo.assoprojava.model.event.place.gps
+eseo.assoprojava.view.occasion
+eseo.assoprojava.view.ui
+eseo.assoprojava.view.ui.panels
+main
+test.model
+test.view
