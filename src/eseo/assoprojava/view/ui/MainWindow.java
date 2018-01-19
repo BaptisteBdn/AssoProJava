@@ -27,6 +27,11 @@ public class MainWindow extends JFrame {
 	private WorkPanel workPanel;
 	private ToolsPanel toolsPanel;
 
+	/**
+	 * Constructor, init the main window :
+	 * workPanel : evenement panel + activity panel
+	 * toolsPanel : Tools bar
+	 */
 	public MainWindow()
 	{
 		MainWindow.mainWindow = this;
@@ -41,6 +46,11 @@ public class MainWindow extends JFrame {
 		this.pack();
 	}
 
+	
+	/**
+	 * Get the instance of MainWindow (static)
+	 * @return MainWindow
+	 */
 	public static MainWindow getInstance()
 	{
 		if (mainWindow == null)
