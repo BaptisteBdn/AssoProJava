@@ -24,6 +24,7 @@ import eseo.assoprojava.model.organiser.Organiser;
 import eseo.assoprojava.model.place.Place;
 import eseo.assoprojava.model.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
+import eseo.assoprojava.view.ui.panels.WorkPanel;
 
 public class ActionLoadEvent extends javax.swing.AbstractAction {
 
@@ -157,7 +158,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 		{
 			e.printStackTrace();
 		}
-
+		
 		MainWindow.getInstance().getWorkPanel().init();
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
@@ -166,6 +167,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);
 		MainWindow.getInstance().getToolsPanel().enableButtons();
+		return;
 	}
 
 }

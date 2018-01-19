@@ -24,6 +24,7 @@ public class ActionModifyActivity extends javax.swing.AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		MainWindow.getInstance().getToolsPanel().disableButtons();
 		FormWindow formWindow = new FormWindow(false,"Activité", activity);
 		formWindow.getFormActivityPanel().setCreating(false);
 		MainWindow.setCurrentFormWindow(formWindow);

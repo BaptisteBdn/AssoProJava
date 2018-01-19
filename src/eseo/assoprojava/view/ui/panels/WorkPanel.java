@@ -35,6 +35,10 @@ public class WorkPanel extends JPanel{
 	}
 	
 	public void init(){
+		if(this.viewEvent != null  && this.viewEvent.getMainEventPanel() != null && this.viewEvent.getActivitiesPanel() != null){
+			this.viewEvent.getMainEventPanel().setVisible(false);
+			this.viewEvent.getActivitiesPanel().setVisible(false);
+		}
 		this.viewEvent = new ViewEvent(new Event());
 		this.viewEvent.show();
 	}

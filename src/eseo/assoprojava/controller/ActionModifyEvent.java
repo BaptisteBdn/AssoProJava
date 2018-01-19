@@ -21,6 +21,7 @@ public class ActionModifyEvent extends javax.swing.AbstractAction {
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+		MainWindow.getInstance().getToolsPanel().disableButtons();
 		Event event = MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent();
 		FormWindow formWindow = new FormWindow(true,"Événement",event);
 		formWindow.getFormPanel().setCreating(false);
