@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import eseo.assoprojava.model.Occasion;
-import eseo.assoprojava.model.organiser.Organiser;
 import eseo.assoprojava.view.ui.panels.FormActivityPanel;
 import eseo.assoprojava.view.ui.panels.FormPanel;
 import eseo.assoprojava.view.ui.panels.ValidationPanel;
