@@ -170,7 +170,7 @@ public class ViewActivity {
 	}
 	/**
 	 * 
-	 * @param text
+	 * @param text String displayed on the label
 	 * @return JLabel containing the text that we passed
 	 */
 	public JLabel createLabel(String text) {

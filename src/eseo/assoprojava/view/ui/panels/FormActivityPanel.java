@@ -17,10 +17,12 @@ import javax.swing.SpinnerDateModel;
 import eseo.assoprojava.model.Occasion;
 import eseo.assoprojava.model.activity.Activity;
 
+/**
+ * @author baptiste
+ */
+
 public class FormActivityPanel extends JPanel {
-	/**
-	 * @author baptiste
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public static final int DEFAULT_WIDTH = 400;
 	public static final int DEFAULT_HEIGHT = 400;
@@ -46,7 +48,7 @@ public class FormActivityPanel extends JPanel {
 
 	/**
 	 * Basic constructor
-	 * @param occasion
+	 * @param occasion Current Occasion
 	 */
 	public FormActivityPanel(Occasion occasion)
 	{
@@ -56,10 +58,10 @@ public class FormActivityPanel extends JPanel {
 	
 	/**
 	 * Constructor, init activityPanel
-	 * @param width
-	 * @param height
-	 * @param color
-	 * @param occasion
+	 * @param width - width of the panel
+	 * @param height - height of the panel
+	 * @param color Background color for the panel
+	 * @param occasion Current Occasion
 	 */
 	public FormActivityPanel(int width, int height, Color color, Occasion occasion)
 	{

@@ -20,11 +20,12 @@ import eseo.assoprojava.controller.ActionModifyEvent;
 import eseo.assoprojava.controller.ActionSaveEvent;
 import eseo.assoprojava.view.ui.MainWindow;
 
+/**
+ * @author baptiste
+ */
+
 public class ToolsPanel extends JPanel {
 
-	/**
-	 * @author baptiste
-	 */
 	private static final long serialVersionUID = 1L;
 
 	JButton buttonNew;

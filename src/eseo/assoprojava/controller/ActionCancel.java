@@ -4,11 +4,12 @@ import java.awt.event.ActionEvent;
 
 import eseo.assoprojava.view.ui.MainWindow;
 
+/**
+ * @author baptiste
+ */
+
 public class ActionCancel extends javax.swing.AbstractAction {
 
-	/**
-	 * @author baptiste
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public ActionCancel()

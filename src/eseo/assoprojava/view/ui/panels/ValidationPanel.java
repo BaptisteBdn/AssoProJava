@@ -15,11 +15,12 @@ import javax.swing.border.LineBorder;
 import eseo.assoprojava.controller.ActionCancel;
 import eseo.assoprojava.controller.ActionValidate;
 
+/**
+ * @author baptiste
+ */
+
 public class ValidationPanel extends JPanel {
 	
-	/**
-	 * @author baptiste
-	 */
 	private static final long serialVersionUID = 1L;
 	private JButton buttonValidate = new JButton("Valider");
 	private JButton buttonCancel = new JButton("Annuler");

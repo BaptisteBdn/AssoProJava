@@ -2,6 +2,10 @@ package main;
 
 import eseo.assoprojava.view.ui.MainWindow;
 
+/**
+ * @author baptiste
+ */
+
 public class Main {
 	
 	public static void main(String[] args)

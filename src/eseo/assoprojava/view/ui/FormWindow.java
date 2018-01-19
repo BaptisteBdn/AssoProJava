@@ -10,10 +10,12 @@ import eseo.assoprojava.view.ui.panels.FormActivityPanel;
 import eseo.assoprojava.view.ui.panels.FormEventPanel;
 import eseo.assoprojava.view.ui.panels.ValidationPanel;
 
+/**
+ * @author baptiste
+ */
+
 public class FormWindow extends JFrame{
-	/**
-	 * @author baptiste
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public String title = "Événement";
 	private JPanel container;
@@ -23,12 +25,12 @@ public class FormWindow extends JFrame{
 	private FormActivityPanel formActivityPanel;
 	
 	/**
-	 * Constructor, init the window with two panels :
-	 * formPanel : evenement
+	 * Constructor, initialize the window with two panels :
+	 * formPanel : event
 	 * formActivityPanel : activity
-	 * @param isEvent
-	 * @param title
-	 * @param occasion
+	 * @param isEvent a boolean, true = event, false = activity
+	 * @param title title of the window
+	 * @param occasion Current Occasion
 	 */
 	public FormWindow(boolean isEvent, String title, Occasion occasion){
 		this.isEvent = isEvent;

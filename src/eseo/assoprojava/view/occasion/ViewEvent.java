@@ -129,9 +129,9 @@ public class ViewEvent {
 	}
 	
 	/**
-	 * Create a new pane contained in the formActiviyPanel
-	 * @param text
-	 * @param jTextField
+	 * Create a new pane
+	 * @param text String displayed on the label
+	 * @param jTextField Component to display
 	 * @return JPanel containing a JLabel and a jTextfield on the same line (to structure the mainPanel)
 	 */
 	private JPanel createPane(String text, JLabel jLabel){
@@ -157,7 +157,7 @@ public class ViewEvent {
 	}
 	/**
 	 * 
-	 * @param text
+	 * @param text String displayed on the label
 	 * @return JLabel containing the text that we passed
 	 */
 	public JLabel createLabel(String text) {

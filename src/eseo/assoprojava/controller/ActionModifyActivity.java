@@ -6,13 +6,14 @@ import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.view.ui.FormWindow;
 import eseo.assoprojava.view.ui.MainWindow;
 
+/**
+ * @author baptiste
+ */
+
 public class ActionModifyActivity extends javax.swing.AbstractAction {
 
-	Activity activity;
+	private Activity activity;
 	
-	/**
-	 * @author baptiste
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public ActionModifyActivity(Activity activity)

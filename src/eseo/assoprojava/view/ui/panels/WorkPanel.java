@@ -8,10 +8,12 @@ import javax.swing.JPanel;
 import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.view.occasion.ViewEvent;
 
+/**
+ * @author baptiste
+ */
+
 public class WorkPanel extends JPanel{
-	/**
-	 * @author baptiste
-	 */
+
 	private static final long serialVersionUID = 1L;
 	public static final int DEFAULT_WIDTH = 1240;
 	public static final int DEFAULT_HEIGHT = 1024;
@@ -27,9 +29,9 @@ public class WorkPanel extends JPanel{
 	
 	/**
 	 * Set the panel
-	 * @param width
-	 * @param height
-	 * @param color
+	 * @param width - width of the panel
+	 * @param height - height of the panel
+	 * @param color Background color for the panel
 	 */
 	public WorkPanel(int width, int height, Color color){
 		this.setLayout(new BorderLayout());

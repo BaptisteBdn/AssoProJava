@@ -6,11 +6,12 @@ import eseo.assoprojava.model.event.Event;
 import eseo.assoprojava.view.ui.FormWindow;
 import eseo.assoprojava.view.ui.MainWindow;
 
+/**
+ * @author baptiste
+ */
+
 public class ActionModifyEvent extends javax.swing.AbstractAction {
 
-	/**
-	 * @author baptiste
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public ActionModifyEvent()

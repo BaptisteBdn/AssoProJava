@@ -15,11 +15,12 @@ import eseo.assoprojava.view.ui.MainWindow;
 import eseo.assoprojava.view.ui.panels.FormActivityPanel;
 import eseo.assoprojava.view.ui.panels.FormEventPanel;
 
+/**
+ * @author baptiste
+ */
+
 public class ActionValidate extends javax.swing.AbstractAction {
 
-	/**
-	 * @author baptiste
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public ActionValidate()
