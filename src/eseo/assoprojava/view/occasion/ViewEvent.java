@@ -77,6 +77,9 @@ public class ViewEvent {
 		
 		JScrollPane activitiesScrollPane = new JScrollPane(activitiesScrollPanel);
 //		activitiesPanel.setPreferredSize(new Dimension(450,200));
+		
+		activitiesScrollPane.getVerticalScrollBar().setUnitIncrement(16);
+		
 		activitiesPanel.add(activitiesScrollPane);
 		
 		MainWindow.getInstance().getWorkPanel().add(activitiesPanel,BorderLayout.CENTER);

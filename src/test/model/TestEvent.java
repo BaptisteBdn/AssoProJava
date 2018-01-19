@@ -2,7 +2,7 @@ package test.model;
 
 import java.util.Date;
 
-import eseo.assoprojava.model.place.Place;
+import eseo.assoprojava.model.event.place.Place;
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
 

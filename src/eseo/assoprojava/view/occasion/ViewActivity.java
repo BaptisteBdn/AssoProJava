@@ -30,7 +30,9 @@ public class ViewActivity {
 	
 	@SuppressWarnings("deprecation")
 	public void show(JPanel mainPanel) {
-	    
+		/*
+    	 * We create the constraint that is used to place the activity panels
+    	 */
 	    GridBagConstraints mgbc = new GridBagConstraints();
         mgbc.gridx = 0;
         mgbc.gridy = 1;
@@ -39,12 +41,22 @@ public class ViewActivity {
         mgbc.insets = new Insets(4, 4, 4, 4);
         mgbc.anchor = GridBagConstraints.WEST;
         
+        /*
+    	 * Verify is there is an activity to display the title
+    	 */
+        if(!activities.isEmpty()) {
+        
         JLabel title = new JLabel("Activitée(s)");
         title.setFont(MainWindow.TITLE_FONT);
         
         mainPanel.add(title, mgbc);
         mgbc.gridy++;
+        
+        }
         for(int i = 0; i < activities.size(); i++) {
+        	/*
+        	 * We create the constraint that is used to place the activity panels
+        	 */
         	GridBagConstraints gbc = new GridBagConstraints();
         	gbc.gridx = 0;
             gbc.gridy = 1;
@@ -52,16 +64,29 @@ public class ViewActivity {
             gbc.fill = GridBagConstraints.HORIZONTAL;
             gbc.insets = new Insets(4, 4, 4, 4);
             gbc.anchor = GridBagConstraints.WEST;
+            
+            /*
+             * Creating the panel for each activities
+             */
             JPanel activityPanel = new JPanel(new BorderLayout());
             
+            /*
+             * This panel is separated in 2 parts, the information of the activity and the buttons
+             */
         	JPanel panel = new JPanel(new GridBagLayout());
         	JPanel buttonPanel = new JPanel(new BorderLayout());
         	
+        	/*
+        	 * Set the backgrounds of the panels
+        	 */
         	activityPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
         	panel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
         	buttonPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
         	activityPanel.setBorder(BorderFactory.createLineBorder(Color.darkGray, 1, true));
         	
+        	/*
+        	 * Display the informations of the activity
+        	 */
         	Activity activity = activities.get(i);
         	panel.add(createPane("Nom",createLabel(activity.getName() + "")),gbc);
     	    gbc.gridy++;
@@ -85,7 +110,9 @@ public class ViewActivity {
             
             panel.add(createLabel(activity.getDescription() + ""),gbc);
     	    
-    	    
+    	    /*
+    	     * Add the buttons Modifier and Supprimer
+    	     */
     	    JButton modifyButton = new JButton("Modifier");
     	    modifyButton.addActionListener(new ActionModifyActivity(activity));
     	    

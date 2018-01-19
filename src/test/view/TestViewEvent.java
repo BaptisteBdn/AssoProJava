@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.ArrayList;
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
-import eseo.assoprojava.model.organiser.Organiser;
-import eseo.assoprojava.model.place.Place;
-import eseo.assoprojava.model.place.gps.GpsCoord;
+import eseo.assoprojava.model.activity.organiser.Organiser;
+import eseo.assoprojava.model.event.place.Place;
+import eseo.assoprojava.model.event.place.gps.GpsCoord;
 import eseo.assoprojava.view.occasion.ViewEvent;
 import eseo.assoprojava.view.ui.MainWindow;
 
@@ -45,9 +45,11 @@ public class TestViewEvent {
 		listActivs.add(activ10);
 		
 		@SuppressWarnings("deprecation")
-		Event event = new Event(place, new Date("17/01/1996 21:30"), new Date(), "Grande Soirée", 0, 100, "Sono Eseo", 30.5, listActivs, "Une grossse soirée de folie");
+		Event event = new Event(place, new Date("17/01/1996 21:30"), new Date("20/01/1996 21:30"), "Grosse Soirée", 0, 100, "Sono Eseo", 30.5, listActivs, "Une grossse soirée de folie");
 		ViewEvent viewEvent = new ViewEvent(event);
 		viewEvent.show();
+		
+		mainWindow.getToolsPanel().enableButtons();
 
 		mainWindow.setVisible(true);
 	}

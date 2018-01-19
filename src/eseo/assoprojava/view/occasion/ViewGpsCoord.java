@@ -8,7 +8,7 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import eseo.assoprojava.model.place.gps.GpsCoord;
+import eseo.assoprojava.model.event.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
 
 public class ViewGpsCoord {

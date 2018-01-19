@@ -1,6 +1,6 @@
-package eseo.assoprojava.model.place;
+package eseo.assoprojava.model.event.place;
 
-import eseo.assoprojava.model.place.gps.GpsCoord;
+import eseo.assoprojava.model.event.place.gps.GpsCoord;
 
 /**
  * 

@@ -3,7 +3,7 @@ package test.model;
 import java.util.Date;
 
 import eseo.assoprojava.model.activity.Activity;
-import eseo.assoprojava.model.organiser.Organiser;
+import eseo.assoprojava.model.activity.organiser.Organiser;
 
 public class TestActivity {
 	

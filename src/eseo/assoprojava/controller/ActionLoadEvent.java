@@ -20,11 +20,10 @@ import org.xml.sax.SAXException;
 
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
-import eseo.assoprojava.model.organiser.Organiser;
-import eseo.assoprojava.model.place.Place;
-import eseo.assoprojava.model.place.gps.GpsCoord;
+import eseo.assoprojava.model.activity.organiser.Organiser;
+import eseo.assoprojava.model.event.place.Place;
+import eseo.assoprojava.model.event.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
-import eseo.assoprojava.view.ui.panels.WorkPanel;
 
 public class ActionLoadEvent extends javax.swing.AbstractAction {
 

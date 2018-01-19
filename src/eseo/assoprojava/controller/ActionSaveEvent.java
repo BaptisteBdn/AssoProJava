@@ -20,8 +20,8 @@ import javax.xml.transform.stream.StreamResult;
 
 import eseo.assoprojava.model.activity.Activity;
 import eseo.assoprojava.model.event.Event;
-import eseo.assoprojava.model.place.Place;
-import eseo.assoprojava.model.place.gps.GpsCoord;
+import eseo.assoprojava.model.event.place.Place;
+import eseo.assoprojava.model.event.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
 
 import org.w3c.dom.Document;

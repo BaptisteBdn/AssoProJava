@@ -8,7 +8,7 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import eseo.assoprojava.model.place.Place;
+import eseo.assoprojava.model.event.place.Place;
 import eseo.assoprojava.view.ui.MainWindow;
 
 public class ViewPlace {

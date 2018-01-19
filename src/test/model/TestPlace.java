@@ -1,6 +1,6 @@
 package test.model;
-import eseo.assoprojava.model.place.Place;
-import eseo.assoprojava.model.place.gps.GpsCoord;
+import eseo.assoprojava.model.event.place.Place;
+import eseo.assoprojava.model.event.place.gps.GpsCoord;
 
 public class TestPlace {
 
