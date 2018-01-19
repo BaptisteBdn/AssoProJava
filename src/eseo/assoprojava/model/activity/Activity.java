@@ -3,7 +3,7 @@ package eseo.assoprojava.model.activity;
 import java.util.Date;
 
 import eseo.assoprojava.model.Occasion;
-import eseo.assoprojava.model.organiser.Organiser;
+import eseo.assoprojava.model.activity.organiser.Organiser;
 
 
 /**

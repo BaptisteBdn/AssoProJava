@@ -1,4 +1,4 @@
-package eseo.assoprojava.model.organiser;
+package eseo.assoprojava.model.activity.organiser;
 /**
  * 
  * @author Lucien

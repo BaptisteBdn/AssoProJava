@@ -7,7 +7,7 @@ package eseo.assoprojava.model.event;
  */
 import eseo.assoprojava.model.Occasion;
 import eseo.assoprojava.model.activity.Activity;
-import eseo.assoprojava.model.place.Place;
+import eseo.assoprojava.model.event.place.Place;
 
 import java.util.List;
 import java.util.ArrayList;

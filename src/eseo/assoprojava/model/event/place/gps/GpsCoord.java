@@ -1,4 +1,4 @@
-package eseo.assoprojava.model.place.gps;
+package eseo.assoprojava.model.event.place.gps;
 
 /**
  * 

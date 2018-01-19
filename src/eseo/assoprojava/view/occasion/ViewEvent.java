@@ -31,6 +31,7 @@ public class ViewEvent {
 	}
 	
 	public void show() {
+		// Create the differents panels
 		mainEventPanel = new JPanel(new BorderLayout());
 		JPanel mainPlacePanel = new JPanel(new BorderLayout());
 		JPanel tabulationPanel = new JPanel(new BorderLayout());
@@ -39,6 +40,7 @@ public class ViewEvent {
 		JPanel placePanel = new JPanel(new GridBagLayout());
 		JPanel coordPanel = new JPanel(new GridBagLayout());
 		
+		// Set their backgrounds
 		mainEventPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		mainPlacePanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		tabulationPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
@@ -46,7 +48,7 @@ public class ViewEvent {
 		placePanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		coordPanel.setBackground(MainWindow.getInstance().getWorkPanel().getBackground());
 		
-
+		// Add the panels to their respective parents
 		mainPlacePanel.add(placePanel,BorderLayout.LINE_START);
 		mainPlacePanel.add(tabulationPanel,BorderLayout.CENTER);
 		mainPlacePanel.add(coordPanel,BorderLayout.LINE_END);
@@ -61,11 +63,12 @@ public class ViewEvent {
 		activitiesPanel = new JPanel(new BorderLayout());
 		JPanel activitiesScrollPanel = new JPanel(new GridBagLayout());
 		
-		
+		// Add a tabulation panel to separate GpsCoord and Place
 		tabulationPanel.add(new JLabel("                            "));
 		
 		showEvent(eventPanel);
 		
+		// Show each views and give them their respective panels
 		ViewPlace viewPlace = new ViewPlace(event.getPlace());
 		viewPlace.show(placePanel);
 		
@@ -76,7 +79,9 @@ public class ViewEvent {
 		viewActivities.show(activitiesScrollPanel);
 		
 		JScrollPane activitiesScrollPane = new JScrollPane(activitiesScrollPanel);
-//		activitiesPanel.setPreferredSize(new Dimension(450,200));
+		
+		activitiesScrollPane.getVerticalScrollBar().setUnitIncrement(16);
+		
 		activitiesPanel.add(activitiesScrollPane);
 		
 		MainWindow.getInstance().getWorkPanel().add(activitiesPanel,BorderLayout.CENTER);
@@ -84,6 +89,7 @@ public class ViewEvent {
 	
 	@SuppressWarnings("deprecation")
 	private void showEvent(JPanel panel) {
+		// We created the constraint that is used to place the event panels
 		GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -92,9 +98,11 @@ public class ViewEvent {
         gbc.insets = new Insets(4, 4, 4, 4);
         gbc.anchor = GridBagConstraints.WEST;
         
+        // The title of the panel
         JLabel title = new JLabel("Événement");
         title.setFont(MainWindow.TITLE_FONT);
         
+        // The informations of the event
         panel.add(title, gbc);
         gbc.gridy++;
 	    panel.add(createPane("Nom",createLabel(event.getName() + "")),gbc);
@@ -120,6 +128,12 @@ public class ViewEvent {
 	    
 	}
 	
+	/**
+	 * Create a new pane contained in the formActiviyPanel
+	 * @param text
+	 * @param jTextField
+	 * @return JPanel containing a JLabel and a jTextfield on the same line (to structure the mainPanel)
+	 */
 	private JPanel createPane(String text, JLabel jLabel){
 		JPanel jPanel = new JPanel();
 		jPanel.setBackground(Color.white);
@@ -132,8 +146,7 @@ public class ViewEvent {
         JLabel tmpLabel = new JLabel(text + " : ");
         tmpLabel.setFont(MainWindow.DEFAUT_FONT);
         jPanel.add(tmpLabel, gbc);
-
-
+        
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.weightx = 1;
@@ -142,12 +155,15 @@ public class ViewEvent {
         jPanel.add(jLabel, gbc);
         return jPanel;
 	}
-	
+	/**
+	 * 
+	 * @param text
+	 * @return JLabel containing the text that we passed
+	 */
 	public JLabel createLabel(String text) {
 		JLabel label = new JLabel(text);
 		label.setFont(MainWindow.DEFAUT_FONT);
 		return label;
-		
 	}
 
 	public JPanel getMainEventPanel()

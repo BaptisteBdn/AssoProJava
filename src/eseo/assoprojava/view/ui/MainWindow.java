@@ -13,6 +13,7 @@ public class MainWindow extends JFrame {
 	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	public static final String DEFAUT_TITLE = "AssoPro";
 	public static final Font DEFAUT_FONT = new Font("Arial", Font.PLAIN, 14);
 	public static final Font TITLE_FONT = new Font("Arial", Font.BOLD, 16);

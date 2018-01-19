@@ -19,43 +19,55 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import eseo.assoprojava.model.activity.Activity;
+import eseo.assoprojava.model.activity.organiser.Organiser;
 import eseo.assoprojava.model.event.Event;
-import eseo.assoprojava.model.organiser.Organiser;
-import eseo.assoprojava.model.place.Place;
-import eseo.assoprojava.model.place.gps.GpsCoord;
+import eseo.assoprojava.model.event.place.Place;
+import eseo.assoprojava.model.event.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
-import eseo.assoprojava.view.ui.panels.WorkPanel;
 
+/**
+ * 
+ * @author Suline
+ * @version 1.0
+ *
+ */
 public class ActionLoadEvent extends javax.swing.AbstractAction {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Create an action to load XML file
+	 */
 	public ActionLoadEvent()
 	{
 		super();
 	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		loadEvent();
 	}
-
+	
+	/**
+	 * Load XML file from a chosen folder
+	 */
 	private void loadEvent()
 	{
+		// Chose the XML file from the file explorer
 		JFileChooser dialogue = new JFileChooser();
+		// Filter by XML File
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML File", "xml");
 		dialogue.setFileFilter(filter);
 		dialogue.showOpenDialog(null);
-
+		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		Event event = new Event();
 		Place place = new Place();
 		Activity activity = new Activity();
 		Organiser organiser = new Organiser();
+		// Chose date format
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
 		try
@@ -64,6 +76,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 			File fileXML = dialogue.getSelectedFile();
 
 			Document xml = builder.parse(fileXML);
+			// Add  the event
 			Element root = xml.getDocumentElement();
 			event.setName(root.getAttribute("name"));
 			event.setClubOrganiser(root.getAttribute("clubOrganiser"));
@@ -73,7 +86,8 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 			event.setDateBegin(dateFormat.parse(root.getAttribute("dateBegin")));
 			event.setDateEnd(dateFormat.parse(root.getAttribute("dateEnd")));
 			event.setDescription(root.getAttribute("description"));
-
+			
+			// Get event parameters
 			NodeList rootNodes = root.getChildNodes();
 			int nbRootNode = rootNodes.getLength();
 			for (int i = 0; i < nbRootNode; i++)
@@ -81,6 +95,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 				if (rootNodes.item(i).getNodeType() == Node.ELEMENT_NODE)
 				{
 					Element childElement = (Element) rootNodes.item(i);
+					// Add the place
 					if (childElement.getNodeName() == "Place")
 					{
 						place.setName(childElement.getAttribute("name"));
@@ -95,19 +110,21 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 						{
 							if (childNodes.item(k).getNodeType() == Node.ELEMENT_NODE)
 							{
+								// Add gpsCoord into the place
 								Element gpsElement = (Element) childNodes.item(k);
 								place.setGpsCoord(new GpsCoord(Double.parseDouble(gpsElement.getAttribute("latitude")), Double.parseDouble(gpsElement.getAttribute("longitude"))));
 							}
 						}
-						System.out.println(place);
 						event.setPlace(place);
 					}
+					// Get the activities
 					if (childElement.getNodeName() == "Activities")
 					{
 						NodeList activitiesNodes = childElement.getChildNodes();
 						int nbActivitiesNode = activitiesNodes.getLength();
 						for (int m = 0; m < nbActivitiesNode; m++)
 						{
+							// Get information for each activity
 							if (activitiesNodes.item(m).getNodeType() == Node.ELEMENT_NODE)
 							{
 								activity = new Activity();
@@ -125,6 +142,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 								{
 									if (organiserNodes.item(n).getNodeType() == Node.ELEMENT_NODE)
 									{
+										// Get information about the organiser
 										Element organiserElement = (Element) organiserNodes.item(n);
 										organiser = new Organiser();
 										organiser.setFirstName(organiserElement.getAttribute("firstName"));
@@ -159,6 +177,7 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 			e.printStackTrace();
 		}
 		
+		// Refresh the window and panels
 		MainWindow.getInstance().getWorkPanel().init();
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
@@ -167,7 +186,6 @@ public class ActionLoadEvent extends javax.swing.AbstractAction {
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);
 		MainWindow.getInstance().getToolsPanel().enableButtons();
-		return;
 	}
 
 }
