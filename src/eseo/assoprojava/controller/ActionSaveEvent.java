@@ -29,16 +29,19 @@ import org.w3c.dom.Element;
 
 public class ActionSaveEvent extends javax.swing.AbstractAction {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * Create an action to save event
+	 */
 	public ActionSaveEvent()
 	{
 		super();
 	}
-
+	
+	/**
+	 * Create an xml file with an event
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{	    
@@ -46,7 +49,6 @@ public class ActionSaveEvent extends javax.swing.AbstractAction {
 	    fileChooser.setDialogTitle("Enregistrer...");
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML File", "xml");
 	    fileChooser.setFileFilter(filter);
-
 	    fileChooser.showSaveDialog(null);
 	    
 		Event event = MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent();
@@ -54,10 +56,12 @@ public class ActionSaveEvent extends javax.swing.AbstractAction {
 		GpsCoord gpsCoord = place.getGpsCoord();
 		List<Activity> activities = event.getActivities();
 		
+		///Modification of the dateFormat
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 			
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		
+		///Create the structure of the xml file
 		try {
 			
 			final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -120,10 +124,15 @@ public class ActionSaveEvent extends javax.swing.AbstractAction {
 				activityElement.appendChild(organiserElement);
 			}
 			
+			///Save with ".xml"
 			final TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		    final Transformer transformer = transformerFactory.newTransformer();
 		    final DOMSource source = new DOMSource(document);
-		    final StreamResult sortie = new StreamResult(new File(fileChooser.getSelectedFile().getAbsolutePath()));
+		    String fileName = fileChooser.getSelectedFile().getAbsolutePath();
+		    if(!fileName.endsWith(".xml")) {
+		    	fileName += ".xml";
+		    }
+		    final StreamResult sortie = new StreamResult(new File(fileName));
 		    
 		    transformer.setOutputProperty(OutputKeys.VERSION, "1.0");
 		    transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
