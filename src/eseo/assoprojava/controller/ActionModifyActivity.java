@@ -11,7 +11,7 @@ public class ActionModifyActivity extends javax.swing.AbstractAction {
 	Activity activity;
 	
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -21,6 +21,9 @@ public class ActionModifyActivity extends javax.swing.AbstractAction {
 		this.activity = activity;
 	}
 	
+	/**
+	 * Disable all the buttons and open a FormActivityPanel initialized with an activity
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

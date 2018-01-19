@@ -13,12 +13,12 @@ import eseo.assoprojava.model.place.Place;
 import eseo.assoprojava.model.place.gps.GpsCoord;
 import eseo.assoprojava.view.ui.MainWindow;
 import eseo.assoprojava.view.ui.panels.FormActivityPanel;
-import eseo.assoprojava.view.ui.panels.FormPanel;
+import eseo.assoprojava.view.ui.panels.FormEventPanel;
 
 public class ActionValidate extends javax.swing.AbstractAction {
 
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -27,13 +27,21 @@ public class ActionValidate extends javax.swing.AbstractAction {
 		super();
 	}
 
+	/**
+	 * Validate the new object, either an activity or an event
+	 * Display buttons
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
+
 		if (MainWindow.getCurrentFormWindow().isEvent())
 		{
+			// Validate a new set event
 			Event event = new Event();
-			FormPanel formPanel = MainWindow.getCurrentFormWindow().getFormPanel();
+			FormEventPanel formPanel = MainWindow.getCurrentFormWindow().getFormEventPanel();
+
+			// Error popup messages if a textField's content is not correct
 			if (formPanel.getNameField().getText().isEmpty())
 			{
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nom ne peut pas être vide !", "Error", JOptionPane.ERROR_MESSAGE);
@@ -90,49 +98,56 @@ public class ActionValidate extends javax.swing.AbstractAction {
 				return;
 			}
 
-			if(!formPanel.getNumberMaxField().getText().isEmpty()){
+			if (!formPanel.getNumberMaxField().getText().isEmpty())
+			{
 				event.setNumberMaximum(Integer.parseInt(formPanel.getNumberMaxField().getText()));
 				if (Integer.parseInt(formPanel.getNumberMaxField().getText()) - Integer.parseInt(formPanel.getNumberMinField().getText()) < 0)
 				{
 					JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes minimum ne peut pas être supérieur au nombre de personnes maximum !", "Error", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-			} else {
+			}
+			else
+			{
 				event.setNumberMaximum(0);
 			}
 
+			// Set the new event
 			event.setName(formPanel.getNameField().getText());
 			event.setClubOrganiser(formPanel.getClubField().getText());
 			event.setDateBegin((Date) formPanel.getDateBeginField().getValue());
 			event.setDateEnd((Date) formPanel.getDateEndField().getValue());
 			event.setNumberMinimum(Integer.parseInt(formPanel.getNumberMinField().getText()));
-			
-			if(!formPanel.getPriceField().getText().equals("")){
+
+			if (!formPanel.getPriceField().getText().equals(""))
+			{
 				event.setPrice(Double.parseDouble(formPanel.getPriceField().getText()));
-			} else {
+			}
+			else
+			{
 				event.setPrice(0);
 			}
-			
-			event.setPlace(new Place(Integer.parseInt(formPanel.getPlaceNumberField().getText()), 
-				formPanel.getPlaceStreetField().getText(), 
-				formPanel.getPlaceCityField().getText(), 
-				formPanel.getPlaceStateField().getText(), 
-				formPanel.getPlaceCountryField().getText(), 
-				Integer.parseInt(formPanel.getPlacePostalCodeField().getText()),
-				new GpsCoord(),
+
+			event.setPlace(new Place(Integer.parseInt(formPanel.getPlaceNumberField().getText()), formPanel.getPlaceStreetField().getText(), formPanel.getPlaceCityField().getText(), formPanel.getPlaceStateField().getText(), formPanel.getPlaceCountryField().getText(), Integer.parseInt(formPanel.getPlacePostalCodeField().getText()), new GpsCoord(),
 				formPanel.getPlaceNameField().getText()));
 			event.setDescription(formPanel.getDescriptionField().getText());
-			
-			if(!formPanel.getPlaceGPSLatField().getText().equals("") && !formPanel.getPlaceGPSLongField().getText().equals("")){
-				event.getPlace().setGpsCoord(new GpsCoord(Double.parseDouble(formPanel.getPlaceGPSLatField().getText()),Double.parseDouble(formPanel.getPlaceGPSLongField().getText())));
+
+			if (!formPanel.getPlaceGPSLatField().getText().equals("") && !formPanel.getPlaceGPSLongField().getText().equals(""))
+			{
+				event.getPlace().setGpsCoord(new GpsCoord(Double.parseDouble(formPanel.getPlaceGPSLatField().getText()), Double.parseDouble(formPanel.getPlaceGPSLongField().getText())));
 			}
-			
-			if(!MainWindow.getCurrentFormWindow().getFormPanel().isCreating()){
+
+			// Set activities whether or not the event is in creation or in modification
+			if (!MainWindow.getCurrentFormWindow().getFormEventPanel().isCreating())
+			{
 				event.setActivities(MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent().getActivities());
-			} else {
+			}
+			else
+			{
 				MainWindow.getInstance().getWorkPanel().init();
 			}
-			
+
+			// Refresh the window
 			MainWindow.getCurrentFormWindow().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
@@ -140,10 +155,15 @@ public class ActionValidate extends javax.swing.AbstractAction {
 			MainWindow.getInstance().getWorkPanel().getViewEvent().show();
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);
-			
-		} else {
+
+		}
+		else
+		{
+			// Validate a new set activity
 			Activity activity = MainWindow.getCurrentFormWindow().getFormActivityPanel().getActivity();
 			FormActivityPanel f = MainWindow.getCurrentFormWindow().getFormActivityPanel();
+
+			// Error popup messages if a textField's content is not correct
 			if (f.getNameField().getText().isEmpty())
 			{
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nom ne peut pas être vide !", "Error", JOptionPane.ERROR_MESSAGE);
@@ -179,38 +199,48 @@ public class ActionValidate extends javax.swing.AbstractAction {
 				JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes maximum est incorrect !", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
-			
+
+			// Set activity
 			activity.setName(f.getNameField().getText());
 			activity.setDateBegin((Date) f.getDateBeginField().getValue());
 			activity.setDateEnd((Date) f.getDateEndField().getValue());
 			activity.setDescription(f.getDescriptionField().getText());
 			activity.setOrganiser(new Organiser(f.getOrganiserFirstField().getText(), f.getOrganiserLastField().getText(), f.getOrganiserClubField().getText(), f.getOrganiserRoleField().getText()));
-			
-			if(!f.getPriceField().getText().equals("")){
+
+			if (!f.getPriceField().getText().equals(""))
+			{
 				activity.setPrice(Double.parseDouble(f.getPriceField().getText()));
-			} else {
+			}
+			else
+			{
 				activity.setPrice(0);
-			}			
-			
+			}
+
 			activity.setNumberMinimum(Integer.parseInt(f.getNumberMinField().getText()));
-			
-			if(!f.getNumberMaxField().getText().isEmpty()){
+
+			if (!f.getNumberMaxField().getText().isEmpty())
+			{
 				activity.setNumberMaximum(Integer.parseInt(f.getNumberMaxField().getText()));
 				if (Integer.parseInt(f.getNumberMaxField().getText()) - Integer.parseInt(f.getNumberMinField().getText()) < 0)
 				{
 					JOptionPane.showMessageDialog(MainWindow.getCurrentFormWindow(), "Le nombre de personnes minimum ne peut pas être supérieur au nombre de personnes maximum !", "Error", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
-			} else {
+			}
+			else
+			{
 				activity.setNumberMaximum(0);
 			}
-			
-			if( MainWindow.getCurrentFormWindow().getFormActivityPanel().isCreating()){
+
+			// Add activity to activities whether or not the activity is in creation or not
+			if (MainWindow.getCurrentFormWindow().getFormActivityPanel().isCreating())
+			{
 				Event event = MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent();
 				event.addActivity(activity);
 				MainWindow.getInstance().getWorkPanel().getViewEvent().setEvent(event);
 			}
-			
+
+			// Refresh
 			MainWindow.getCurrentFormWindow().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
@@ -218,9 +248,16 @@ public class ActionValidate extends javax.swing.AbstractAction {
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(true);
 			MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(true);
 		}
+		// Enable all the buttons
 		MainWindow.getInstance().getToolsPanel().enableButtons();
 	}
 
+
+	/**
+	 * String used to check if a String contains a Double 
+	 * Got from the Double.valueOf(String) documentation
+	 * https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#valueOf-java.lang.String-
+	 */
 	final String Digits = "(\\p{Digit}+)";
 	final String HexDigits = "(\\p{XDigit}+)";
 	final String Exp = "[eE][+-]?" + Digits;
@@ -253,8 +290,6 @@ public class ActionValidate extends javax.swing.AbstractAction {
 		// 0[xX] HexDigits_opt . HexDigits BinaryExponent FloatTypeSuffix_opt
 		"(0[xX]" + HexDigits + "?(\\.)" + HexDigits + ")" +
 
-		")[pP][+-]?" + Digits + "))" + "[fFdD]?))" + "[\\x00-\\x20]*");// Optional
-																		// trailing
-																		// "whitespace"
+		")[pP][+-]?" + Digits + "))" + "[fFdD]?))" + "[\\x00-\\x20]*");// Optional trailing "whitespace"
 
 }

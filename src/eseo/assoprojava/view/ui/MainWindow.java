@@ -8,15 +8,9 @@ import javax.swing.JFrame;
 import eseo.assoprojava.view.ui.panels.ToolsPanel;
 import eseo.assoprojava.view.ui.panels.WorkPanel;
 
-/**
- * 
- * @author baptiste
- *
- */
-
 public class MainWindow extends JFrame {
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 	public static final String DEFAUT_TITLE = "AssoPro";

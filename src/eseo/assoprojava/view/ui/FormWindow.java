@@ -7,19 +7,19 @@ import javax.swing.JPanel;
 
 import eseo.assoprojava.model.Occasion;
 import eseo.assoprojava.view.ui.panels.FormActivityPanel;
-import eseo.assoprojava.view.ui.panels.FormPanel;
+import eseo.assoprojava.view.ui.panels.FormEventPanel;
 import eseo.assoprojava.view.ui.panels.ValidationPanel;
 
 public class FormWindow extends JFrame{
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 	public String title = "Événement";
 	private JPanel container;
 	private boolean isEvent;
 	private ValidationPanel validationPanel;
-	private FormPanel formPanel;
+	private FormEventPanel formEventPanel;
 	private FormActivityPanel formActivityPanel;
 	
 	/**
@@ -37,8 +37,8 @@ public class FormWindow extends JFrame{
 	    container.setBackground(Color.white);
 	    container.setLayout(new BorderLayout());
 	    if(isEvent){
-		    this.formPanel = new FormPanel(occasion);
-		    container.add(this.formPanel, BorderLayout.CENTER);
+		    this.formEventPanel = new FormEventPanel(occasion);
+		    container.add(this.formEventPanel, BorderLayout.CENTER);
 	    } else {
 		    this.formActivityPanel = new FormActivityPanel(occasion);
 		    container.add(this.formActivityPanel, BorderLayout.CENTER);
@@ -58,9 +58,9 @@ public class FormWindow extends JFrame{
 		return validationPanel;
 	}
 
-	public FormPanel getFormPanel()
+	public FormEventPanel getFormEventPanel()
 	{
-		return formPanel;
+		return formEventPanel;
 	}
 
 	public boolean isEvent()

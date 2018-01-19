@@ -18,23 +18,27 @@ import eseo.assoprojava.controller.ActionValidate;
 public class ValidationPanel extends JPanel {
 	
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 	private JButton buttonValidate = new JButton("Valider");
 	private JButton buttonCancel = new JButton("Annuler");
 	
+	/**
+	 * Default constructor
+	 * Init the validationPanel
+	 */
 	public ValidationPanel(){
 		this.setBackground(Color.WHITE);
 		createButton(buttonValidate, new ActionValidate());
 		createButton(buttonCancel, new ActionCancel());
-	    JPanel south = new JPanel();
-	    south.setBackground(Color.WHITE);
-	    south.add(buttonValidate);
-	    south.add(buttonCancel);
-	    this.add(south, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Create a new button and add it to the main panel
+	 * @param button
+	 * @param action
+	 */
 	private void createButton(JButton button, ActionListener action){
 		button.setMargin(new Insets(2, 2, 2, 2));
 		button.getPreferredSize();

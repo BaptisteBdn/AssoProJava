@@ -20,16 +20,10 @@ import eseo.assoprojava.controller.ActionModifyEvent;
 import eseo.assoprojava.controller.ActionSaveEvent;
 import eseo.assoprojava.view.ui.MainWindow;
 
-/**
- * 
- * @author baptiste
- *
- */
-
 public class ToolsPanel extends JPanel {
 
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -39,6 +33,9 @@ public class ToolsPanel extends JPanel {
 	JButton buttonModify;
 	JButton buttonCreateActivity;
 
+	/**
+	 * Default constructor
+	 */
 	public ToolsPanel()
 	{
 		this.setLayout(new GridLayout(1, 4));
@@ -46,6 +43,9 @@ public class ToolsPanel extends JPanel {
 		initComponents();
 	}
 
+	/**
+	 * Init all the button
+	 */
 	private void initComponents()
 	{
 		buttonNew = createButton("Nouveau", new ActionCreateEvent());
@@ -58,6 +58,10 @@ public class ToolsPanel extends JPanel {
 		buttonCreateActivity.setEnabled(false);
 	}
 
+	
+	/**
+	 * Disable all the button
+	 */
 	public void disableButtons()
 	{
 		this.buttonNew.setEnabled(false);
@@ -67,6 +71,10 @@ public class ToolsPanel extends JPanel {
 		this.buttonCreateActivity.setEnabled(false);
 	}
 	
+	/**
+	 * Enable all the button if they can be used
+	 * Otherwise only enable buttonNew and buttonLoad
+	 */
 	public void enableButtons()
 	{
 		this.buttonNew.setEnabled(true);
@@ -78,6 +86,12 @@ public class ToolsPanel extends JPanel {
 		}
 	}
 
+	/**
+	 * Create a button and add it to the main panel
+	 * @param textButton
+	 * @param action
+	 * @return JButton
+	 */
 	private JButton createButton(String text, ActionListener action)
 	{
 		JButton button = new JButton(text);

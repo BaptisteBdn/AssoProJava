@@ -8,7 +8,7 @@ import eseo.assoprojava.view.ui.MainWindow;
 public class ActionCreateEvent extends javax.swing.AbstractAction {
 	
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -16,12 +16,15 @@ public class ActionCreateEvent extends javax.swing.AbstractAction {
 		super();
 	}
 	
+	/**
+	 * Disable all the buttons and display a FormEventPanel
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		MainWindow.getInstance().getToolsPanel().disableButtons();
 		FormWindow formWindow = new FormWindow(true,"Événement",null);
-		formWindow.getFormPanel().setCreating(true);
+		formWindow.getFormEventPanel().setCreating(true);
 		MainWindow.setCurrentFormWindow(formWindow);
 		formWindow.pack();
 		formWindow.setVisible(true);

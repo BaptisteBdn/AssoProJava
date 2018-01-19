@@ -11,7 +11,7 @@ public class ActionDeleteActivity extends javax.swing.AbstractAction {
 	Activity activity;
 	
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -21,15 +21,15 @@ public class ActionDeleteActivity extends javax.swing.AbstractAction {
 		this.activity = activity;
 	}
 	
+	/**
+	 * Delete an activity from the list
+	 * Refresh the window
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		
-		// TODO Auto-generated method stub
 		Event event = MainWindow.getInstance().getWorkPanel().getViewEvent().getEvent();
-		
 		event.getActivities().remove(activity);
-
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getMainEventPanel().setVisible(false);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().getActivitiesPanel().setVisible(false);
 		MainWindow.getInstance().getWorkPanel().getViewEvent().setEvent(event);

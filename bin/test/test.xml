@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Event clubOrganiser="BDE" dateBegin="15/01/2018 08:00" dateEnd="19/01/2018 18:00" description="Vous pourrez retrouver vos parrains et filleuls autour de différentes activités." name="Semaine des Familles" numberMaximum="300" numberMinimum="1" price="0">
+  <Place city="Angers" country="France" name="ESEO" number="12" postalCode="49100" state="Maine-et-Loire" street="10 Boulevard Jeanneteau">
+    <GpsCoord east="false" latitude="47.493029" latitudeDegree="47" latitudeMinute="29" latitudeSecond="34.904" longitude="-0.551429" longitudeDegree="0" longitudeMinute="33" longitudeSecond="5.144" north="true"/>
+  </Place>
+  <Activities>
+    <Activity dateBegin="15/01/2018 08:00" dateEnd="19/01/2018 18:00" description="Venez prendre des photos de famille" name="Stand photo" numberMaximum="200" numberMinimum="0" price="0">
+      <Organiser club="BDE" firstName="Sophie" lastName="Merceron" role="Resp photo"/>
+    </Activity>
+    <Activity dateBegin="15/01/2018 12:00" dateEnd="19/01/2018 13:00" description="Pizza à commander en avance" name="Pizza" numberMaximum="200" numberMinimum="2" price="4">
+      <Organiser club="BDE" firstName="Lucien" lastName="Christian" role="Resp photo"/>
+    </Activity>
+    <Activity dateBegin="16/01/2018 12:00" dateEnd="16/01/2018 13:00" description="Moment musical" name="Blind test" numberMaximum="200" numberMinimum="2" price="0">
+      <Organiser club="BDE" firstName="Mélissandre" lastName="Audrain" role="Resp musique"/>
+    </Activity>
+    <Activity dateBegin="16/01/2018 12:00" dateEnd="16/01/2018 13:00" description="Moment musical" name="Karaoké" numberMaximum="200" numberMinimum="1" price="0">
+      <Organiser club="BDE" firstName="Mélissandre" lastName="Audrain" role="Resp musique"/>
+    </Activity>
+    <Activity dateBegin="17/01/2018 12:00" dateEnd="16/01/2018 13:00" description="Dessinez en famille" name="Dessin coordonné" numberMaximum="100" numberMinimum="2" price="0">
+      <Organiser club="BDE" firstName="Alexiane" lastName="Aupetit" role="Resp dessin"/>
+    </Activity>
+    <Activity dateBegin="17/01/2018 12:00" dateEnd="17/01/2018 13:00" description="Un peu de sport" name="Basket" numberMaximum="200" numberMinimum="1" price="0">
+      <Organiser club="BDE" firstName="Baptiste" lastName="Beduneau" role="Resp sport"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 12:00" dateEnd="18/01/2018 13:00" description="A vos poêles!" name="Crepe party" numberMaximum="200" numberMinimum="2" price="2">
+      <Organiser club="BDE" firstName="Pierre" lastName="Grié" role="Resp musique"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 12:00" dateEnd="18/01/2018 13:00" description="En équipe de 3" name="Jeu de rapidité" numberMaximum="50" numberMinimum="2" price="0">
+      <Organiser club="BDE" firstName="Calvin" lastName="Ageneau" role="Resp musique"/>
+    </Activity>
+    <Activity dateBegin="18/01/2018 12:00" dateEnd="18/01/2018 13:00" description="100€ à gagner" name="Concours spécial" numberMaximum="200" numberMinimum="2" price="0">
+      <Organiser club="BDE" firstName="Suline" lastName="Cai" role="Resp musique"/>
+    </Activity>
+    <Activity dateBegin="19/01/2018 12:00" dateEnd="19/01/2018 13:00" description="Moment musical" name="Blind test" numberMaximum="200" numberMinimum="2" price="0">
+      <Organiser club="BDE" firstName="Mélissandre" lastName="Audrain" role="Resp musique"/>
+    </Activity>
+    <Activity dateBegin="19/01/2018 12:00" dateEnd="19/01/2018 13:00" description="Moment musical" name="Blind test" numberMaximum="30" numberMinimum="5" price="0">
+      <Organiser club="BDE" firstName="Mélissandre" lastName="Audrain" role="Resp musique"/>
+    </Activity>
+    <Activity dateBegin="19/01/2018 12:00" dateEnd="19/01/2018 13:00" description="Moment musical" name="Blind test" numberMaximum="10" numberMinimum="2" price="0">
+      <Organiser club="BDE" firstName="Mélissandre" lastName="Audrain" role="Resp musique"/>
+    </Activity>
+  </Activities>
+</Event>

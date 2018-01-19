@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Event clubOrganiser="BDE" dateBegin="07/10/1996 14:15" dateEnd="07/11/1996 04:05" description="divers" name="Soiree BDE" numberMaximum="100" numberMinimum="0" price="2.0">
+  <Place city="Angers" country="France" name="Chez Soso" number="6" postalCode="49100" state="France" street="rue Bodinier">
+    <GpsCoord east="false" latitude="0.0" latitudeDegree="0" latitudeMinute="0" latitudeSecond="-0.0" longitude="0.0" longitudeDegree="0" longitudeMinute="0" longitudeSecond="-0.0" north="false"/>
+  </Place>
+  <Activities>
+    <Activity dateBegin="07/11/1996 14:15" dateEnd="07/11/1996 15:15" description="Rebelote" name="belote" numberMaximum="32" numberMinimum="4" price="5.0">
+      <Organiser club="BDE" firstName="Lucien" lastName="Christian" role="Fou du roi"/>
+    </Activity>
+  </Activities>
+</Event>

@@ -8,7 +8,7 @@ import eseo.assoprojava.view.ui.MainWindow;
 public class ActionCreateActivity extends javax.swing.AbstractAction  {
 	
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -16,6 +16,9 @@ public class ActionCreateActivity extends javax.swing.AbstractAction  {
 		super();
 	}
 	
+	/**
+	 * Disable all the buttons and display a FormActivityPanel
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		MainWindow.getInstance().getToolsPanel().disableButtons();

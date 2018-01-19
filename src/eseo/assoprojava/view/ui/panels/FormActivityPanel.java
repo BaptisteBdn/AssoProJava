@@ -19,7 +19,7 @@ import eseo.assoprojava.model.activity.Activity;
 
 public class FormActivityPanel extends JPanel {
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 	public static final int DEFAULT_WIDTH = 400;
@@ -164,28 +164,7 @@ public class FormActivityPanel extends JPanel {
 		jPanel.add(jTextField, gbc);
 		return jPanel;
 	}
-
-	/**
-	 * Center the value inside the textFields
-	 * Set the descriptionField
-	 */
-	private void centerTextFields()
-	{
-		nameField.setHorizontalAlignment(JTextField.CENTER);
-		descriptionField.setEditable(true);
-		descriptionField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-		descriptionField.setWrapStyleWord(true);
-		descriptionField.setLineWrap(true);
-		descriptionField.setRows(4);
-		organiserFirstField.setHorizontalAlignment(JTextField.CENTER);
-		organiserLastField.setHorizontalAlignment(JTextField.CENTER);
-		organiserClubField.setHorizontalAlignment(JTextField.CENTER);
-		organiserRoleField.setHorizontalAlignment(JTextField.CENTER);
-		priceField.setHorizontalAlignment(JTextField.CENTER);
-		numberMaxField.setHorizontalAlignment(JTextField.CENTER);
-		numberMinField.setHorizontalAlignment(JTextField.CENTER);
-	}
-
+	
 	/**
 	 * Special createPane with multiple jTextField in order to have multiple textField for the same label
 	 * @param text
@@ -221,6 +200,27 @@ public class FormActivityPanel extends JPanel {
 		jPanel.add(placeNameField2, gbc);
 		gbc.gridy++;
 		return jPanel;
+	}
+
+	/**
+	 * Center the value inside the textFields
+	 * Set the descriptionField
+	 */
+	private void centerTextFields()
+	{
+		nameField.setHorizontalAlignment(JTextField.CENTER);
+		descriptionField.setEditable(true);
+		descriptionField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		descriptionField.setWrapStyleWord(true);
+		descriptionField.setLineWrap(true);
+		descriptionField.setRows(4);
+		organiserFirstField.setHorizontalAlignment(JTextField.CENTER);
+		organiserLastField.setHorizontalAlignment(JTextField.CENTER);
+		organiserClubField.setHorizontalAlignment(JTextField.CENTER);
+		organiserRoleField.setHorizontalAlignment(JTextField.CENTER);
+		priceField.setHorizontalAlignment(JTextField.CENTER);
+		numberMaxField.setHorizontalAlignment(JTextField.CENTER);
+		numberMinField.setHorizontalAlignment(JTextField.CENTER);
 	}
 
 	public Activity getActivity()

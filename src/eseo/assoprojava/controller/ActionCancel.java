@@ -7,7 +7,7 @@ import eseo.assoprojava.view.ui.MainWindow;
 public class ActionCancel extends javax.swing.AbstractAction {
 
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -16,6 +16,9 @@ public class ActionCancel extends javax.swing.AbstractAction {
 		super();
 	}
 	
+	/**
+	 * Close the current FormWindow and enable buttons
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

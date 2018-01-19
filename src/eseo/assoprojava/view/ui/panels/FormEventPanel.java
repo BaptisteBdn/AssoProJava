@@ -18,9 +18,9 @@ import javax.swing.SpinnerDateModel;
 import eseo.assoprojava.model.Occasion;
 import eseo.assoprojava.model.event.Event;
 
-public class FormPanel extends JPanel {
+public class FormEventPanel extends JPanel {
 	/**
-	 * 
+	 * @author baptiste
 	 */
 	private static final long serialVersionUID = 1L;
 	public static final int DEFAULT_WIDTH = 400;
@@ -30,6 +30,7 @@ public class FormPanel extends JPanel {
 	private Event event;
 	private boolean isCreating;
 
+	// Each field is individual in order to get their values 
 	private JTextField nameField;
 	private JTextArea descriptionField;
 
@@ -52,13 +53,25 @@ public class FormPanel extends JPanel {
 	private JTextField numberMinField;
 	private JTextField numberMaxField;
 
-	public FormPanel(Occasion occasion)
+	/**
+	 * Basic constructor
+	 * @param occasion
+	 */
+	public FormEventPanel(Occasion occasion)
 	{
 		this(DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_COLOR, occasion);
 	}
 
-	public FormPanel(int width, int height, Color color, Occasion occasion)
+	/**
+	 * Constructor, init eventPanel
+	 * @param width
+	 * @param height
+	 * @param color
+	 * @param occasion
+	 */
+	public FormEventPanel(int width, int height, Color color, Occasion occasion)
 	{
+		// Set activity
 		if (occasion == null)
 		{
 			event = new Event();
@@ -71,7 +84,12 @@ public class FormPanel extends JPanel {
 		this.setBackground(color);
 		initComponents();
 	}
-
+	
+	/**
+	 * Init the panel with a new Layout which is containing constraints
+	 * gbc : Constraints used to structure the panel layout
+	 * Initializing each field with their name
+	 */
 	private void initComponents()
 	{
 		setLayout(new GridBagLayout());
@@ -159,30 +177,43 @@ public class FormPanel extends JPanel {
 		centerTextFields();
 	}
 
-	private void centerTextFields()
+	/**
+	 * Create a new pane contained in the formPanel
+	 * @param text
+	 * @param jTextField
+	 * @return JPanel containing a JLabel and a jTextfield on the same line (to structure the mainPanel)
+	 */
+	private JPanel createPane(String text, Component jTextField)
 	{
-		nameField.setHorizontalAlignment(JTextField.CENTER);
-		placeNumberField.setHorizontalAlignment(JTextField.CENTER);
-		placeStreetField.setHorizontalAlignment(JTextField.CENTER);
-		placePostalCodeField.setHorizontalAlignment(JTextField.CENTER);
-		placeCityField.setHorizontalAlignment(JTextField.CENTER);
-		placeCountryField.setHorizontalAlignment(JTextField.CENTER);
-		placeNameField.setHorizontalAlignment(JTextField.CENTER);
-		placeStateField.setHorizontalAlignment(JTextField.CENTER);
-		placeGPSLatField.setHorizontalAlignment(JTextField.CENTER);
-		placeGPSLongField.setHorizontalAlignment(JTextField.CENTER);
-		priceField.setHorizontalAlignment(JTextField.CENTER);
-		clubField.setHorizontalAlignment(JTextField.CENTER);
-		numberMaxField.setHorizontalAlignment(JTextField.CENTER);
-		numberMinField.setHorizontalAlignment(JTextField.CENTER);
-		descriptionField.setEditable(true);
-		descriptionField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-		descriptionField.setWrapStyleWord(true);
-		descriptionField.setLineWrap(true);
-		descriptionField.setRows(4);
-	}
+		JPanel jPanel = new JPanel();
+		jPanel.setBackground(DEFAULT_COLOR);
+		jPanel.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		// gbc.weightx = 1;
+		gbc.anchor = GridBagConstraints.WEST;
+		jPanel.add(new JLabel(text + " : "), gbc);
 
-	private Component createPlacePane(String text, JTextField jTextField, JTextField placeStreetField, JTextField placeNameField2, JTextField placePostalCodeField2, JTextField placeCityField2, JTextField placeCountryField2, JTextField placeStateField2, JTextField placeGPSField2, JTextField placeGPSLongField2)
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		gbc.weightx = 1;
+		gbc.anchor = GridBagConstraints.EAST;
+		gbc.fill = GridBagConstraints.BOTH;
+		jPanel.add(jTextField, gbc);
+		return jPanel;
+	}
+	
+	/**
+	 * Special createPane with multiple jTextField in order to have multiple textField for the same label
+	 * @param text
+	 * @param jTextField
+	 * @param placeStreetField
+	 * @param placeNameField2
+	 * @param placePostalCodeField2
+	 * @return JPanel containing a JLabel and multiple jTextfield on the same line (to structure the mainPanel)
+	 */
+	private JPanel createPlacePane(String text, JTextField jTextField, JTextField placeStreetField, JTextField placeNameField2, JTextField placePostalCodeField2, JTextField placeCityField2, JTextField placeCountryField2, JTextField placeStateField2, JTextField placeGPSField2, JTextField placeGPSLongField2)
 	{
 		JPanel jPanel = new JPanel();
 		jPanel.setBackground(DEFAULT_COLOR);
@@ -218,26 +249,32 @@ public class FormPanel extends JPanel {
 		jPanel.add(placeGPSLongField2, gbc);
 		return jPanel;
 	}
-
-	private JPanel createPane(String text, Component jTextField)
+	
+	/**
+	 * Center the value inside the textFields
+	 * Set the descriptionField
+	 */
+	private void centerTextFields()
 	{
-		JPanel jPanel = new JPanel();
-		jPanel.setBackground(DEFAULT_COLOR);
-		jPanel.setLayout(new GridBagLayout());
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		// gbc.weightx = 1;
-		gbc.anchor = GridBagConstraints.WEST;
-		jPanel.add(new JLabel(text + " : "), gbc);
-
-		gbc.gridx = 1;
-		gbc.gridy = 0;
-		gbc.weightx = 1;
-		gbc.anchor = GridBagConstraints.EAST;
-		gbc.fill = GridBagConstraints.BOTH;
-		jPanel.add(jTextField, gbc);
-		return jPanel;
+		nameField.setHorizontalAlignment(JTextField.CENTER);
+		placeNumberField.setHorizontalAlignment(JTextField.CENTER);
+		placeStreetField.setHorizontalAlignment(JTextField.CENTER);
+		placePostalCodeField.setHorizontalAlignment(JTextField.CENTER);
+		placeCityField.setHorizontalAlignment(JTextField.CENTER);
+		placeCountryField.setHorizontalAlignment(JTextField.CENTER);
+		placeNameField.setHorizontalAlignment(JTextField.CENTER);
+		placeStateField.setHorizontalAlignment(JTextField.CENTER);
+		placeGPSLatField.setHorizontalAlignment(JTextField.CENTER);
+		placeGPSLongField.setHorizontalAlignment(JTextField.CENTER);
+		priceField.setHorizontalAlignment(JTextField.CENTER);
+		clubField.setHorizontalAlignment(JTextField.CENTER);
+		numberMaxField.setHorizontalAlignment(JTextField.CENTER);
+		numberMinField.setHorizontalAlignment(JTextField.CENTER);
+		descriptionField.setEditable(true);
+		descriptionField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		descriptionField.setWrapStyleWord(true);
+		descriptionField.setLineWrap(true);
+		descriptionField.setRows(4);
 	}
 
 	public JTextField getNameField()
