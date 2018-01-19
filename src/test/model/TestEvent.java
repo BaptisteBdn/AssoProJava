@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class TestEvent {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Create two basic events and display them
 		Event test1 = new Event();
 		List<Activity> activities = new ArrayList<Activity> ();
 		Event test2 = new Event(new Place(), new Date(), new Date(), "Concours Photos", 0, 100, "STUDIO ESEO", 3, activities,"Desciption");

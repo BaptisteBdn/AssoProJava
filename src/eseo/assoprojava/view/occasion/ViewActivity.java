@@ -31,7 +31,7 @@ public class ViewActivity {
 	@SuppressWarnings("deprecation")
 	public void show(JPanel mainPanel) {
 		/*
-    	 * We create the constraint that is used to place the activity panels
+    	 * We created the constraint that is used to place the activity panels
     	 */
 	    GridBagConstraints mgbc = new GridBagConstraints();
         mgbc.gridx = 0;
@@ -55,7 +55,7 @@ public class ViewActivity {
         }
         for(int i = 0; i < activities.size(); i++) {
         	/*
-        	 * We create the constraint that is used to place the activity panels
+        	 * We created the constraint that is used to place the activity panels
         	 */
         	GridBagConstraints gbc = new GridBagConstraints();
         	gbc.gridx = 0;
@@ -141,6 +141,12 @@ public class ViewActivity {
 	    
 	}
 	
+	/**
+	 * Create a new pane contained in the formActiviyPanel
+	 * @param text
+	 * @param jTextField
+	 * @return JPanel containing a JLabel and a jTextfield on the same line (to structure the mainPanel)
+	 */
 	private JPanel createPane(String text, JLabel jLabel){
 		JPanel jPanel = new JPanel();
 		jPanel.setBackground(Color.white);
@@ -153,8 +159,7 @@ public class ViewActivity {
         JLabel tmpLabel = new JLabel(text + " : ");
         tmpLabel.setFont(MainWindow.DEFAUT_FONT);
         jPanel.add(tmpLabel, gbc);
-
-
+        
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.weightx = 1;
@@ -163,12 +168,15 @@ public class ViewActivity {
         jPanel.add(jLabel, gbc);
         return jPanel;
 	}
-	
+	/**
+	 * 
+	 * @param text
+	 * @return JLabel containing the text that we passed
+	 */
 	public JLabel createLabel(String text) {
 		JLabel label = new JLabel(text);
 		label.setFont(MainWindow.DEFAUT_FONT);
 		return label;
-		
 	}
 
 }

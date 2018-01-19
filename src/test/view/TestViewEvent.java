@@ -15,8 +15,10 @@ import eseo.assoprojava.view.ui.MainWindow;
 public class TestViewEvent {
 	
 	public static void main(String[] args) {
+		// Create a new window
 		MainWindow mainWindow = new MainWindow();
 		
+		// Create a new event with several activities, a place, GpsCoord and an organiser
 		GpsCoord coord = new GpsCoord(65.21,-56.23);
 		Place place = new Place(12, "rue crépon", "Angers", "Maine et Loire", "France", 49100, coord, "Bar du samedi");		
 		Organiser organiser = new Organiser("Calvin", "Ageneau", "Sono Eseo", "Chef");
@@ -46,11 +48,16 @@ public class TestViewEvent {
 		
 		@SuppressWarnings("deprecation")
 		Event event = new Event(place, new Date("17/01/1996 21:30"), new Date("20/01/1996 21:30"), "Grosse Soirée", 0, 100, "Sono Eseo", 30.5, listActivs, "Une grossse soirée de folie");
+		
+		// Create a viewEvent which contains the event
 		ViewEvent viewEvent = new ViewEvent(event);
 		viewEvent.show();
 		
+		
+		// Enable the buttons of the panel
 		mainWindow.getToolsPanel().enableButtons();
 
+		// Display the window
 		mainWindow.setVisible(true);
 	}
 	
