@@ -72,7 +72,7 @@ public class FormPanel extends JPanel {
 		initComponents();
 	}
 
-	public void initComponents()
+	private void initComponents()
 	{
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();

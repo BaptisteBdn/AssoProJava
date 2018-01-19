@@ -29,6 +29,8 @@ public class FormActivityPanel extends JPanel {
 	private Activity activity;
 	private boolean isCreating;
 	
+	
+	// Each field is individual in order to get their values 
 	private JTextField nameField;
 	private JTextField priceField;
 	private JSpinner dateBeginField;
@@ -42,13 +44,26 @@ public class FormActivityPanel extends JPanel {
 	private JTextField organiserClubField;
 	private JTextField organiserRoleField;
 
+	/**
+	 * Basic constructor
+	 * @param occasion
+	 */
 	public FormActivityPanel(Occasion occasion)
 	{
 		this(DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_COLOR, occasion);
 	}
-
+	
+	
+	/**
+	 * Constructor, init activityPanel
+	 * @param width
+	 * @param height
+	 * @param color
+	 * @param occasion
+	 */
 	public FormActivityPanel(int width, int height, Color color, Occasion occasion)
 	{
+		// Set activity
 		if (occasion == null)
 		{
 			activity = new Activity();
@@ -60,7 +75,15 @@ public class FormActivityPanel extends JPanel {
 		
 		this.setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		this.setBackground(color);
-
+		init();		
+	}
+	
+	/**
+	 * Init the panel with a new Layout which is containing constraints
+	 * gbc : Constraints used to structure the panel layout
+	 * Initializing each field with their name
+	 */
+	private void init(){
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -115,6 +138,12 @@ public class FormActivityPanel extends JPanel {
 		centerTextFields();
 	}
 	
+	/**
+	 * Create a new pane contained in the formActiviyPanel
+	 * @param text
+	 * @param jTextField
+	 * @return JPanel containing a JLabel and a jTextfield on the same line (to structure the mainPanel)
+	 */
 	private JPanel createPane(String text, Component jTextField)
 	{
 		JPanel jPanel = new JPanel();
@@ -136,6 +165,10 @@ public class FormActivityPanel extends JPanel {
 		return jPanel;
 	}
 
+	/**
+	 * Center the value inside the textFields
+	 * Set the descriptionField
+	 */
 	private void centerTextFields()
 	{
 		nameField.setHorizontalAlignment(JTextField.CENTER);
@@ -153,7 +186,16 @@ public class FormActivityPanel extends JPanel {
 		numberMinField.setHorizontalAlignment(JTextField.CENTER);
 	}
 
-	private Component createOrganiserPane(String text, JTextField jTextField, JTextField placeStreetField, JTextField placeNameField2, JTextField placePostalCodeField2)
+	/**
+	 * Special createPane with multiple jTextField in order to have multiple textField for the same label
+	 * @param text
+	 * @param jTextField
+	 * @param placeStreetField
+	 * @param placeNameField2
+	 * @param placePostalCodeField2
+	 * @return JPanel containing a JLabel and multiple jTextfield on the same line (to structure the mainPanel)
+	 */
+	private JPanel createOrganiserPane(String text, JTextField jTextField, JTextField placeStreetField, JTextField placeNameField2, JTextField placePostalCodeField2)
 	{
 		JPanel jPanel = new JPanel();
 		jPanel.setBackground(DEFAULT_COLOR);

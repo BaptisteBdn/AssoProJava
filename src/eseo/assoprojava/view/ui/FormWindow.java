@@ -22,6 +22,14 @@ public class FormWindow extends JFrame{
 	private FormPanel formPanel;
 	private FormActivityPanel formActivityPanel;
 	
+	/**
+	 * Constructor, init the window with two panels :
+	 * formPanel : evenement
+	 * formActivityPanel : activity
+	 * @param isEvent
+	 * @param title
+	 * @param occasion
+	 */
 	public FormWindow(boolean isEvent, String title, Occasion occasion){
 		this.isEvent = isEvent;
 		this.title = title;
