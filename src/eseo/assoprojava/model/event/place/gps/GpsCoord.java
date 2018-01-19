@@ -34,8 +34,8 @@ public class GpsCoord {
 	
 	/**
 	 * Create an object based on the latitude and the longitude passed in Decimal Degrees
-	 * @param latitude
-	 * @param longitude
+	 * @param latitude latitude of the GPS coordonate
+	 * @param longitude longitude of the GPS coordonate
 	 */
 	public GpsCoord(double latitude, double longitude){
 		setLatitude(latitude);
@@ -46,14 +46,14 @@ public class GpsCoord {
 	
 	/**
 	 * Create an object based on the latitude and the longitude passed in Degree Minute Second
-	 * @param latitudeDegree
-	 * @param latitudeMinute
-	 * @param latitudeSecond
-	 * @param longitudeDegree
-	 * @param longitudeMinute
-	 * @param longitudeSecond
-	 * @param north
-	 * @param east
+	 * @param latitudeDegree latitude degree
+	 * @param latitudeMinute latitude minute
+	 * @param latitudeSecond latitude second
+	 * @param longitudeDegree longitude degree
+	 * @param longitudeMinute longitude minute
+	 * @param longitudeSecond longitude second
+	 * @param north north or not
+	 * @param east east or not
 	 */
 	public GpsCoord(int latitudeDegree, int latitudeMinute, double latitudeSecond, int longitudeDegree, int longitudeMinute, double longitudeSecond, boolean north, boolean east){
 		setLatitudeDegree(latitudeDegree);

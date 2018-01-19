@@ -31,12 +31,12 @@ public abstract class Occasion {
 
 	/**
 	 * Create an object based on the parameters
-	 * @param dateBegin
-	 * @param dateEnd
-	 * @param name
-	 * @param numberMinimum
-	 * @param numberMaximum
-	 * @param price
+	 * @param dateBegin beginning date and time of the occasion
+	 * @param dateEnd ending date and time of the occasion
+	 * @param name name of the occasion
+	 * @param numberMinimum the minimum number of participants
+	 * @param numberMaximum the maximum number of participants
+	 * @param price the price of the occasion
 	 */
 	public Occasion(Date dateBegin, Date dateEnd, String name, int numberMinimum, int numberMaximum, double price) {
 		this.dateBegin = dateBegin;
@@ -97,7 +97,7 @@ public abstract class Occasion {
 	
 	/**
 	 * Returns a textual representation of the Occasion
-	 * @return String
+	 * @return String 
 	 */
 	@Override
 	public String toString() {

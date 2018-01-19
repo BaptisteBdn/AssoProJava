@@ -23,10 +23,10 @@ public class Organiser {
 	
 	/**
 	 * Create an organiser with his full name, his club and his role
-	 * @param firstName
-	 * @param lastName
-	 * @param club
-	 * @param role
+	 * @param firstName first name of the organiser
+	 * @param lastName last name of the organiser
+	 * @param club club name of the organiser
+	 * @param role role of the organisre
 	 */
 	public Organiser(String firstName, String lastName, String club, String role) {
 		this.firstName=firstName;

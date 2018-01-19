@@ -27,14 +27,14 @@ public class Activity extends Occasion {
 	
 	/**
 	 * Create an object based on the parameters
-	 * @param dateBegin
-	 * @param dateEnd
-	 * @param name
-	 * @param numberMinimum
-	 * @param numberMaximum
-	 * @param price
-	 * @param description
-	 * @param organiser 
+	 * @param dateBegin beginning date and time of the activity
+	 * @param dateEnd ending date and time of the activity
+	 * @param name name of the activity
+	 * @param numberMinimum minimum number of participants of the activity
+	 * @param numberMaximum maximum number of participants of the activity
+	 * @param price price of the activity
+	 * @param description description of the activity
+	 * @param organiser name of the person who organise the activity
 	 */
 	public Activity(Date dateBegin, Date dateEnd, String name, int numberMinimum, int numberMaximum, double price, String description, Organiser organiser) {
 		super(dateBegin, dateEnd, name, numberMinimum, numberMaximum, price);

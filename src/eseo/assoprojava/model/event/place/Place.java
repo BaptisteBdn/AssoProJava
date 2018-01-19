@@ -32,14 +32,14 @@ public class Place {
 	/**
 	 * Create an object with the passed variables
 	 * 
-	 * @param number
-	 * @param street
-	 * @param city
-	 * @param country
-	 * @param postalCode
-	 * @param gpsCoord
-	 * @param name
-	 * @param state
+	 * @param number street number of the place
+	 * @param street street name of the place
+	 * @param city city name of the place  
+	 * @param country country of the place
+	 * @param state state or region of the place
+	 * @param postalCode postal code of the place
+	 * @param gpsCoord gps coordonate of the place
+	 * @param name name or given name of the place
 	 */
 	public Place(int number, String street, String city, String state, String country, int postalCode, GpsCoord gpsCoord, String name)
 	{
