@@ -44,6 +44,7 @@ public class TestViewEvent {
 		listActivs.add(activ9);
 		listActivs.add(activ10);
 		
+		@SuppressWarnings("deprecation")
 		Event event = new Event(place, new Date("17/01/1996 21:30"), new Date(), "Grande Soirée", 0, 100, "Sono Eseo", 30.5, listActivs, "Une grossse soirée de folie");
 		ViewEvent viewEvent = new ViewEvent(event);
 		viewEvent.show();

@@ -16,7 +16,6 @@ import javax.swing.SpinnerDateModel;
 
 import eseo.assoprojava.model.Occasion;
 import eseo.assoprojava.model.activity.Activity;
-import eseo.assoprojava.model.event.Event;
 
 public class FormActivityPanel extends JPanel {
 	/**
